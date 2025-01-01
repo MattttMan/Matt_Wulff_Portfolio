@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Projects</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #3a8dff, #42e695);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        section {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .project-card h3 {
+            margin: 1rem 0 0.5rem;
+            color: #2c3e50;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Random Projects</h1>
+    </header>
+    <section>
+        <p class="project-description">
+            A collection of innovative projects demonstrating my hands-on technical skills, problem-solving abilities, and creativity across various engineering challenges.
+        </p>
+
+        <!-- Project Grid -->
+        <div class="project-grid">
+            <!-- Tesla Turbine -->
+            <div class="project-card">
+                <img src="tesla-turbine.jpg" alt="Tesla Turbine">
+                <h3>Tesla Turbine</h3>
+                <p>Functional prototype showcasing efficient fluid mechanics and energy conversion.</p>
+            </div>
+
+            <!-- Water-Cooled Rocket Engine -->
+            <div class="project-card">
+                <img src="rocket-engine.jpg" alt="Water-Cooled Rocket Engine">
+                <h3>Water-Cooled Rocket Engine</h3>
+                <p>Developed a water-cooled and boundary-layer protected rocket engine capable of being printed and surviving burns.</p>
+            </div>
+
+            <!-- Engine Rebuild -->
+            <div class="project-card">
+                <img src="boat-engine.jpg" alt="Engine Rebuild">
+                <h3>Engine Rebuild</h3>
+                <p>Rebuilt an old broken outboard engine from scratch.</p>
+            </div>
+
+            <!-- Electropiston -->
+            <div class="project-card">
+                <img src="electropiston.jpg" alt="Electropiston">
+                <h3>Electropiston</h3>
+                <p>Designed and prototyped an electromagnetic piston and small circuit to power an LED flashlight.</p>
+            </div>
+
+            <!-- Spot Welder -->
+            <div class="project-card">
+                <img src="spot-welder.jpg" alt="Spot Welder">
+                <h3>Spot Welder</h3>
+                <p>Constructed a small-scale spot welder from an old microwave.</p>
+            </div>
+
+            <!-- Car Differential -->
+            <div class="project-card">
+                <img src="car-diff.jpg" alt="Car Differential">
+                <h3>Car Differential</h3>
+                <p>Designed and constructed a car differential to better understand the mechanics behind its operation.</p>
+            </div>
+
+            <!-- Raft -->
+            <div class="project-card">
+                <img src="raft.png" alt="Raft">
+                <h3>Raft</h3>
+                <p>Built a durable and low-cost raft for fishing and exploring waterways.</p>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="index.html">&larr; Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+</html>

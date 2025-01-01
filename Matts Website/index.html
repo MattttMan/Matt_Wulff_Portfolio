@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Wulff - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: url('banner-image.jpg') no-repeat center center; /* Replace with your photo file name */
+            background-size: cover; /* Ensures the image covers the entire header area */
+            color: white;
+            text-align: center;
+            padding: 4rem 0; /* Adjust padding to create enough space for the content */
+            position: relative; /* Allows for layering of content on top of the image */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Makes text more legible on bright images */
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        nav {
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #3673ec;
+        }
+
+        section {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 1rem;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 0.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .portfolio-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 1rem;
+            border-radius: 10px;
+        }
+
+        .portfolio-item h3 {
+            margin: 0 0 0.5rem;
+            color: #2c3e50;
+        }
+
+        .portfolio-item h3 a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .portfolio-item h3 a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Matt Wulff - Portfolio</h1>
+        <p>Building Solutions, Driving Innovation</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" style="padding: 2rem 0;">
+        <h2 style="text-align: left; color: #2c3e50; margin-bottom: 1rem;">About Me</h2>
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; background: #ffffff; padding: 2rem; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); overflow: hidden;">
+            <!-- Profile Image -->
+            <div style="position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: url('matt-profile.jpg') no-repeat center center; background-size: cover; opacity: 1; border-radius: 15px;">
+            </div>
+            <!-- About Me Text -->
+            <div style="position: relative; z-index: 1; padding-left: 45%; display: flex; flex-direction: column; gap: 1rem;">
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                    Hi, I’m <strong>Matt Wulff</strong>, a Mechatronics Engineer passionate about creating innovative, real-world solutions. I thrive on combining creativity with technology to design impactful projects.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                    From robotic arms and 3D-printed rocket engines to dune buggies, I love tackling challenges and pushing boundaries. My dream is to develop technologies that improve lives on a global scale.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.6;">
+                    With a hands-on approach and entrepreneurial mindset, I strive to build, learn, and inspire others. Let’s connect and create something extraordinary!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="robotic-arm.jpg" alt="Robotic Arm">
+                <div>
+                    <h3><a href="robotic-arm.html">Robotic Arms</a></h3>
+                    <p>Built three robotic arms featuring six degrees of freedom and wireless control</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="dune-buggy.jpg" alt="Dune Buggy">
+                <div>
+                    <h3><a href="dune-buggy.html">Dune Buggy</a></h3>
+                    <p>Built a functional dune buggy using scrap materials and old generator</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="3Dalive.jpeg" alt="3D Alive">
+                <div>
+                    <h3><a href="3d-alive.html">3D Alive</a></h3>
+                    <p>Founded a 3D printing and engineering consulting business providing innovative solutions for clients</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="matrix-display-2.jpg" alt="Matrix Display">
+                <div>
+                    <h3><a href="matrix-display.html">Matrix Display</a></h3>
+                    <p>Created a 10x10 LED matrix display capable of showing images</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="eloquent-app-ui1.png" alt="Eloquent App">
+                <div>
+                    <h3><a href="eloquent-app.html">Eloquent App</a></h3>
+                    <p>Developed an iOS app to improve communication skills by using AI feedback</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="drone-case1.jpg" alt="Drone Case">
+                <div>
+                    <h3><a href="drone-case.html">Drone Case</a></h3>
+                    <p>Designed a durable, waterproof drone case capable of protecting highly sensative drones from meter high drops</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="anechoic-chamber1.jpg"Anechoic Chamber">
+                <div>
+                    <h3><a href="anechoic-chamber.html">Anechoic Chamber</a></h3>
+                    <p>Built an acoustic testing chamber to reduce the noise levels while testing</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="tesla-turbine.JPG" alt="Random Projects">
+                <div>
+                    <h3><a href="random-projects.html">Random Projects</a></h3>
+                    <p>A collection of personal projects, including a bunch of 3D designs, electronics and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Experience Section -->
+<section id="resume" style="background-color: #f4f4f4; padding: 2rem 0; border-radius: 15px; max-width: 1200px; margin: 2rem auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="text-align: left; color: #2c3e50; margin-bottom: 1rem;">My Resume</h2>
+    
+    <!-- Download Button at the Top -->
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <a href="Matt's Resume.pdf" download style="background: #2c3e50; color: white; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s;">
+            Download Resume
+        </a>
+    </div>
+    
+    <div style="max-width: 800px; margin: 0 auto; padding: 1rem; border-radius: 15px; background: white; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+        <!-- Embed Resume -->
+        <iframe 
+            src="Matt's Resume.pdf" 
+            style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 5px;">
+        </iframe>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+<section id="contact" style="background-color: #f9f9f9; padding: 3rem 0;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2rem; color: #2c3e50; margin-bottom: 1.5rem;">Get in Touch</h2>
+        <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+            Have a question or want to work together? Reach out using the details below or send me a quick message.
+        </p>
+        <div style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <!-- Contact Details -->
+            <div style="margin-bottom: 2rem; line-height: 2;">
+                <p style="margin: 0;">
+                    <strong>Email:</strong> 
+                    <a href="mailto:matthewdwulff@gmail.com" style="color:#2c3e50; text-decoration: none;">matthewdwulff@gmail.com</a>
+                </p>
+                <p style="margin: 0;">
+                    <strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/matthew-wulff/" style="color: #2c3e50; text-decoration: none;" target="_blank">linkedin.com/in/matthew-wulff</a>
+                </p>
+                <p style="margin: 0;">
+                    <strong>Phone:</strong> 
+                    <a href="tel:+12896985356" style="color: #2c3e50; text-decoration: none;">+1 (289) 698-5356</a>
+                </p>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" style="text-align: left;">
+                <label for="name" style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;" required>
+
+                <label for="email" style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;" required>
+
+                <label for="message" style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." rows="4" style="width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 5px;" required></textarea>
+
+                <button type="button" onclick="sendEmail()" style="width: 100%; background:#2c3e50; color: white; font-size: 1rem; font-weight: bold; padding: 0.8rem; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendEmail() {
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Generate mailto link
+        const subject = `New Contact Request Form Submission from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        const mailtoLink = `mailto:matthewdwulff@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+    }
+</script>
+
+<footer style="background: #f9f9f9; color: #666; text-align: center; padding: 1rem; margin-top: 2rem;">
+    <p style="margin: 0;">&copy; 2024 Matt Wulff. All rights reserved.</p>
+</footer>
+</body>
+</html>

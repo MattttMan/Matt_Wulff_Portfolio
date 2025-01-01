@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eloquently App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #3a8dff, #42e695);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        section {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 1rem;
+        }
+
+        .project-description {
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .project-gallery img,
+        .project-gallery video {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-specs {
+            margin-top: 2rem;
+        }
+
+        .project-specs h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-specs ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-specs ul li {
+            margin: 0.5rem 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eloquently App</h1>
+    </header>
+    <section>
+        <p class="project-description">
+            The Eloquently App is an iOS application designed to help users improve their public speaking skills through AI-powered feedback. With real-time analysis and actionable insights, it provides an intuitive platform for building confidence and eloquence.
+        </p>
+
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <!-- Images -->
+            <img src="eloquent-app-ui1.png" alt="Eloquently App UI 1">
+            <img src="eloquent-app-ui2.png" alt="Eloquently App UI 2">
+            <img src="eloquent-app-ui3.png" alt="Eloquently App UI 3">
+            <img src="eloquent-app-ui4.png" alt="Eloquently App UI 4">
+            <img src="eloquent-app-ui5.png" alt="Eloquently App UI 5">
+            
+            <!-- Video -->
+            <video controls>
+                <source src="eloquent-app-demo.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Project Details -->
+        <div class="project-specs">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>AI Feedback:</strong> Real-time analysis of speech clarity, word usage, and pacing.</li>
+                <li><strong>Score:</strong> Offers performance scores to track improvement over time.</li>
+                <li><strong>User-Friendly:</strong> Intuitive design and clean interface for all skill levels.</li>
+                <li><strong>Technology:</strong> Developed with Swift and integrated with AI APIs.</li>
+            </ul>
+
+            <h3>What’s Next</h3>
+            <ul>
+                <li>Real-time feedback during live presentations.</li>
+                <li>Integration with online platforms like Zoom and Google Meet.</li>
+                <li>Support for multiple languages to assist a global user base.</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="index.html">&larr; Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+</html>
