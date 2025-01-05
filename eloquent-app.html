@@ -40,7 +40,7 @@
 
         .project-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* Three items per row */
             gap: 1.5rem;
             justify-content: center;
             margin-top: 2rem;
@@ -49,7 +49,7 @@
         .project-gallery img,
         .project-gallery video {
             width: 100%;
-            max-width: 250px;
+            max-width: 300px; /* Adjustable size */
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -96,14 +96,14 @@
 
         <!-- Project Gallery -->
         <div class="project-gallery">
-            <!-- Images -->
+            <!-- First Row: 3 Images -->
             <img src="eloquent-app-ui1.png" alt="Eloquently App UI 1">
             <img src="eloquent-app-ui2.png" alt="Eloquently App UI 2">
             <img src="eloquent-app-ui3.png" alt="Eloquently App UI 3">
+            
+            <!-- Second Row: 2 Images + Video -->
             <img src="eloquent-app-ui4.png" alt="Eloquently App UI 4">
             <img src="eloquent-app-ui5.png" alt="Eloquently App UI 5">
-            
-            <!-- Video -->
             <video controls>
                 <source src="eloquent-app-demo.mov" type="video/mp4">
                 Your browser does not support the video tag.
@@ -116,15 +116,8 @@
             <ul>
                 <li><strong>AI Feedback:</strong> Real-time analysis of speech clarity, word usage, and pacing.</li>
                 <li><strong>Score:</strong> Offers performance scores to track improvement over time.</li>
-                <li><strong>User-Friendly:</strong> Intuitive design and clean interface for all skill levels.</li>
-                <li><strong>Technology:</strong> Developed with Swift and integrated with AI APIs.</li>
-            </ul>
-
-            <h3>What’s Next</h3>
-            <ul>
-                <li>Real-time feedback during live presentations.</li>
-                <li>Integration with online platforms like Zoom and Google Meet.</li>
-                <li>Support for multiple languages to assist a global user base.</li>
+                <li><strong>User-Friendly:</strong> Intuitive design and clean interface.</li>
+                <li><strong>Software:</strong> Developed with Swift and integrated with ChatGPT AI APIs.</li>
             </ul>
         </div>
 

@@ -14,7 +14,7 @@
         }
 
         header {
-            background: linear-gradient(90deg, #3a8dff, #42e695); /* Consistent gradient */
+            background: linear-gradient(90deg, #3a8dff, #42e695);
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -26,35 +26,29 @@
         }
 
         section {
-            margin: 2rem auto;
-            max-width: 1200px;
+            margin: 1.5rem auto;
+            max-width: 900px;
             padding: 1rem;
         }
 
         .project-description {
-            margin: 2rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
             text-align: center;
         }
 
         .project-gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
-            margin-top: 1rem;
+            margin: 1.5rem auto;
         }
 
         .project-gallery img {
-            width: 250px;
-            height: auto;
+            width: 100%;
             border-radius: 10px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-specs {
-            margin-top: 2rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .project-specs h3 {
@@ -65,8 +59,8 @@
         .project-specs ul {
             margin: 0;
             padding-left: 20px;
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .project-specs ul li {
@@ -90,12 +84,11 @@
     </header>
     <section>
         <p class="project-description">
-            At just 16 years old, I founded <strong>3D Alive</strong>, my entrepreneurial venture into 3D printing and consulting. This project allowed me to explore creativity, build technical skills, and deliver high-quality 3D-printed parts for clients across industries.
+            <strong>3D Alive</strong>, founded when I was 16, provided 3D printing and engineering consulting services. It helped sharpen my technical expertise, problem-solving skills, and client communication, all while delivering innovative solutions.
         </p>
 
         <!-- Project Gallery -->
         <div class="project-gallery">
-            <img src="3DAlive.jpeg" alt="3D Alive Logo">
             <img src="client-print-1.jpg" alt="Client Print 1">
             <img src="client-print-2.jpg" alt="Client Print 2">
             <img src="part-printing.jpg" alt="Part Printing in Progress">
@@ -103,12 +96,19 @@
 
         <!-- Project Details -->
         <div class="project-specs">
-            <h3>Key Highlights</h3>
+            <h3>Services and Technology</h3>
             <ul>
-                <li><strong>Founded:</strong> Started 3D Alive at age 16, learning entrepreneurship and problem-solving.</li>
-                <li><strong>Precision:</strong> Delivered accurate and high-quality prints tailored to client needs.</li>
-                <li><strong>Industries Served:</strong> Automotive, prototyping, and custom part manufacturing.</li>
-                <li><strong>Capabilities:</strong> Specialized in complex geometries, detailed finishes, and multiple filament types.</li>
+                <li><strong>Custom Parts:</strong> Delivered precision FDM 3D-printed parts using materials like PLA, ABS, and TPU for diverse needs.</li>
+                <li><strong>Prototyping:</strong> Designed and created functional prototypes to address real-world client challenges.</li>
+                <li><strong>Consulting:</strong> Provided expertise in CAD design and optimized models for cost-effective additive manufacturing.</li>
+            </ul>
+
+            <h3>Skills and Expertise</h3>
+            <ul>
+                <li><strong>Technical Proficiency:</strong> Mastered FDM 3D printing techniques, material science, and CAD modeling.</li>
+                <li><strong>Problem-Solving:</strong> Resolved complex design issues, delivering innovative solutions for a variety of industries.</li>
+                <li><strong>Communication:</strong> Built strong client relationships by effectively translating technical concepts into actionable solutions.</li>
+                <li><strong>Entrepreneurship:</strong> Gained experience in business operations, marketing, and managing client expectations.</li>
             </ul>
         </div>
 
