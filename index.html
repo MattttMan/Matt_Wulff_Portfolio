@@ -12,10 +12,13 @@
     </script>
 
     <!--Emailing Capabilities-->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
         (function () {
-            emailjs.init("service_4c7sejk"); // Replace "YOUR_USER_ID" with your actual EmailJS user ID
+            emailjs.init({
+                publicKey: "GqAxUNsYKl8DRLFRT",
+            });
         })();
     </script>
 
@@ -306,96 +309,69 @@
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 2rem; color: #2c3e50; margin-bottom: 1.5rem;">Get in Touch</h2>
             <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
-                Have a question or want to work together? Reach out using the details below or send me a quick message.
+                Have a question or want to work together?
             </p>
             <div
                 style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-                <!-- Contact Details -->
-                <div style="margin-bottom: 2rem; line-height: 2;">
-                    <p style="margin: 0;">
-                        <strong>Email:</strong>
-                        <script>
-                            document.write(
-                                '<a href="mailto:' +
-                                '&#109;&#97;&#116;&#116;&#104;&#101;&#119;&#100;&#119;&#117;&#108;&#102;&#102;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"' +
-                                ' style="color:#2c3e50; text-decoration: none;">' +
-                                '&#109;&#97;&#116;&#116;&#104;&#101;&#119;&#100;&#119;&#117;&#108;&#102;&#102;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;' +
-                                '</a>'
-                            );
-                        </script>
-                    </p>
-                    <p style="margin: 0;">
-                        <strong>LinkedIn:</strong>
-                        <a href="https://www.linkedin.com/in/matthew-wulff/"
-                            style="color: #2c3e50; text-decoration: none;"
-                            target="_blank">linkedin.com/in/matthew-wulff</a>
-                    </p>
-                    <p style="margin: 0;">
-                        <strong>Phone:</strong>
-                        <script>
-                            document.write(
-                                '<a href="tel:' +
-                                '&#43;&#49;&#50;&#56;&#57;&#54;&#57;&#56;&#53;&#51;&#53;&#54;"' +
-                                ' style="color: #2c3e50; text-decoration: none;">' +
-                                '&#43;&#49; (&#50;&#56;&#57;) &#54;&#57;&#56;&#45;&#53;&#51;&#53;&#54;' +
-                                '</a>'
-                            );
-                        </script>
-                    </p>
-                </div>
 
                 <!-- Contact Form -->
-                <section id="contact" style="padding: 3rem 0;">
-                    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                        <h2 style="font-size: 2rem; color: #2c3e50; margin-bottom: 1.5rem;">Get in Touch</h2>
-                        <form id="contactForm" style="text-align: left;">
-                            <label for="name"
-                                style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name"
-                                style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;"
-                                required>
+                <form id="contactForm" style="text-align: left;">
+                    <label for="name"
+                        style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name"
+                        style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;"
+                        required>
 
-                            <label for="email"
-                                style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email"
-                                style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;"
-                                required>
+                    <label for="email"
+                        style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email"
+                        style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px;"
+                        required>
 
-                            <label for="message"
-                                style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Message</label>
-                            <textarea id="message" name="message" placeholder="Write your message here..." rows="4"
-                                style="width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 5px;"
-                                required></textarea>
+                    <label for="message"
+                        style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 0.5rem;">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." rows="4"
+                        style="width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 5px;"
+                        required></textarea>
 
-                            <button type="button" onclick="sendEmail()"
-                                style="width: 100%; background: #2c3e50; color: white; font-size: 1rem; font-weight: bold; padding: 0.8rem; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </section>
+                    <button type="button" onclick="sendEmail()"
+                        style="width: 100%; background:#2c3e50; color: white; font-size: 1rem; font-weight: bold; padding: 0.8rem; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("GqAxUNsYKl8DRLFRT"); // Replace with your actual public key from EmailJS
+        })();
+    </script>
+    
     <script>
         function sendEmail() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
     
+            // Validate fields
             if (!name || !email || !message) {
                 alert("Please fill out all fields.");
                 return;
             }
     
-            emailjs.send("service_4c7sejk", "Matt's Portfolio Website to Gmail", {
+            // Send email using EmailJS
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
                 from_name: name,
                 from_email: email,
                 message: message,
-            }).then(function(response) {
+            }).then(function (response) {
                 alert("Message sent successfully! Thank you for getting in touch.");
                 document.getElementById('contactForm').reset(); // Clear the form
-            }, function(error) {
+            }, function (error) {
                 alert("Failed to send the message. Please try again.");
+                console.error("EmailJS Error:", error); // Log the error for debugging
             });
         }
     </script>
