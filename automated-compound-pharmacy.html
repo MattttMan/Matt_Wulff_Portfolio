@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Compound Pharmacy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        section {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 1rem auto 2rem;
+        }
+
+        .project-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-highlights {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+
+        .project-highlights h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-highlights ul li {
+            margin-bottom: 1rem;
+        }
+
+      /* Status Bar Styling */
+    .status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #e9ecef;
+        padding: 1.5rem;
+        border-radius: 10px;
+        max-width: 1000px;
+        margin: 2rem auto;
+    }
+
+    .status-step {
+        text-align: center;
+        color: #2c3e50;
+        font-weight: bold;
+        flex: 1;
+        position: relative;
+    }
+
+    .status-step .status-circle {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 5px;
+        border-radius: 50%;
+    }
+
+    /* Completed steps */
+    .status-step.completed .status-circle {
+        background-color: #2c3e50; /* Dark blue */
+    }
+
+    .status-step.completed span {
+        color: #2c3e50;
+    }
+
+    /* Upcoming steps */
+    .status-step.upcoming .status-circle {
+        background-color: #ccc; /* Gray */
+    }
+
+    .status-step.upcoming span {
+        color: #ccc;
+    }
+
+    .status-arrow {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+
+    /* Align dots perfectly horizontally */
+    .status-step .status-circle {
+        display: block;
+        margin: 0 auto; /* Center the dots */
+    }
+
+    .status-step span {
+        display: block;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 5px; /* Adds space between the dot and text */
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Automated Compound Pharmacy</h1>
+    </header>
+
+    <section>
+        <p class="project-description">
+            Revolutionizing pharmacy automation with prescription-customized medications using Raspberry Pi, fingerprint sensors, stepper motors, servos, and precision scales.  
+            Improving efficiency, accuracy, and eliminating human error in medicine dispensing.
+        </p>
+
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <img src="pharmacy-image1.jpg" alt="Compound Pharmacy - Image 1">
+            <img src="pharmacy-image2.jpg" alt="Compound Pharmacy - Image 2">
+            <img src="pharmacy-image3.jpg" alt="Compound Pharmacy - Image 3">
+        </div>
+
+<!-- Status Bar -->
+<div class="status-bar">
+    <div class="status-step completed">
+        <div class="status-circle"></div>
+        <span>Idea<br>Sept 2024</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step completed">
+        <div class="status-circle"></div>
+        <span>Research<br>Oct 2024</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step completed">
+        <div class="status-circle"></div>
+        <span>Design<br>Nov - Dec 2024</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step completed">
+        <div class="status-circle"></div>
+        <span>Build<br>Jan - March 2025</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step upcoming">
+        <div class="status-circle"></div>
+        <span>Test</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step upcoming">
+        <div class="status-circle"></div>
+        <span>Iteration</span>
+    </div>
+    <div class="status-arrow">→</div>
+    <div class="status-step upcoming">
+        <div class="status-circle"></div>
+        <span>Deployment</span>
+    </div>
+</div>
+
+        <!-- Project Highlights -->
+        <div class="project-highlights">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Precision:</strong> ±0.01g accuracy ensures safe and tailored doses.</li>
+                <li><strong>Technology:</strong> Raspberry Pi, fingerprint sensors, precision scale, stepper motors, servos, DC motors.</li>
+                <li><strong>Automation:</strong> Reduces errors, streamlines custom medicine dispensing.</li>
+                <li><strong>Efficiency:</strong> Faster production, less waste, and secure handling.</li>
+            </ul>
+        </div>
+
+        <!-- Why This Matters -->
+        <div class="project-highlights">
+            <h3>Why This Matters</h3>
+            <p>
+                Pharmacies require 100% accuracy. This system ensures patient-specific dosages with zero human error while speeding up dispensing times and reducing cost.
+            </p>
+        </div>
+
+        <!-- Back to Portfolio Button -->
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold;">&larr; Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+</html>
