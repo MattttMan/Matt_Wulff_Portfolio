@@ -3,14 +3,14 @@
     "short_name": "MW Portfolio",
     "icons": [
       {
-        "src": "favicon_io-2/android-chrome-192x192.png",
+        "src": "favicon.png",
         "type": "image/png",
-        "sizes": "192x192"
+        "sizes": "213x213"
       },
       {
-        "src": "favicon_io-2/android-chrome-512x512.png",
+        "src": "favicon.png",
         "type": "image/png",
-        "sizes": "512x512"
+        "sizes": "213x213"
       }
     ],
     "theme_color": "#2c3e50",
