@@ -38,6 +38,17 @@
             text-align: center;
         }
 
+        .gallery-section {
+            margin: 2rem 0;
+        }
+
+        .gallery-section h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .project-gallery {
             display: flex;
             justify-content: center;
@@ -46,11 +57,16 @@
             margin-top: 1rem;
         }
 
-        .project-gallery img {
-            width: 250px;
+        .project-gallery img, 
+        .project-gallery video {
+            width: 300px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-gallery video {
+            max-width: 500px;
         }
 
         .project-specs {
@@ -93,30 +109,48 @@
             The Robotic Arms project is a testament to my ability to design, prototype, and refine advanced mechatronic systems. Over three iterations, the designs evolved from basic manual control to fully autonomous functionality with impressive performance metrics in the final arm.
         </p>
 
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <img src="robotic-arm-1.jpg" alt="First Prototype">
-            <img src="robotic-arm-2.jpg" alt="Second Prototype">
-            <img src="robotic-arm-3.jpg" alt="Final Design">
+        <!-- First Robotic Arm -->
+        <div class="gallery-section">
+            <h2>First Robotic Arm</h2>
+            <p style="text-align: center;">This is where I learned the basics of robotic arm mechanics and programming, using cost-effective components.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-1a.jpg" alt="First Robotic Arm Photo 1">
+                <img src="robotic-arm-1b.jpg" alt="First Robotic Arm Photo 2">
+            </div>
+        </div>
+
+        <!-- Second Robotic Arm -->
+        <div class="gallery-section">
+            <h2>Second Robotic Arm</h2>
+            <p style="text-align: center;">This iteration introduced stronger components and additional degrees of freedom for better versatility.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-2a.jpg" alt="Second Robotic Arm Photo 1">
+                <img src="robotic-arm-2b.jpg" alt="Second Robotic Arm Photo 2">
+            </div>
+        </div>
+
+        <!-- Final Robotic Arm -->
+        <div class="gallery-section">
+            <h2>Final Robotic Arm</h2>
+            <p style="text-align: center;">Achieving 6 degrees of freedom, advanced precision, and wireless control, this design is the culmination of all previous work.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-3a.jpg" alt="Final Robotic Arm Photo 1">
+                <img src="robotic-arm-3b.jpg" alt="Final Robotic Arm Photo 2">
+                <img src="robotic-arm-3c.jpg" alt="Final Robotic Arm Photo 3">
+                <video controls>
+                    <source src="robotic-arm-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
         <!-- Project Progression -->
         <div class="project-specs">
             <h3>Progression of the Robotic Arms</h3>
             <ul>
-                <li><strong>Prototype 1:</strong> Focused on learning the basics of robotic arms while keeping the cost low by using cheap servos</li>
-                <li><strong>Prototype 2:</strong> Introduced higher end components to give it more strangth and DOF's </li>
-                <li><strong>Final Design:</strong> Achieved 6 degrees of freedom, wireless control, and autonomous operation for advanced tasks.</li>
-            </ul>
-
-            <h3>Final Robotic Arm Metrics</h3>
-            <ul>
-                <li><strong>Degrees of Freedom:</strong> 6</li>
-                <li><strong>Reach:</strong> 100 cm</li>
-                <li><strong>Payload Capacity:</strong> 0.5 kg</li>
-                <li><strong>Precision:</strong> ±2 mm</li>
-                <li><strong>Control System:</strong> Bluetooth Controlled via PS2</li>
-                <li><strong>Task Capabilities:</strong> Robotic programming from controller, Point to Point path planning </li>
+                <li><strong>Prototype 1:</strong> Basic control and design principles using low-cost servos.</li>
+                <li><strong>Prototype 2:</strong> Enhanced with better components and additional degrees of freedom.</li>
+                <li><strong>Final Design:</strong> Fully functional arm with autonomous capabilities and wireless control.</li>
             </ul>
         </div>
 
