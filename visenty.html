@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visenty - AI-powered retail security platform with shoplifting detection">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Visenty - Retail Security AI</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#resume">Resume</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Visenty: Retail Security Platform</h1>
+    </header>
+
+    <section>
+        <p class="project-description">
+            Visenty is an AI-powered retail security platform designed to detect and prevent shoplifting in real-time.
+            Combining advanced computer vision, facial recognition, and behavioral analysis, Visenty provides retail stores
+            with intelligent surveillance and alerts to protect inventory and improve security operations.
+        </p>
+
+        <!-- Key Features Section -->
+        <div class="gallery-section">
+            <h2>Key Features</h2>
+            <div class="project-specs">
+                <ul style="list-style-type: none; padding: 0;">
+                    <li>🎥 <strong>Real-Time Shoplifting Detection:</strong> AI-powered analysis detects suspicious behavior patterns</li>
+                    <li>👤 <strong>Facial Recognition:</strong> Identifies known offenders and tracks repeat incidents</li>
+                    <li>🚨 <strong>Instant Alerts:</strong> Immediate notifications to security staff when threats detected</li>
+                    <li>📊 <strong>Analytics Dashboard:</strong> Comprehensive data on incidents, trends, and hotspots</li>
+                    <li>📱 <strong>Mobile Companion App:</strong> Monitor security events on iOS and Android devices (on App Store)</li>
+                    <li>🎯 <strong>Behavioral Analysis:</strong> Tracks movement patterns and predicts potential incidents</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="gallery-section">
+            <h2>Technology Stack</h2>
+            <div class="project-specs">
+                <h3>Backend & AI</h3>
+                <ul>
+                    <li><strong>AI Model:</strong> Gate Flow SlowFast 3D CNN for behavioral analysis</li>
+                    <li><strong>Face Recognition:</strong> Deep learning-based identity matching</li>
+                    <li><strong>Video Processing:</strong> Real-time frame analysis with OpenCV</li>
+                    <li><strong>Server:</strong> Python Flask backend with multi-camera support</li>
+                </ul>
+
+                <h3>Frontend & Mobile</h3>
+                <ul>
+                    <li><strong>Web Interface:</strong> Real-time monitoring dashboard</li>
+                    <li><strong>Mobile App:</strong> React Native (iOS & Android)</li>
+                    <li><strong>Push Notifications:</strong> Instant alerts to store managers</li>
+                    <li><strong>Design System:</strong> Modern, minimal UI with dark mode</li>
+                </ul>
+
+                <h3>Infrastructure</h3>
+                <ul>
+                    <li><strong>Multi-Camera Support:</strong> Handle multiple camera feeds simultaneously</li>
+                    <li><strong>Database:</strong> Persistent storage of incidents and offender profiles</li>
+                    <li><strong>API:</strong> RESTful API for third-party integrations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Implementation Details -->
+        <div class="gallery-section">
+            <h2>How It Works</h2>
+            <div class="project-specs">
+                <h3>Detection Pipeline</h3>
+                <ol style="padding-left: 20px;">
+                    <li><strong>Video Capture:</strong> Real-time camera feed processing</li>
+                    <li><strong>Person Detection:</strong> Identify individuals in the frame</li>
+                    <li><strong>Tracking:</strong> Follow subjects across camera views</li>
+                    <li><strong>Face Recognition:</strong> Match against known offender database</li>
+                    <li><strong>Behavioral Analysis:</strong> Apply 3D CNN model to motion sequences</li>
+                    <li><strong>Alert Generation:</strong> Trigger notifications if shoplifting behavior detected</li>
+                </ol>
+
+                <h3>Confidence Thresholds</h3>
+                <ul>
+                    <li>Detection requires 64 frames of data (~2 seconds at 30fps)</li>
+                    <li>Default confidence threshold: 70%</li>
+                    <li>Configurable thresholds for different environments</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Repositories -->
+        <div class="gallery-section">
+            <h2>Open Source Repositories</h2>
+            <div class="project-specs">
+                <ul>
+                    <li><strong>Backend Server:</strong> <a href="https://github.com/MattttMan/VisentySoftware" target="_blank">VisentySoftware</a></li>
+                    <li><strong>Mobile App:</strong> <a href="https://github.com/MattttMan/visenty-phone-app" target="_blank">visenty-phone-app</a></li>
+                    <li><strong>App Store:</strong> Visenty Companion app available on iOS and Android</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Impact & Results -->
+        <div class="gallery-section">
+            <h2>Impact</h2>
+            <div class="project-specs">
+                <ul>
+                    <li>✅ Real-time threat detection reduces response time significantly</li>
+                    <li>✅ Facial recognition integration improves offender identification</li>
+                    <li>✅ Multi-store support enables centralized security management</li>
+                    <li>✅ Mobile alerts keep managers informed 24/7</li>
+                    <li>✅ Data analytics help identify vulnerable areas and patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+
+</html>

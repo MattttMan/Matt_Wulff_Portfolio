@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VLA SmolVLA - Vision Language Action model trained on SO-ARM101 robotic arm">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>VLA: Vision Language Action Model</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#resume">Resume</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Vision Language Action Model (VLA)</h1>
+        <p style="color: white; margin-top: 0.5rem;">SmolVLA on SO-ARM101</p>
+    </header>
+
+    <section>
+        <p class="project-description">
+            This project implements a Vision Language Action (VLA) model trained on the SO-ARM101 robotic arm platform.
+            Using SmolVLA (a lightweight, efficient VLA model), the system enables robots to understand visual scenes,
+            interpret natural language instructions, and execute precise manipulation tasks with six degrees of freedom.
+        </p>
+
+        <!-- Project Overview -->
+        <div class="gallery-section">
+            <h2>Project Overview</h2>
+            <div class="project-specs">
+                <p>
+                    Vision Language Action models represent a breakthrough in robotic manipulation by combining:
+                </p>
+                <ul>
+                    <li><strong>Visual Understanding:</strong> CNN-based perception of scenes and objects</li>
+                    <li><strong>Language Processing:</strong> Natural language instruction interpretation</li>
+                    <li><strong>Action Prediction:</strong> Direct mapping to robot control commands</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    This unified model allows robots to learn from demonstrations and generalize to new tasks through language guidance.
+                </p>
+            </div>
+        </div>
+
+        <!-- SmolVLA Architecture -->
+        <div class="gallery-section">
+            <h2>SmolVLA Architecture</h2>
+            <div class="project-specs">
+                <h3>Model Components</h3>
+                <ul>
+                    <li><strong>Vision Encoder:</strong> Efficient CNN for image feature extraction</li>
+                    <li><strong>Language Encoder:</strong> Transformer-based text processing</li>
+                    <li><strong>Fusion Layer:</strong> Multimodal feature integration</li>
+                    <li><strong>Action Head:</strong> 6-DOF continuous control prediction</li>
+                </ul>
+
+                <h3>Key Advantages</h3>
+                <ul>
+                    <li>Lightweight design optimized for real-time inference</li>
+                    <li>Efficient training with limited demonstrations</li>
+                    <li>Generalizable across similar robotic platforms</li>
+                    <li>Natural language task specification</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SO-ARM101 Integration -->
+        <div class="gallery-section">
+            <h2>SO-ARM101 Robotic Arm</h2>
+            <div class="project-specs">
+                <h3>Robot Specifications</h3>
+                <ul>
+                    <li><strong>DOF:</strong> 6 degrees of freedom (shoulder pan, shoulder lift, elbow flex, wrist flex, wrist roll, gripper)</li>
+                    <li><strong>Control Range:</strong> Normalized input from -1.0 to +1.0 per joint</li>
+                    <li><strong>Workspace:</strong> Large manipulation workspace with 2m+ reach</li>
+                    <li><strong>Physics Simulation:</strong> MuJoCo-based physics with realistic dynamics</li>
+                </ul>
+
+                <h3>Integration Points</h3>
+                <ul>
+                    <li>Camera feed as visual input</li>
+                    <li>Natural language task specification</li>
+                    <li>Real-time joint command output</li>
+                    <li>Feedback through proprioception and vision</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Training Pipeline -->
+        <div class="gallery-section">
+            <h2>Training & Data Pipeline</h2>
+            <div class="project-specs">
+                <h3>Data Collection</h3>
+                <ul>
+                    <li>Demonstrations with paired RGB images, language descriptions, and action sequences</li>
+                    <li>Data augmentation through simulation variations</li>
+                    <li>Behavioral cloning from expert trajectories</li>
+                </ul>
+
+                <h3>Training Process</h3>
+                <ul>
+                    <li><strong>Loss Function:</strong> L2 loss between predicted and ground truth actions</li>
+                    <li><strong>Optimization:</strong> Adam optimizer with learning rate scheduling</li>
+                    <li><strong>Validation:</strong> Evaluation on held-out test tasks</li>
+                    <li><strong>Inference:</strong> Real-time execution on robot hardware</li>
+                </ul>
+
+                <h3>Supported Tasks</h3>
+                <ul>
+                    <li>Pick and place operations</li>
+                    <li>Object sorting and organization</li>
+                    <li>Stacking and assembly tasks</li>
+                    <li>Precision manipulation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Details -->
+        <div class="gallery-section">
+            <h2>Technical Implementation</h2>
+            <div class="project-specs">
+                <h3>Framework & Tools</h3>
+                <ul>
+                    <li><strong>DL Framework:</strong> PyTorch / TensorFlow</li>
+                    <li><strong>Robotics Sim:</strong> MuJoCo with physics-accurate rendering</li>
+                    <li><strong>Vision:</strong> OpenCV for image processing</li>
+                    <li><strong>Language:</strong> Hugging Face Transformers for NLP</li>
+                </ul>
+
+                <h3>Inference Pipeline</h3>
+                <ol style="padding-left: 20px;">
+                    <li>Capture RGB image from robot camera</li>
+                    <li>Process natural language instruction</li>
+                    <li>Extract visual features with vision encoder</li>
+                    <li>Encode language with language encoder</li>
+                    <li>Fuse multimodal features</li>
+                    <li>Predict 6-DOF action sequence</li>
+                    <li>Execute commands on robotic arm</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Results & Future Work -->
+        <div class="gallery-section">
+            <h2>Results & Future Directions</h2>
+            <div class="project-specs">
+                <h3>Current Capabilities</h3>
+                <ul>
+                    <li>✅ Accurate task execution from language descriptions</li>
+                    <li>✅ Real-time inference with minimal latency</li>
+                    <li>✅ Robust to minor variations in scene setup</li>
+                    <li>✅ Generalizes to unseen object categories</li>
+                </ul>
+
+                <h3>Future Improvements</h3>
+                <ul>
+                    <li>Transfer learning to real robot hardware</li>
+                    <li>Multi-task learning for broader skill repertoire</li>
+                    <li>Integration of tactile feedback</li>
+                    <li>Interactive learning from human corrections</li>
+                    <li>End-to-end learning with live camera feedback</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+
+</html>
