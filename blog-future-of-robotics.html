@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>The Future of Robotics: Special Purpose, General Purpose, and Space</title>
+</head>
+<body>
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>The Future of Robotics: Special Purpose, General Purpose, and Space</h1>
+        <p>How today's niche systems are converging toward general-purpose robots&mdash;and why orbit changes everything</p>
+    </header>
+
+    <section>
+        <div class="blog-post">
+            <div class="blog-meta">Mar 2025 · 7 min read</div>
+
+            <p>There is a debate happening in robotics right now that I think most people are framing wrong. The question is usually posed as: will the future be special-purpose robots or general-purpose humanoids? The real answer is both, and understanding why requires looking at where each approach actually wins.</p>
+
+            <p>I have spent time building across the spectrum, from industrial arms on Tesla's production floor to custom robotic systems at startups. Here is how I think about where this is all going.</p>
+
+            <h2>Special-Purpose Robots Are Not Going Away</h2>
+
+            <p>There is a reason factories are full of FANUC and KUKA arms, not humanoids. When you need to weld the same joint 20,000 times a week at sub-millimeter accuracy, a purpose-built system will beat a general-purpose one every time. The physics are optimized. The kinematics are constrained to exactly the workspace needed. The reliability is proven over decades.</p>
+
+            <p>Special-purpose robots dominate because <strong>constraints are a feature, not a bug</strong>. A welding robot does not need legs. A pick-and-place delta robot does not need fingers. Removing unnecessary degrees of freedom makes the system faster, cheaper, and more reliable. This is not going to change.</p>
+
+            <p>What is changing is how these systems are programmed and deployed. Vision-guided robotics, which I worked on at Tesla, is making special-purpose systems far more flexible than they used to be. A robot that can adapt to part variation in real time using cameras is still special-purpose in form, but it is approaching general-purpose in function within its domain.</p>
+
+            <h2>The Case for General-Purpose Humanoids</h2>
+
+            <p>So if special-purpose robots are great, why is every major robotics company suddenly building humanoids? The answer is economics, not technology.</p>
+
+            <p>The world is designed for humans. Doors, stairs, tools, workbenches, vehicles, warehouses. Rebuilding all of that infrastructure for robots is astronomically expensive. A humanoid form factor that can navigate human environments and use human tools has an addressable market that dwarfs any single industrial application.</p>
+
+            <p>The other economic argument is labor. There are jobs that are dangerous, repetitive, or that nobody wants to do. Warehousing, construction, elder care, agriculture. These industries cannot automate with traditional robots because the environments are unstructured and constantly changing. A general-purpose humanoid, even one that is slower and less precise than a dedicated system, wins by being deployable in places where no robot currently works.</p>
+
+            <p>The companies racing here, Tesla Bot, Figure, 1X, Aptronic, Sanctuary AI, are all making the same bet: that a single versatile platform will eventually be cheaper to produce and deploy at scale than building custom solutions for every task. I think they are right in the long run. The question is timeline.</p>
+
+            <h2>Where Both Converge</h2>
+
+            <p>Here is what I think most people miss: the technology stacks are converging even if the form factors are not.</p>
+
+            <p>The same vision models, the same reinforcement learning frameworks, the same sim-to-real transfer techniques, and the same foundation models that are making humanoids possible are also being applied to traditional industrial robots. A FANUC arm running a vision-language-action model is using the same underlying AI as a humanoid. The difference is just the embodiment.</p>
+
+            <p>This means the real unlock is not choosing between special-purpose and general-purpose. It is building the <strong>shared intelligence layer</strong> that makes all robots smarter. The companies that win will be the ones building the best foundation models for manipulation, regardless of what body they are running on.</p>
+
+            <h2>Space: Where Robots Will Really Excel</h2>
+
+            <p>Now here is where things get interesting. If you want to see where general-purpose robotics will have its biggest impact, look up.</p>
+
+            <p>Space is the ultimate unstructured environment. You cannot send a maintenance crew to fix a satellite. You cannot have a human welder working on the exterior of a space station for 8 hours straight. The radiation, vacuum, and temperature extremes make it hostile to biological life but perfectly fine for machines.</p>
+
+            <p>Space robotics today is primitive. The Canadarm on the ISS is a masterpiece of engineering, but it is fundamentally a teleoperated arm with limited autonomy. That is about to change dramatically for a few reasons:</p>
+
+            <ul>
+                <li><strong>Latency kills teleoperation.</strong> As we move beyond low Earth orbit, the communication delay makes direct human control impractical. A robot on the Moon has a 2.5-second round-trip delay. Mars is 4 to 24 minutes. These systems need to be autonomous.</li>
+                <li><strong>Launch costs are plummeting.</strong> SpaceX has dropped the cost to orbit by over 10x. Starship will drop it further. This means we can actually afford to send robots up in meaningful numbers.</li>
+                <li><strong>In-space manufacturing is coming.</strong> Companies are already working on manufacturing fiber optics, semiconductors, and pharmaceuticals in microgravity. These facilities will need robotic workers.</li>
+                <li><strong>Orbital debris is a real problem.</strong> There are thousands of dead satellites and millions of debris fragments in orbit. Cleaning this up requires autonomous robotic systems that can identify, approach, grapple, and deorbit objects they have never seen before.</li>
+            </ul>
+
+            <p>The humanoid form factor actually makes a lot of sense in space. Spacecraft and space stations are designed for human astronauts. A humanoid robot can use the same handrails, the same tools, the same interfaces. NASA's Robonaut program proved this concept years ago. The missing piece was the AI to make it work autonomously.</p>
+
+            <h2>The Next Decade</h2>
+
+            <p>Here is my prediction for how this plays out:</p>
+
+            <p><strong>Near term (2025-2028):</strong> Special-purpose robots get dramatically smarter through foundation models. Humanoids start appearing in controlled warehouse and factory settings doing simple tasks. The hype cycle for humanoids hits a trough as people realize how hard dexterous manipulation actually is.</p>
+
+            <p><strong>Medium term (2028-2032):</strong> Humanoids crack a few key verticals, likely warehousing and simple assembly first. Space agencies and commercial space companies deploy the first truly autonomous robotic systems in orbit. The AI manipulation stack matures to the point where robots can handle novel objects reliably.</p>
+
+            <p><strong>Long term (2032+):</strong> General-purpose humanoids become economically viable for a wide range of tasks. Space becomes the primary growth market for advanced robotics. The line between special-purpose and general-purpose blurs as modular, reconfigurable systems become the norm.</p>
+
+            <p>The future of robotics is not one form factor winning over another. It is intelligence becoming cheap enough and general enough that we can put it in any body and have it do useful work. The companies building that intelligence layer, whether they are putting it in an arm, a humanoid, or a spacecraft, are the ones I am watching most closely.</p>
+
+            <p>We are building the tools that will build everything else. That is what makes this moment in robotics so exciting.</p>
+
+            <p class="text-center mt-2">
+                <a href="index.html#blog" class="back-link">Back to Blog</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

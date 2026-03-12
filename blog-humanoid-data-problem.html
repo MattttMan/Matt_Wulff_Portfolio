@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>The Humanoid Data Problem: Why We Don't Have Enough</title>
+</head>
+<body>
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>The Humanoid Data Problem: Why We Don't Have Enough</h1>
+        <p>Humanoids won't scale until we fix how we collect, curate, and use data</p>
+    </header>
+
+    <section>
+        <div class="blog-post">
+            <div class="blog-meta">Feb 2025 · 8 min read</div>
+
+            <p>Every major humanoid company is facing the same bottleneck right now, and it is not hardware. It is not compute. It is data. Specifically, the lack of high-quality manipulation data at the scale needed to train robots that can actually do useful things in the real world.</p>
+
+            <p>This is the problem I keep coming back to. Having worked on both the manufacturing side at Tesla and the research side with robotic arms and sim-to-real transfer, I have seen how data constraints shape what robots can and cannot do. Here is why I think the humanoid data problem is the most important unsolved challenge in robotics right now.</p>
+
+            <h2>Self-Driving Had It Easy (Comparatively)</h2>
+
+            <p>To understand why humanoid data is so hard, it helps to compare it to the one robotics domain that has actually scaled: self-driving cars.</p>
+
+            <p>Autonomous vehicles benefit from a near-perfect data flywheel. Every Tesla, Waymo, and Cruise vehicle on the road is passively collecting data just by driving around. The sensor suite, cameras, lidar, radar, captures everything. The task space is constrained: you are navigating a 2D surface with well-defined rules (lanes, signals, speed limits). And critically, there are millions of vehicles already on the road generating this data every day.</p>
+
+            <p>Humanoid manipulation has none of these advantages:</p>
+
+            <ul>
+                <li><strong>No passive data collection.</strong> You cannot just deploy humanoids and have them "watch" manipulation happening. Every demonstration has to be actively collected by a human operator.</li>
+                <li><strong>The task space is enormous.</strong> Picking up a coffee mug is a different task than picking up a screwdriver, which is different from folding a towel, which is different from turning a doorknob. Each requires different grasps, forces, trajectories, and contact strategies.</li>
+                <li><strong>The environment is 3D and contact-rich.</strong> Self-driving is mostly about avoiding contact. Manipulation is fundamentally about making contact, precisely, with the right force, at the right location.</li>
+                <li><strong>There is no existing fleet.</strong> There are maybe a few hundred humanoid prototypes in the world. Compare that to the millions of cars collecting driving data.</li>
+            </ul>
+
+            <h2>The Numbers Are Brutal</h2>
+
+            <p>Let me put some rough numbers on this. Tesla's autopilot has been trained on billions of miles of driving data. The largest manipulation datasets, things like RT-2's training data or the Open X-Embodiment dataset, have maybe tens of thousands of demonstrations across all tasks and environments combined.</p>
+
+            <p>That is not a gap. That is a chasm. And it is not clear that the approaches that worked for scaling driving data will work for manipulation data.</p>
+
+            <p>The most common approach to collecting manipulation data right now is teleoperation: a human operator controls the robot through a demonstration, and the robot records the joint positions, forces, and camera images. This works, but it is painfully slow and expensive. A skilled teleoperator might collect one demonstration every few minutes. To get the kind of dataset diversity you need for robust generalization, you would need millions of demonstrations across thousands of tasks, objects, and environments.</p>
+
+            <p>Do the math. Even at one demo per minute, running 24/7, a single teleoperator produces about 500,000 demos per year. You would need hundreds of teleoperators running constantly to build a dataset comparable to what self-driving has. The cost would be in the hundreds of millions of dollars.</p>
+
+            <h2>Simulation Is Necessary but Not Sufficient</h2>
+
+            <p>The obvious response is: just simulate it. And simulation is absolutely part of the answer. You can generate millions of demonstrations in simulation in the time it takes to collect a few hundred in the real world. Projects like Isaac Gym, MuJoCo, and various custom simulators have shown that sim-trained policies can transfer to real robots.</p>
+
+            <p>But sim-to-real transfer for manipulation is much harder than for locomotion or even driving. The reason is contact physics. When a robot hand grasps an object, the contact forces, friction, deformation, and slip dynamics are incredibly difficult to simulate accurately. A policy that works perfectly in simulation often fails in the real world because the contact dynamics are subtly different.</p>
+
+            <p>This is the <strong>sim-to-real gap</strong>, and for manipulation it is wide. The approaches that partially close it, domain randomization, system identification, adaptive sim parameters, all help but none fully solve it. You still need real-world data to fine-tune and validate.</p>
+
+            <p>The companies that are making the most progress, like Toyota Research Institute with their diffusion policy work, are using simulation to get 80% of the way there and then using targeted real-world data to close the gap. But that "last 20%" still requires significant real-world data collection infrastructure.</p>
+
+            <h2>Who Is Bottlenecked and How They Are Responding</h2>
+
+            <p>Every major humanoid company is dealing with this differently:</p>
+
+            <p><strong>Tesla (Optimus)</strong> has the biggest advantage here because of their manufacturing infrastructure. They can deploy prototypes in their own factories, in controlled environments where they can collect data at scale. They also have the compute infrastructure to train massive models. But even Tesla is constrained by the number of physical robots they have and the diversity of tasks in a factory setting.</p>
+
+            <p><strong>Figure</strong> has been aggressive about teleoperation data collection and recently partnered with BMW to deploy robots in manufacturing. Their approach seems to be getting robots into real environments as fast as possible and iterating on data collection in situ.</p>
+
+            <p><strong>1X (formerly Halodi)</strong> took an interesting approach by starting with wheeled humanoids (EVE) that could be deployed in security and facility management. This gave them a way to collect real-world navigation and simple manipulation data before tackling the harder full humanoid problem with NEO.</p>
+
+            <p><strong>Aptronic</strong> is partnering with large enterprises to co-develop task-specific data collection pipelines. The idea is that the customer provides the tasks and environments, and Aptronic provides the robots and data infrastructure.</p>
+
+            <p>What all of these companies have in common is that they are building <strong>data engines</strong>, not just robots. The robot is the platform. The data it collects is the real product. This is the same insight that drove Tesla's self-driving program, and it is being applied to humanoids now.</p>
+
+            <h2>What a Better Data Pipeline Looks Like</h2>
+
+            <p>I think the humanoid data problem gets solved through a combination of approaches, not any single silver bullet:</p>
+
+            <ol>
+                <li><strong>Scalable teleoperation.</strong> Better teleoperation interfaces that let non-expert operators collect high-quality demonstrations. VR-based systems, haptic feedback, and AI-assisted teleoperation that handles the low-level control while the human provides high-level task guidance.</li>
+                <li><strong>Human video as training data.</strong> There are billions of hours of video of humans doing manipulation tasks on YouTube alone. Approaches like UniSim and RT-2 have shown that you can extract useful manipulation knowledge from human video, even though the embodiment is different. This is a massive untapped data source.</li>
+                <li><strong>Simulation with better physics.</strong> Closing the sim-to-real gap requires better contact simulation. Projects using learned physics models, trained on real-world contact data, to improve simulation fidelity are promising.</li>
+                <li><strong>Fleet learning.</strong> Once you have even a small fleet of humanoids deployed, every robot becomes a data collector. Shared learning across the fleet, where one robot's experience improves all the others, is how you eventually get the data flywheel spinning.</li>
+                <li><strong>Foundation models for manipulation.</strong> Large pretrained models like RT-2 and Octo that can generalize across tasks and embodiments reduce the amount of task-specific data you need. Instead of training from scratch for every task, you fine-tune a foundation model with a small amount of targeted data.</li>
+            </ol>
+
+            <h2>The Race Is On</h2>
+
+            <p>The company that solves the humanoid data problem first will have an almost insurmountable advantage. Data compounds. More data means better models, which means robots that can do more tasks, which means more deployments, which means more data. It is a flywheel, and once it starts spinning, it is very hard for competitors to catch up.</p>
+
+            <p>This is why I am convinced that the most important role in humanoid robotics right now is not the hardware engineer or the ML researcher. It is the person designing the data pipeline. The robot that learns fastest wins, and learning speed is a function of data quality, data diversity, and data volume.</p>
+
+            <p>We are in the early innings of solving this. But the teams that treat data as their primary product, not an afterthought, are the ones that will build the humanoids that actually work.</p>
+
+            <p class="text-center mt-2">
+                <a href="index.html#blog" class="back-link">Back to Blog</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,76 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Collection of experimental builds and creative engineering projects">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Random Projects — Matt Wulff</title>
+    <meta name="description" content="A collection of hands-on engineering projects by Matt Wulff, including a Tesla turbine, rocket engine, spot welder, LED matrix, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Random Projects</title>
 </head>
-
 <body>
-    <nav>
+    <!-- Navigation -->
+    <nav class="scrolled">
         <a href="index.html#about">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#resume">Resume</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
         <a href="index.html#contact">Contact</a>
     </nav>
 
     <header class="project-header">
         <h1>Random Projects</h1>
-        <p>Collection of experimental builds and creative engineering projects</p>
+        <p>Miscellaneous builds &amp; experiments</p>
     </header>
 
     <section>
-        <div class="gallery-section">
-            <h2>Project Collection</h2>
-            <div class="project-specs">
-                <p>A diverse portfolio of experimental and exploratory projects showcasing various engineering disciplines and creative problem-solving.</p>
-
-<h3>Project Categories</h3>
-<ul>
-    <li>3D Design and Modeling</li>
-    <li>Electronics and Circuits</li>
-    <li>Mechanical Prototypes</li>
-    <li>Software Tools and Utilities</li>
-    <li>Experimental Hardware</li>
-</ul>
-            </div>
-        </div>
-
-        <div class="gallery-section">
-            <h2>Notable Projects</h2>
-            <div class="project-specs">
-                <h3>Design & Manufacturing</h3>
-<ul>
-    <li>Tesla Turbine - Fluid dynamics experimentation</li>
-    <li>Custom fixtures and tools</li>
-    <li>3D-printed components and assemblies</li>
-</ul>
-
-<h3>Electronics & Control</h3>
-<ul>
-    <li>Circuit design and prototyping</li>
-    <li>Microcontroller programming</li>
-    <li>Sensor integration and testing</li>
-</ul>
-            </div>
-        </div>
-
-        
-
-        <p style="text-align: center; margin-top: 3rem;">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <p class="project-description">
+            A collection of hands-on projects spanning fluid mechanics, electronics, fabrication, and more — built purely out of curiosity and a drive to make things work.
         </p>
+
+        <!-- Bento Grid -->
+        <div class="rp-grid">
+
+            <!-- Wide hero: Tesla Turbine -->
+            <div class="rp-card wide">
+                <img src="tesla-turbine.JPG" alt="Tesla Turbine">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Fluid Mechanics</span>
+                    <h2 class="rp-title">Tesla Turbine</h2>
+                    <p class="rp-desc">Functional prototype showcasing bladeless disc-based fluid mechanics and energy conversion — running on compressed air.</p>
+                </div>
+            </div>
+
+            <!-- Electropiston -->
+            <div class="rp-card tall">
+                <img src="electropiston.jpg" alt="Electropiston" style="object-position: center 30%;">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Electronics</span>
+                    <h2 class="rp-title">Electropiston</h2>
+                    <p class="rp-desc">Electromagnetic piston and circuit powering an LED flashlight from a single mechanical impulse.</p>
+                </div>
+            </div>
+
+            <!-- Rocket Engine -->
+            <div class="rp-card">
+                <img src="rocket-engine.jpg" alt="Water-Cooled Rocket Engine">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Propulsion</span>
+                    <h2 class="rp-title">Rocket Engine</h2>
+                    <p class="rp-desc">3D-printed, water-cooled with boundary-layer protection — capable of surviving real burns.</p>
+                </div>
+            </div>
+
+            <!-- Raft -->
+            <div class="rp-card">
+                <img src="raft.png" alt="Raft" style="object-position: center top;">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Fabrication</span>
+                    <h2 class="rp-title">Raft</h2>
+                    <p class="rp-desc">Low-cost, durable raft built for fishing and waterway exploration.</p>
+                </div>
+            </div>
+
+            <!-- Matrix Display — wide -->
+            <div class="rp-card wide">
+                <img src="matrix-display-1.jpg" alt="Matrix Display">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Electronics · Arduino</span>
+                    <h2 class="rp-title">10×10 RGB LED Matrix Display</h2>
+                    <p class="rp-desc">Custom-built LED matrix showing animations, images, and scrolling text driven by Arduino.</p>
+                </div>
+            </div>
+
+            <!-- Engine Rebuild -->
+            <div class="rp-card">
+                <img src="boat-engine.jpg" alt="Engine Rebuild">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Mechanical</span>
+                    <h2 class="rp-title">Engine Rebuild</h2>
+                    <p class="rp-desc">Full teardown and rebuild of a broken outboard boat engine, back to working condition.</p>
+                </div>
+            </div>
+
+            <!-- Spot Welder -->
+            <div class="rp-card">
+                <img src="spot-welder.jpg" alt="Spot Welder">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Fabrication</span>
+                    <h2 class="rp-title">Spot Welder</h2>
+                    <p class="rp-desc">Small-scale spot welder repurposed from a salvaged microwave transformer.</p>
+                </div>
+            </div>
+
+            <!-- Dune Buggy accent - slim -->
+            <div class="rp-card slim">
+                <img src="dune-buggy.jpg" alt="Dune Buggy" style="object-position: center 60%;">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Vehicles</span>
+                    <h2 class="rp-title">Dune Buggy</h2>
+                </div>
+            </div>
+
+            <!-- Car diff slim -->
+            <div class="rp-card slim">
+                <img src="car-diff.jpg" alt="Car Differential">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">Auto</span>
+                    <h2 class="rp-title">Differential Work</h2>
+                </div>
+            </div>
+
+            <!-- Part printing slim -->
+            <div class="rp-card slim">
+                <img src="part-printing.jpg" alt="3D Printed Parts">
+                <div class="rp-overlay"></div>
+                <div class="rp-info">
+                    <span class="rp-label">3D Printing</span>
+                    <h2 class="rp-title">Custom Parts</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back link -->
+        <div class="rp-footer">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
     </section>
-
-    <footer>
-        <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
-        <p class="footer-copyright">&copy; 2025 Matt Wulff</p>
-    </footer>
 </body>
-
 </html>

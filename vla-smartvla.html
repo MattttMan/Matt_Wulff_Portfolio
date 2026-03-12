@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VLA SmolVLA - Vision Language Action model trained on SO-ARM101 robotic arm">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>VLA: Vision Language Action Model</title>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav class="scrolled">
         <a href="index.html#about">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#resume">Resume</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
         <a href="index.html#contact">Contact</a>
     </nav>
 
     <header class="project-header">
         <h1>Vision Language Action Model (VLA)</h1>
-        <p style="color: white; margin-top: 0.5rem;">SmolVLA on SO-ARM101</p>
+        <p>SmolVLA on SO-ARM101</p>
     </header>
 
     <section>
@@ -31,6 +34,14 @@
             Using SmolVLA (a lightweight, efficient VLA model), the system enables robots to understand visual scenes,
             interpret natural language instructions, and execute precise manipulation tasks with six degrees of freedom.
         </p>
+
+        <div class="gallery-section">
+            <h2>Build Photos</h2>
+            <div class="gallery-images">
+                <img src="vla-model-setup.png" alt="VLA model robot setup on a tabletop manipulation workspace">
+                <img src="vla-model-workstation.png" alt="VLA model development workstation and experiment setup">
+            </div>
+        </div>
 
         <!-- Project Overview -->
         <div class="gallery-section">
@@ -44,7 +55,7 @@
                     <li><strong>Language Processing:</strong> Natural language instruction interpretation</li>
                     <li><strong>Action Prediction:</strong> Direct mapping to robot control commands</li>
                 </ul>
-                <p style="margin-top: 1rem;">
+                <p>
                     This unified model allows robots to learn from demonstrations and generalize to new tasks through language guidance.
                 </p>
             </div>
@@ -136,7 +147,7 @@
                 </ul>
 
                 <h3>Inference Pipeline</h3>
-                <ol style="padding-left: 20px;">
+                <ol>
                     <li>Capture RGB image from robot camera</li>
                     <li>Process natural language instruction</li>
                     <li>Extract visual features with vision encoder</li>
@@ -171,8 +182,8 @@
             </div>
         </div>
 
-        <p style="text-align: center; margin-top: 2rem;">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
         </p>
     </section>
 </body>

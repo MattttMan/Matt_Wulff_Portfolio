@@ -1,74 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Building advanced robotic systems with precision control and autonomous capabilities">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Robotic Arms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <nav>
+    <!-- Navigation -->
+    <nav class="scrolled">
         <a href="index.html#about">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#resume">Resume</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
         <a href="index.html#contact">Contact</a>
     </nav>
 
     <header class="project-header">
         <h1>Robotic Arms</h1>
-        <p>Building advanced robotic systems with precision control and autonomous capabilities</p>
     </header>
-
     <section>
+        <p class="project-description">
+            The Robotic Arms project is a testament to my ability to design, prototype, and refine advanced mechatronic systems. Over three iterations, the designs evolved from basic manual control to fully autonomous functionality with impressive performance metrics in the final arm.
+        </p>
+
+        <!-- First Robotic Arm -->
         <div class="gallery-section">
-            <h2>Project Evolution</h2>
-            <div class="project-specs">
-                <h3>First Robotic Arm</h3>
-<p>Introduction to robotic arm mechanics and programming using cost-effective components.</p>
-
-<h3>Second Robotic Arm</h3>
-<p>Enhanced design with stronger components and additional degrees of freedom.</p>
-
-<h3>Final Robotic Arm</h3>
-<p>Achieved 6 degrees of freedom with advanced precision, wireless control, and autonomous capabilities.</p>
+            <h2>First Robotic Arm</h2>
+            <p class="text-center">This is where I learned the basics of robotic arm mechanics and programming, using cost-effective components.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-1a.jpg" alt="First Robotic Arm Photo 1">
+                <img src="robotic-arm-1b.jpg" alt="First Robotic Arm Photo 2">
             </div>
         </div>
 
+        <!-- Second Robotic Arm -->
         <div class="gallery-section">
-            <h2>Technical Specifications</h2>
-            <div class="project-specs">
-                <h3>Mechanical Design</h3>
-<ul>
-    <li>6 Degrees of Freedom (shoulder pan, shoulder lift, elbow, wrist flex, wrist roll, gripper)</li>
-    <li>Precision servo motors with closed-loop control</li>
-    <li>Custom 3D-printed joints and frame components</li>
-</ul>
-
-<h3>Control Systems</h3>
-<ul>
-    <li>Wireless communication (2.4GHz RF)</li>
-    <li>Programmable control algorithms</li>
-    <li>Real-time feedback and monitoring</li>
-</ul>
+            <h2>Second Robotic Arm</h2>
+            <p class="text-center">This iteration introduced stronger components and additional degrees of freedom for better versatility.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-2a.jpg" alt="Second Robotic Arm Photo 1">
+                <img src="robotic-arm-2b.jpg" alt="Second Robotic Arm Photo 2">
             </div>
         </div>
 
-        
+        <!-- Final Robotic Arm -->
+        <div class="gallery-section">
+            <h2>Final Robotic Arm</h2>
+            <p class="text-center">Achieving 6 degrees of freedom, advanced precision, and wireless control, this design is the culmination of all previous work.</p>
+            <div class="project-gallery">
+                <img src="robotic-arm-3a.jpg" alt="Final Robotic Arm Photo 1">
+                <img src="robotic-arm-3b.jpg" alt="Final Robotic Arm Photo 2">
+                <img src="robotic-arm-3c.jpg" alt="Final Robotic Arm Photo 3">
+                <video controls>
+                    <source src="robotic-arm-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
-        <p style="text-align: center; margin-top: 3rem;">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <!-- Project Progression -->
+        <div class="project-specs">
+            <h3>Progression of the Robotic Arms</h3>
+            <ul>
+                <li><strong>Prototype 1:</strong> Basic control and design principles using low-cost servos.</li>
+                <li><strong>Prototype 2:</strong> Enhanced with better components and additional degrees of freedom.</li>
+                <li><strong>Final Design:</strong> Fully functional arm with autonomous capabilities and wireless control.</li>
+            </ul>
+        </div>
+
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
         </p>
     </section>
-
-    <footer>
-        <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
-        <p class="footer-copyright">&copy; 2025 Matt Wulff</p>
-    </footer>
 </body>
-
 </html>

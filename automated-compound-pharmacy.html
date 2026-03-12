@@ -4,75 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="System for precise, automated pharmaceutical dispensing">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Automated Compound Pharmacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav>
+    <!-- Navigation -->
+    <nav class="scrolled">
         <a href="index.html#about">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#resume">Resume</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
         <a href="index.html#contact">Contact</a>
     </nav>
 
     <header class="project-header">
         <h1>Automated Compound Pharmacy</h1>
-        <p>System for precise, automated pharmaceutical dispensing</p>
     </header>
 
     <section>
-        <div class="gallery-section">
-            <h2>Project Overview</h2>
-            <div class="project-specs">
-                <p>An automated system designed to improve the accuracy and efficiency of pharmaceutical compound dispensing. (In Progress)</p>
+        <p class="project-description">
+            Revolutionizing pharmacy automation with prescription-customized medications using Raspberry Pi, fingerprint
+            sensors, stepper motors, servos, and precision scales.
+            Improving efficiency, accuracy, and eliminating human error in medicine dispensing.
+        </p>
 
-<h3>Objectives</h3>
-<ul>
-    <li>Eliminate human error in compound dispensing</li>
-    <li>Increase throughput and efficiency</li>
-    <li>Ensure precise dosing and measurement</li>
-    <li>Improve pharmaceutical safety</li>
-    <li>Reduce waste and contamination</li>
-</ul>
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <img src="pharmacy-image1.jpg" alt="Compound Pharmacy - Image 1">
+            <img src="pharmacy-image2.jpg" alt="Compound Pharmacy - Image 2">
+            <img src="pharmacy-image3.jpg" alt="Compound Pharmacy - Image 3">
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-step completed">
+                <div class="status-circle"></div>
+                <span>Idea<br>Sept 2024</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step completed">
+                <div class="status-circle"></div>
+                <span>Research<br>Oct 2024</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step completed">
+                <div class="status-circle"></div>
+                <span>Design<br>Nov - Dec 2024</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step completed">
+                <div class="status-circle"></div>
+                <span>Build<br>Jan - March 2025</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step upcoming">
+                <div class="status-circle"></div>
+                <span>Test</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step upcoming">
+                <div class="status-circle"></div>
+                <span>Iteration</span>
+            </div>
+            <div class="status-arrow">→</div>
+            <div class="status-step upcoming">
+                <div class="status-circle"></div>
+                <span>Deployment</span>
             </div>
         </div>
 
-        <div class="gallery-section">
-            <h2>Technical Approach</h2>
-            <div class="project-specs">
-                <h3>System Components</h3>
-<ul>
-    <li>Automated robotic dispensing arm</li>
-    <li>Precision weighing and measurement</li>
-    <li>Ingredient storage and retrieval system</li>
-    <li>Quality control verification</li>
-    <li>Data logging and compliance tracking</li>
-</ul>
-
-<h3>Development Status</h3>
-<ul>
-    <li>Design phase: Complete</li>
-    <li>Component integration: In Progress</li>
-    <li>Testing and validation: Upcoming</li>
-</ul>
-            </div>
+        <!-- Project Highlights -->
+        <div class="project-specs">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Precision:</strong> ±0.01g accuracy ensures safe and tailored doses.</li>
+                <li><strong>Technology:</strong> Raspberry Pi, fingerprint sensors, precision scale, stepper motors,
+                    servos, DC motors.</li>
+                <li><strong>Automation:</strong> Reduces errors, streamlines custom medicine dispensing.</li>
+                <li><strong>Efficiency:</strong> Faster production, less waste, and secure handling.</li>
+            </ul>
         </div>
 
-        
+        <!-- Why This Matters -->
+        <div class="project-specs">
+            <h3>Why This Matters</h3>
+            <p>
+                Pharmacies require 100% accuracy. This system ensures patient-specific dosages with zero human error
+                while speeding up dispensing times and reducing cost.
+            </p>
+        </div>
 
-        <p style="text-align: center; margin-top: 3rem;">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <!-- Back to Portfolio Button -->
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
         </p>
     </section>
-
-    <footer>
-        <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
-        <p class="footer-copyright">&copy; 2025 Matt Wulff</p>
-    </footer>
 </body>
 
 </html>

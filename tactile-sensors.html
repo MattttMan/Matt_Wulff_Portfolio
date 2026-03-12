@@ -6,30 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tactile Sensors for Humanoids - Advanced touch sensing technology">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Tactile Sensors for Humanoids</title>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav class="scrolled">
         <a href="index.html#about">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#resume">Resume</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
         <a href="index.html#contact">Contact</a>
     </nav>
 
     <header class="project-header">
         <h1>Tactile Sensors for Humanoids</h1>
+        <p>Advanced touch sensing technology for robotic perception</p>
     </header>
 
     <section>
         <p class="project-description">
-            This project focuses on developing advanced tactile sensing technology for humanoid robots.
-            Tactile sensors enable robots to perceive pressure, texture, temperature, and force feedback,
-            creating more human-like interaction and manipulation capabilities.
+            Developing advanced tactile sensing technology for humanoid robots.
+            Enabling robots to perceive pressure, texture, temperature, and force feedback
+            for more human-like interaction and manipulation capabilities.
         </p>
+
+        <!-- Sensor Design Images -->
+        <div class="gallery-section">
+            <h2>Sensor Design</h2>
+            <div class="gallery-images">
+                <img src="tactile-sensor-cad.png" alt="Tactile sensor CAD model showing multi-element array design">
+                <img src="tactile-sensor-pcb.png" alt="Tactile sensor PCB layout and routing view">
+                <img src="tactile-sensor-chip.png" alt="Tactile sensor prototype chip with wire bonds">
+                <img src="tactile-sensor-array.png" alt="Tactile sensor array prototype close-up">
+            </div>
+        </div>
 
         <!-- Overview -->
         <div class="gallery-section">
@@ -92,7 +107,7 @@
                 </ul>
 
                 <h3>Data Processing Pipeline</h3>
-                <ol style="padding-left: 20px;">
+                <ol>
                     <li>Analog signal acquisition from sensor array</li>
                     <li>Noise filtering and normalization</li>
                     <li>Feature extraction (contact location, pressure profile, slip detection)</li>
@@ -167,18 +182,18 @@
             <h2>Future Development</h2>
             <div class="project-specs">
                 <ul>
-                    <li>🔬 Improved sensor sensitivity and spatial resolution</li>
-                    <li>🤖 Integration with machine learning for learned tactile perception</li>
-                    <li>📊 Multimodal sensor fusion with vision and proprioception</li>
-                    <li>🌐 Whole-body tactile sensing systems</li>
-                    <li>🔌 Wireless sensor networks for mobile platforms</li>
-                    <li>📈 Real-world deployment on commercial humanoids</li>
+                    <li>Improved sensor sensitivity and spatial resolution</li>
+                    <li>Integration with machine learning for learned tactile perception</li>
+                    <li>Multimodal sensor fusion with vision and proprioception</li>
+                    <li>Whole-body tactile sensing systems</li>
+                    <li>Wireless sensor networks for mobile platforms</li>
+                    <li>Real-world deployment on commercial humanoids</li>
                 </ul>
             </div>
         </div>
 
-        <p style="text-align: center; margin-top: 2rem;">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
         </p>
     </section>
 </body>

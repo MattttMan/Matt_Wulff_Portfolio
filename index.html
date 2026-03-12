@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Matt Wulff - Mechatronics Engineer & Innovator. Building robotics, AI, and innovative solutions.">
+    <meta name="description"
+        content="Matt Wulff - Mechatronics Engineer & Innovator. Building robotics, AI, and innovative solutions.">
     <meta name="keywords" content="robotics, AI, engineering, mechatronics">
     <meta name="author" content="Matt Wulff">
 
@@ -24,58 +25,173 @@
         emailjs.init("GqAxUNsYKl8DRLFRT");
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
     <title>Matt Wulff - Portfolio</title>
 </head>
 
 <body>
-    <nav>
+    <nav id="navbar">
         <a href="#about">About</a>
         <a href="#portfolio">Work</a>
-        <a href="#blog">Writing</a>
+        <a href="#blog">Blog</a>
         <a href="#experience">Journey</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <header>
+    <header class="home-hero">
         <div class="hero-content">
             <h1>Matt Wulff</h1>
-            <p class="subtitle">I build robots, train AI, and break things to understand how they work.</p>
-            <button class="cta-button" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
-                Start The Journey →
+            <p class="subtitle">Roboticist | Prev@Tesla | Prev@Skygauge | Entrepreneurs First | Tactile Sensing</p>
+            <button class="cta-button"
+                onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
+                Start The Journey
             </button>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
+    <!-- Logo Banner: Tesla, Skygauge, SPC, Entrepreneurs First, 2Ri, Visenty, DeltaHacks, McMaster Aerial Robotics, OEC. Real logos from logos/; missing show as gray text. -->
+    <div class="logo-banner">
+        <div class="logo-track">
+            <div class="logo-item">
+                <img src="logos/tesla.png" alt="Tesla"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Tesla</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/skygauge.png" alt="Skygauge Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Skygauge Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/south-park-commons.png" alt="South Park Commons"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">South Park Commons</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/entrepreneurs-first.png" alt="Entrepreneurs First"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Entrepreneurs First</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/2ri-robotics.png" alt="2Ri Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">2Ri Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/visenty.png" alt="Visenty"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Visenty</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/deltahacks.png" alt="DeltaHacks"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">DeltaHacks</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/mcmaster-aerial-robotics.png" alt="McMaster Aerial Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">McMaster Aerial Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/oec.png" alt="OEC"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">OEC</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="logo-item">
+                <img src="logos/tesla.png" alt="Tesla"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Tesla</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/skygauge.png" alt="Skygauge Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Skygauge Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/south-park-commons.png" alt="South Park Commons"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">South Park Commons</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/entrepreneurs-first.png" alt="Entrepreneurs First"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Entrepreneurs First</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/2ri-robotics.png" alt="2Ri Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">2Ri Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/visenty.png" alt="Visenty"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">Visenty</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/deltahacks.png" alt="DeltaHacks"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">DeltaHacks</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/mcmaster-aerial-robotics.png" alt="McMaster Aerial Robotics"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">McMaster Aerial Robotics</span>
+            </div>
+            <div class="logo-item">
+                <img src="logos/oec.png" alt="OEC"
+                    onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+                <span class="logo-name">OEC</span>
+            </div>
+        </div>
+    </div>
+
     <section id="about">
-        <h2>Who Am I?</h2>
+        <div class="reveal">
+            <div class="section-line"></div>
+            <h2>Who Am I?</h2>
+        </div>
         <div class="about-container">
-            <div class="about-image"></div>
+            <div class="about-image reveal"></div>
             <div class="about-text">
-                <p>
-                    I'm Matt—a Mechatronics Engineering student who's obsessed with building things. Robots, software, hardware, startups, you name it. I've probably tried to automate it or make it smarter.
+                <p class="reveal">
+                    I'm Matt—a Mechatronics Engineering student who's obsessed with building things. Robots, software,
+                    hardware, startups, you name it. I've probably tried to automate it or make it smarter.
                 </p>
-                <p>
-                    My philosophy is simple: <strong>learn by doing</strong>. Want to understand robotics? Build one. Curious about AI? Train a model. Wondering how something works? Take it apart and rebuild it better.
+                <p class="reveal">
+                    My philosophy is simple: <strong>learn by doing</strong>. Want to understand robotics? Build one.
+                    Curious about AI? Train a model. Wondering how something works? Take it apart and rebuild it better.
                 </p>
-                <p>
-                    I've gone from building my first sketchy robotic arm to creating AI security platforms, founding startups, and participating in accelerators. Every project teaches me something new. Every failure is just data.
+                <p class="reveal">
+                    I've gone from building my first sketchy robotic arm to creating AI security platforms, founding
+                    startups, and participating in accelerators. Every project teaches me something new. Every failure
+                    is just data.
                 </p>
-                <p>
-                    <strong>The dream?</strong> Create technology that actually matters. Not just cool for cool's sake—but solutions that solve real problems and improve people's lives.
+                <p class="reveal">
+                    <strong>The dream?</strong> Create technology that actually matters. Not just cool for cool's
+                    sake—but solutions that solve real problems and improve people's lives.
                 </p>
 
-                <div class="stats-grid">
+                <div class="stats-grid reveal">
                     <div class="stat-card">
-                        <div class="stat-number">12+</div>
+                        <div class="stat-number" data-count="100">0</div>
                         <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Startups</div>
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Startups Founded</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">6</div>
+                        <div class="stat-number" data-count="14">0</div>
                         <div class="stat-label">Yrs Building</div>
                     </div>
                 </div>
@@ -84,113 +200,140 @@
     </section>
 
     <section id="portfolio">
-        <h2>What I've Built</h2>
-        <p class="section-intro" style="text-align: center;">
-            A collection of projects spanning robotics, AI, software, and hardware. Click any to dive deeper.
-        </p>
+        <div class="reveal">
+            <div class="section-line"></div>
+            <h2>What I've Built</h2>
+            <p class="section-intro" style="text-align: left;">
+                A collection of projects spanning robotics, AI, software, and hardware. Click any to dive deeper.
+            </p>
+        </div>
         <div class="portfolio-grid">
-            <a href="robotic-arm.html" class="portfolio-card">
-                <span class="portfolio-label">Robotics</span>
-                <div class="portfolio-image"></div>
+            <a href="robotic-arm.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Robotics</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Robotic Arms</h3>
                     <p class="portfolio-description">Three iterations with 6 DOF and wireless control</p>
                 </div>
             </a>
 
-            <a href="visenty.html" class="portfolio-card">
-                <span class="portfolio-label">AI/Security</span>
-                <div class="portfolio-image"></div>
+            <a href="visenty.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">AI / Security</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Visenty</h3>
                     <p class="portfolio-description">Real-time shoplifting detection platform on App Store</p>
                 </div>
             </a>
 
-            <a href="eloquently-app.html" class="portfolio-card">
-                <span class="portfolio-label">Mobile App</span>
-                <div class="portfolio-image"></div>
+            <a href="eloquently-app.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Mobile App</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Eloquently</h3>
                     <p class="portfolio-description">AI communication coach for public speaking</p>
                 </div>
             </a>
 
-            <a href="vla-smartvla.html" class="portfolio-card">
-                <span class="portfolio-label">ML/Robotics</span>
-                <div class="portfolio-image"></div>
+            <a href="vla-smartvla.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">ML / Robotics</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">VLA Model</h3>
                     <p class="portfolio-description">Vision Language Action model on robotic arm</p>
                 </div>
             </a>
 
-            <a href="tactile-sensors.html" class="portfolio-card">
-                <span class="portfolio-label">Hardware</span>
-                <div class="portfolio-image"></div>
+            <a href="tactile-sensors.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Hardware</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Tactile Sensors</h3>
                     <p class="portfolio-description">Touch sensing for humanoid robots</p>
                 </div>
             </a>
 
-            <a href="nutrium.html" class="portfolio-card">
-                <span class="portfolio-label">Software</span>
-                <div class="portfolio-image"></div>
+            <a href="cibus.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Software</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Nutrium</h3>
-                    <p class="portfolio-description">Nutrition management platform</p>
+                    <h3 class="portfolio-title">Cibus</h3>
+                    <p class="portfolio-description">Cibus Nutritionist Software</p>
                 </div>
             </a>
 
-            <a href="drone-case.html" class="portfolio-card">
-                <span class="portfolio-label">Design</span>
-                <div class="portfolio-image"></div>
+            <a href="drone-case.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Design</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Drone Case</h3>
                     <p class="portfolio-description">Waterproof protective equipment case</p>
                 </div>
             </a>
 
-            <a href="3d-alive.html" class="portfolio-card">
-                <span class="portfolio-label">Business</span>
-                <div class="portfolio-image"></div>
+            <a href="3d-alive.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Business</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">3D Alive</h3>
                     <p class="portfolio-description">3D printing and engineering consulting</p>
                 </div>
             </a>
 
-            <a href="anechoic-chamber.html" class="portfolio-card">
-                <span class="portfolio-label">Testing</span>
-                <div class="portfolio-image"></div>
+            <a href="anechoic-chamber.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Testing</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Anechoic Chamber</h3>
                     <p class="portfolio-description">Acoustic testing facility for drones</p>
                 </div>
             </a>
 
-            <a href="automated-compound-pharmacy.html" class="portfolio-card">
-                <span class="portfolio-label">Medical Tech</span>
-                <div class="portfolio-image"></div>
+            <a href="automated-compound-pharmacy.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Medical Tech</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Auto Pharmacy</h3>
                     <p class="portfolio-description">Automated pharmaceutical dispensing</p>
                 </div>
             </a>
 
-            <a href="dune-buggy.html" class="portfolio-card">
-                <span class="portfolio-label">Vehicles</span>
-                <div class="portfolio-image"></div>
+            <a href="dune-buggy.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Vehicles</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Dune Buggy</h3>
                     <p class="portfolio-description">Off-road vehicle from recycled materials</p>
                 </div>
             </a>
 
-            <a href="random-projects.html" class="portfolio-card">
-                <span class="portfolio-label">Misc</span>
-                <div class="portfolio-image"></div>
+            <a href="random-projects.html" class="portfolio-card reveal">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Misc</span>
+                    <div class="portfolio-image"></div>
+                </div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Random Projects</h3>
                     <p class="portfolio-description">Collection of experimental builds</p>
@@ -200,127 +343,163 @@
     </section>
 
     <section id="blog">
-        <h2>Writing & Thoughts</h2>
-        <p class="section-intro" style="text-align: center;">
-            Articles, insights, and lessons learned from building things. Updated regularly.
-        </p>
-        <div class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-date">Mar 10, 2025</div>
-                <h3 class="blog-title">Building Intelligent Robots: Lessons from 3 Iterations</h3>
-                <p class="blog-excerpt">
-                    My journey from a basic robotic arm to a sophisticated 6-DOF system. What I learned about design, control systems, and persistence.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-date">Mar 02, 2025</div>
-                <h3 class="blog-title">From Student to Founder: Navigating Startup Accelerators</h3>
-                <p class="blog-excerpt">
-                    Real talk about South Park Commons and Entrepreneurs First. What actually matters, what doesn't, and how to make the most of these programs.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-date">Feb 25, 2025</div>
-                <h3 class="blog-title">AI-Powered Security at Scale: Building Visenty</h3>
-                <p class="blog-excerpt">
-                    How we built an AI platform that detects shoplifting in real-time. Technical challenges, design decisions, and what we learned deploying to production.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-date">Feb 18, 2025</div>
-                <h3 class="blog-title">The Power of Learning by Doing</h3>
-                <p class="blog-excerpt">
-                    Why I believe the best way to learn engineering is by building. Failures, successes, and everything in between. No shortcuts, just learning.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-date">Feb 10, 2025</div>
-                <h3 class="blog-title">Mechatronics: Where Hardware Meets Software</h3>
-                <p class="blog-excerpt">
-                    An exploration of what mechatronics really means, why it matters, and why every engineer should understand both hardware and software deeply.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-date">Feb 01, 2025</div>
-                <h3 class="blog-title">Designing for Real Problems: Beyond Cool Builds</h3>
-                <p class="blog-excerpt">
-                    The difference between building cool things and building things that matter. How to identify real problems and create solutions people actually need.
-                </p>
-                <a href="#" class="blog-read-more">Read Article →</a>
-            </article>
+        <div class="reveal">
+            <div class="section-line"></div>
+            <h2>Blog</h2>
+            <p class="section-intro" style="text-align: left;">
+                Lessons learned from building robots, startups, and everything in between.
+            </p>
+        </div>
+        <div class="blog-grid reveal">
+            <a href="blog-vision-guided-robotics.html" class="blog-card">
+                <span class="blog-date">Mar 2025</span>
+                <h3 class="blog-title">Vision-Guided Robotics: What I Learned Leading Automation at Tesla</h3>
+            </a>
+            <a href="blog-future-of-robotics.html" class="blog-card">
+                <span class="blog-date">Mar 2025</span>
+                <h3 class="blog-title">The Future of Robotics: Special Purpose, General Purpose, and Space</h3>
+            </a>
+            <a href="blog-humanoid-data-problem.html" class="blog-card">
+                <span class="blog-date">Feb 2025</span>
+                <h3 class="blog-title">The Humanoid Data Problem: Why We Don't Have Enough</h3>
+            </a>
+            <a href="blog-tactile-sensing-vtla.html" class="blog-card">
+                <span class="blog-date">Feb 2025</span>
+                <h3 class="blog-title">Tactile Sensing: The Missing Piece for Humanoids & Why VTLAs Matter</h3>
+            </a>
         </div>
     </section>
 
     <section id="experience">
-        <h2>My Journey</h2>
-        <p class="section-intro" style="text-align: center;">
-            From classroom projects to startup ecosystems—here's how I got here.
-        </p>
-        <div class="experience-timeline">
-            <div class="experience-item">
-                <h3 class="experience-title">🎓 Mechatronics Engineering</h3>
-                <p class="experience-organization">McMaster University</p>
-                <p class="experience-dates">2021 - Present</p>
-                <p class="experience-description">
-                    Diving deep into robotics, control systems, and embedded systems. Built projects that went from "will this even work?" to "wow, it actually works."
-                </p>
+        <div class="reveal">
+            <div class="section-line"></div>
+            <h2>My Journey</h2>
+            <p class="section-intro" style="text-align: left;">
+                From writing my first line of code to founding startups and building robots.
+            </p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">~2008</div>
+                <div class="timeline-content">
+                    <h3>Started Coding</h3>
+                    <p>Wrote my first lines of code at 8 years old. The beginning of an obsession with making things
+                        work.</p>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <h3 class="experience-title">🚀 Founder Program</h3>
-                <p class="experience-organization">Entrepreneurs First</p>
-                <p class="experience-dates">2023 - 2024</p>
-                <p class="experience-description">
-                    Got matched with mentors and co-founders. Learned that building a company is just as complex as building robots—but with more pivot tables and fewer servo motors.
-                </p>
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">2008 — 2019</div>
+                <div class="timeline-content">
+                    <h3>Building Through School</h3>
+                    <p>Built sketchy robots, apps, and broke everything I could get my hands on. Learned by doing, long
+                        before university.</p>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <h3 class="experience-title">⚡ Startup Accelerator</h3>
-                <p class="experience-organization">South Park Commons</p>
-                <p class="experience-dates">2024</p>
-                <p class="experience-description">
-                    Rapid prototyping, customer interviews, and learning what VCs actually mean when they say "traction." Built networks with founders actually changing industries.
-                </p>
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">2019 — 2021</div>
+                <div class="timeline-content">
+                    <h3>CEO & Founder</h3>
+                    <span class="timeline-org">3D Alive</span>
+                    <p>Founded a 3D printing and engineering consultancy at 16. Ran a multi-printer production farm,
+                        delivered CAD design and prototyping services to clients.</p>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <h3 class="experience-title">🛸 Drone Lead</h3>
-                <p class="experience-organization">McMaster University</p>
-                <p class="experience-dates">2023 - Present</p>
-                <p class="experience-description">
-                    Leading the drone team through design, testing, and autonomous systems. Managing teams, solving complex problems, pushing robotics forward at scale.
-                </p>
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">Jun — Sep 2022</div>
+                <div class="timeline-content">
+                    <h3>Automation Technician</h3>
+                    <span class="timeline-org">2Ri Robotics</span>
+                    <p>Walked in and sold myself for a job they didn't even have posted. Diagnosed, repaired, and
+                        recommissioned industrial FANUC robotic systems in production environments.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">2022 — 2027</div>
+                <div class="timeline-content">
+                    <h3>Mechatronics Engineering</h3>
+                    <span class="timeline-org">McMaster University</span>
+                    <p>B.Eng in Mechatronics. Deep focus on robotics, control systems, and embedded systems.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">May — Aug 2023</div>
+                <div class="timeline-content">
+                    <h3>Product Design</h3>
+                    <span class="timeline-org">Skygauge Robotics</span>
+                    <p>Designed waterproof drone transport cases, built an acoustic test chamber, automated calibration
+                        processes saving $300/drone.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">Sep 2023 — Aug 2024</div>
+                <div class="timeline-content">
+                    <h3>BIW Manufacturing Engineering</h3>
+                    <span class="timeline-org">Tesla</span>
+                    <p>Led Vision-Guided Robotics initiatives across 10+ global teams. Designed BIW production lines for
+                        20K units/week. Led my own development line in China.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">Mar — Aug 2025</div>
+                <div class="timeline-content">
+                    <h3>Mechanical Lead</h3>
+                    <span class="timeline-org">McMaster Aerial Robotics</span>
+                    <p>Led the drone team through design, testing, and autonomous systems development.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">Jul 2025 — Present</div>
+                <div class="timeline-content">
+                    <h3>Founder & CTO</h3>
+                    <span class="timeline-org">Stealth AI Startup | Entrepreneurs First | South Park Commons</span>
+                    <p>Embarked on a founder journey building across mobile apps, software for nutritionists, an AI
+                        image generation platform, AI-powered shoplifting prevention and facial recognition, robotics
+                        hardware, and tactile sensing. Led customer discovery and early growth while participating as a
+                        fellow at two of San Francisco’s top accelerators: Entrepreneurs First and South Park Commons.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="resume">
-        <h2>Resume</h2>
-        <div class="resume-download">
-            <button class="download-btn" onclick="window.location.href='Matt\\'s Resume.pdf'">
+        <div class="reveal">
+            <div class="section-line"></div>
+            <h2>Resume</h2>
+        </div>
+        <div class="resume-download reveal">
+            <button class="download-btn" onclick="window.location.href='Matt\'s\ Resume\ (2026).pdf'">
                 Download Resume
             </button>
         </div>
-        <div class="resume-embed">
-            <iframe src="Matt's Resume.pdf"></iframe>
+        <div class="resume-embed reveal">
+            <iframe src="Matt's Resume (2026).pdf"></iframe>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Let's Build Something</h2>
-        <p class="contact-intro">Got an idea? A challenge? Or just want to chat about robots and AI? I'm always down to connect with people who want to build cool things.</p>
-        <div class="contact-form-wrapper">
+        <div class="reveal">
+            <div class="section-line" style="margin: 0 auto 2rem auto;"></div>
+            <h2>Let's Build Something</h2>
+        </div>
+        <div class="contact-form-wrapper reveal">
             <form id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -333,11 +512,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What’s this about?" maxlength="120">
+                </div>
+
+                <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Your message..." required></textarea>
                 </div>
 
-                <button type="button" class="submit-btn" onclick="sendEmail()">Send Message</button>
+                <div id="formStatus" class="form-status" aria-live="polite"></div>
+                <button type="button" id="submitBtn" class="submit-btn" onclick="sendEmail()">Send Message</button>
             </form>
         </div>
     </section>
@@ -357,7 +542,8 @@
             <a href="https://www.thingiverse.com/makeitmatt1/designs" target="_blank" title="Thingiverse">
                 <img src="thingiverse-icon.png" alt="Thingiverse">
             </a>
-            <a href="https://detailed-grass-d59.notion.site/Matt-Wulff-Engineering-1-2c6a3372735f4f17b7393b26c1c2530e" target="_blank" title="Notion">
+            <a href="https://detailed-grass-d59.notion.site/Matt-Wulff-Engineering-1-2c6a3372735f4f17b7393b26c1c2530e"
+                target="_blank" title="Notion">
                 <img src="notion-icon.png" alt="Notion">
             </a>
         </div>
@@ -365,26 +551,110 @@
     </footer>
 
     <script>
+        // ================================
+        // NAV SCROLL EFFECT
+        // ================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ================================
+        // SCROLL REVEAL
+        // ================================
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ================================
+        // COUNTER ANIMATION
+        // ================================
+        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'));
+                    let current = 0;
+                    const increment = target / 40;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            el.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            el.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(el => counterObserver.observe(el));
+
+        // ================================
+        // SMOOTH SCROLL FOR NAV
+        // ================================
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ================================
+        // EMAIL
+        // ================================
         function sendEmail() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
+            const statusEl = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
 
             if (!name || !email || !message) {
-                alert("Please fill out all fields.");
+                statusEl.textContent = "Please fill out name, email, and message.";
+                statusEl.className = "form-status error";
                 return;
             }
+
+            statusEl.textContent = "Sending…";
+            statusEl.className = "form-status";
+            submitBtn.disabled = true;
+            submitBtn.classList.add('is-loading');
 
             emailjs.send("service_wywwdek", "template_1qjp5ch", {
                 from_name: name,
                 from_email: email,
+                subject: subject,
                 message: message,
             }).then(function (response) {
-                alert("Message sent! Thank you for reaching out.");
+                statusEl.textContent = "Message sent. I’ll get back to you soon.";
+                statusEl.className = "form-status success";
                 document.getElementById('contactForm').reset();
             }, function (error) {
-                alert("Failed to send message. Please try again.");
+                statusEl.textContent = "Failed to send. Please try again, or email me directly.";
+                statusEl.className = "form-status error";
                 console.error("Error:", error);
+            }).finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('is-loading');
             });
         }
     </script>
