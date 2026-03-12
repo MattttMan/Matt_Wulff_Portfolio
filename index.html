@@ -44,17 +44,43 @@
     </nav>
 
     <header class="home-hero">
+        <div class="hero-bg">
+            <div class="hero-orb hero-orb--1"></div>
+            <div class="hero-orb hero-orb--2"></div>
+            <div class="hero-orb hero-orb--3"></div>
+            <div class="hero-grid"></div>
+        </div>
         <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                <span>Building the future of robotics</span>
+            </div>
             <h1>Matt Wulff</h1>
-            <p class="subtitle">Roboticist | Prev@Tesla | Prev@Skygauge | Entrepreneurs First | Tactile Sensing</p>
-            <button class="cta-button"
-                onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
-                Start The Journey
-            </button>
+            <p class="subtitle">Roboticist & Mechatronics Engineer turning ideas into intelligent machines.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Tesla</span>
+                <span class="hero-tag">Skygauge</span>
+                <span class="hero-tag">Entrepreneurs First</span>
+                <span class="hero-tag">South Park Commons</span>
+                <span class="hero-tag">Tactile Sensing</span>
+            </div>
+            <div class="hero-actions">
+                <button class="cta-button"
+                    onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
+                    View My Work
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+                </button>
+                <button class="cta-button cta-button--ghost"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Get In Touch
+                </button>
+            </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
         </div>
     </header>
 
@@ -551,6 +577,18 @@
     </footer>
 
     <script>
+        // ================================
+        // HERO ORB FLOATING (after fade-in)
+        // ================================
+        setTimeout(() => {
+            const orb1 = document.querySelector('.hero-orb--1');
+            const orb2 = document.querySelector('.hero-orb--2');
+            const orb3 = document.querySelector('.hero-orb--3');
+            if (orb1) orb1.style.animation = 'orbFloat1 12s ease-in-out infinite';
+            if (orb2) orb2.style.animation = 'orbFloat2 15s ease-in-out infinite';
+            if (orb3) orb3.style.animation = 'orbFloat3 18s ease-in-out infinite';
+        }, 3000);
+
         // ================================
         // NAV SCROLL EFFECT
         // ================================
