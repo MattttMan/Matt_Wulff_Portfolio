@@ -44,11 +44,11 @@
     </nav>
 
     <header class="home-hero">
+        <canvas id="hero-canvas"></canvas>
         <div class="hero-bg">
             <div class="hero-orb hero-orb--1"></div>
             <div class="hero-orb hero-orb--2"></div>
             <div class="hero-orb hero-orb--3"></div>
-            <div class="hero-grid"></div>
         </div>
         <div class="hero-content">
             <div class="hero-eyebrow">
@@ -577,6 +577,165 @@
     </footer>
 
     <script>
+        // ================================
+        // HERO CANVAS — interactive circuit network
+        // ================================
+        (function () {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [], mouse = { x: -999, y: -999 };
+            const PARTICLE_COUNT = 80;
+            const CONNECT_DIST = 160;
+            const MOUSE_RADIUS = 200;
+
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                W = canvas.parentElement.offsetWidth;
+                H = canvas.parentElement.offsetHeight;
+                canvas.width = W * dpr;
+                canvas.height = H * dpr;
+                canvas.style.width = W + 'px';
+                canvas.style.height = H + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.4,
+                        vy: (Math.random() - 0.5) * 0.4,
+                        r: Math.random() * 1.5 + 0.5,
+                        pulse: Math.random() * Math.PI * 2,
+                        // Some particles are "bright nodes" (like circuit junctions)
+                        bright: Math.random() < 0.15
+                    });
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < CONNECT_DIST) {
+                            const alpha = (1 - dist / CONNECT_DIST) * 0.12;
+                            // Use cyan-ish color for circuit feel
+                            ctx.strokeStyle = `rgba(100, 200, 255, ${alpha})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            // Occasionally draw L-shaped (right-angle) connections like PCB traces
+                            if ((i + j) % 5 === 0) {
+                                ctx.lineTo(particles[j].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                            } else {
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                            }
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw mouse connections
+                for (let i = 0; i < particles.length; i++) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < MOUSE_RADIUS) {
+                        const alpha = (1 - dist / MOUSE_RADIUS) * 0.2;
+                        ctx.strokeStyle = `rgba(130, 180, 255, ${alpha})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Draw particles
+                const time = Date.now() * 0.002;
+                for (const p of particles) {
+                    const pulseAlpha = 0.4 + Math.sin(time + p.pulse) * 0.3;
+                    if (p.bright) {
+                        // Bright junction nodes — glow
+                        ctx.shadowBlur = 12;
+                        ctx.shadowColor = 'rgba(100, 200, 255, 0.4)';
+                        ctx.fillStyle = `rgba(150, 220, 255, ${pulseAlpha + 0.3})`;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r + 1.5, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    } else {
+                        ctx.fillStyle = `rgba(180, 200, 230, ${pulseAlpha})`;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            function update() {
+                for (const p of particles) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // Gentle mouse repulsion
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < MOUSE_RADIUS && dist > 0) {
+                        const force = (1 - dist / MOUSE_RADIUS) * 0.015;
+                        p.vx += (dx / dist) * force;
+                        p.vy += (dy / dist) * force;
+                    }
+
+                    // Dampen velocity
+                    p.vx *= 0.999;
+                    p.vy *= 0.999;
+
+                    // Wrap around edges
+                    if (p.x < -20) p.x = W + 20;
+                    if (p.x > W + 20) p.x = -20;
+                    if (p.y < -20) p.y = H + 20;
+                    if (p.y > H + 20) p.y = -20;
+                }
+            }
+
+            function loop() {
+                update();
+                draw();
+                requestAnimationFrame(loop);
+            }
+
+            canvas.parentElement.addEventListener('mousemove', function (e) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            canvas.parentElement.addEventListener('mouseleave', function () {
+                mouse.x = -999;
+                mouse.y = -999;
+            });
+
+            window.addEventListener('resize', function () {
+                resize();
+                particles = [];
+                createParticles();
+            });
+
+            resize();
+            createParticles();
+            loop();
+        })();
+
         // ================================
         // HERO ORB FLOATING (after fade-in)
         // ================================
