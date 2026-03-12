@@ -169,80 +169,11 @@ nav a:hover::after {
     overflow: hidden;
 }
 
-/* Canvas — interactive circuit network */
+/* Canvas — robotics blueprint */
 #hero-canvas {
     position: absolute;
     inset: 0;
     z-index: 1;
-    opacity: 0;
-    animation: fadeIn 2s ease 0.5s forwards;
-}
-
-/* Gradient orb background */
-.hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0;
-    animation: orbFadeIn 2.5s var(--ease-out-expo) forwards;
-}
-
-.hero-orb--1 {
-    width: 650px;
-    height: 650px;
-    background: radial-gradient(circle, rgba(56, 130, 255, 0.2) 0%, transparent 70%);
-    top: -15%;
-    right: -8%;
-    animation-delay: 0.2s;
-}
-
-.hero-orb--2 {
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, rgba(0, 220, 255, 0.14) 0%, transparent 70%);
-    bottom: -20%;
-    left: -12%;
-    animation-delay: 0.5s;
-}
-
-.hero-orb--3 {
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(120, 80, 255, 0.1) 0%, transparent 70%);
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: 0.8s;
-}
-
-@keyframes orbFadeIn {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes orbFloat1 {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(40px, -25px); }
-    66% { transform: translate(-25px, 20px); }
-}
-
-@keyframes orbFloat2 {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(-30px, 25px); }
-    66% { transform: translate(20px, -30px); }
-}
-
-@keyframes orbFloat3 {
-    0%, 100% { transform: translateX(-50%); }
-    33% { transform: translateX(-50%) translate(25px, -20px); }
-    66% { transform: translateX(-50%) translate(-20px, 25px); }
 }
 
 /* Edge fades */
@@ -252,7 +183,7 @@ nav a:hover::after {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 250px;
+    height: 280px;
     background: linear-gradient(to bottom, transparent, var(--zinc-950));
     z-index: 5;
     pointer-events: none;
@@ -264,8 +195,8 @@ nav a:hover::after {
     top: 0;
     left: 0;
     right: 0;
-    height: 120px;
-    background: linear-gradient(to top, transparent, rgba(9, 9, 11, 0.5));
+    height: 100px;
+    background: linear-gradient(to top, transparent, rgba(9, 9, 11, 0.4));
     z-index: 5;
     pointer-events: none;
 }
@@ -1680,9 +1611,6 @@ footer {
     .hero-tag { font-size: 0.6rem; padding: 0.25rem 0.7rem; }
     .hero-actions { flex-direction: column; gap: 0.75rem; }
     .cta-button { width: 100%; max-width: 260px; justify-content: center; }
-    .hero-orb--1 { width: 400px; height: 400px; }
-    .hero-orb--2 { width: 350px; height: 350px; }
-    .hero-orb--3 { width: 280px; height: 280px; }
     nav { gap: 1.5rem; padding: 1rem; }
     nav a { font-size: 0.75rem; }
     section { padding: 5rem 1.5rem; }

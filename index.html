@@ -45,11 +45,6 @@
 
     <header class="home-hero">
         <canvas id="hero-canvas"></canvas>
-        <div class="hero-bg">
-            <div class="hero-orb hero-orb--1"></div>
-            <div class="hero-orb hero-orb--2"></div>
-            <div class="hero-orb hero-orb--3"></div>
-        </div>
         <div class="hero-content">
             <div class="hero-eyebrow">
                 <span class="hero-eyebrow-dot"></span>
@@ -578,19 +573,21 @@
 
     <script>
         // ================================
-        // HERO CANVAS — interactive circuit network
+        // HERO CANVAS — Robotics Blueprint
         // ================================
         (function () {
             const canvas = document.getElementById('hero-canvas');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            let W, H, particles = [], mouse = { x: -999, y: -999 };
-            const PARTICLE_COUNT = 80;
-            const CONNECT_DIST = 160;
-            const MOUSE_RADIUS = 200;
+            let W, H, mouse = { x: -999, y: -999 }, startTime = Date.now();
+            const dpr = window.devicePixelRatio || 1;
+
+            // Color palette
+            const CYAN = [0, 200, 240];
+            const BLUE = [60, 130, 255];
+            const DIM = [50, 70, 100];
 
             function resize() {
-                const dpr = window.devicePixelRatio || 1;
                 W = canvas.parentElement.offsetWidth;
                 H = canvas.parentElement.offsetHeight;
                 canvas.width = W * dpr;
@@ -600,117 +597,359 @@
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             }
 
-            function createParticles() {
-                particles = [];
-                for (let i = 0; i < PARTICLE_COUNT; i++) {
-                    particles.push({
-                        x: Math.random() * W,
-                        y: Math.random() * H,
-                        vx: (Math.random() - 0.5) * 0.4,
-                        vy: (Math.random() - 0.5) * 0.4,
-                        r: Math.random() * 1.5 + 0.5,
-                        pulse: Math.random() * Math.PI * 2,
-                        // Some particles are "bright nodes" (like circuit junctions)
-                        bright: Math.random() < 0.15
-                    });
+            // --- Blueprint grid ---
+            function drawGrid(alpha) {
+                const spacing = 40;
+                ctx.strokeStyle = `rgba(40, 60, 90, ${0.12 * alpha})`;
+                ctx.lineWidth = 0.5;
+                for (let x = 0; x < W; x += spacing) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+                }
+                for (let y = 0; y < H; y += spacing) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+                }
+                // Fine sub-grid
+                ctx.strokeStyle = `rgba(40, 60, 90, ${0.04 * alpha})`;
+                const sub = spacing / 4;
+                for (let x = 0; x < W; x += sub) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+                }
+                for (let y = 0; y < H; y += sub) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
                 }
             }
 
+            // --- Draw a joint (servo motor) ---
+            function drawJoint(x, y, r, angle, alpha, glow) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                // Outer ring
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.3 * alpha})`;
+                ctx.lineWidth = 1.2;
+                ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.stroke();
+                // Inner ring
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.15 * alpha})`;
+                ctx.beginPath(); ctx.arc(0, 0, r * 0.55, 0, Math.PI * 2); ctx.stroke();
+                // Cross-hair
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.18 * alpha})`;
+                ctx.lineWidth = 0.7;
+                ctx.beginPath(); ctx.moveTo(-r * 0.35, 0); ctx.lineTo(r * 0.35, 0); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, -r * 0.35); ctx.lineTo(0, r * 0.35); ctx.stroke();
+                // Center dot
+                if (glow) {
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, 0.5)`;
+                }
+                ctx.fillStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.6 * alpha})`;
+                ctx.beginPath(); ctx.arc(0, 0, 2.5, 0, Math.PI * 2); ctx.fill();
+                ctx.shadowBlur = 0;
+                // Tick marks around ring
+                for (let i = 0; i < 12; i++) {
+                    const a = (i / 12) * Math.PI * 2;
+                    const inner = r * 0.82;
+                    const outer = r * 0.95;
+                    ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.15 * alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(Math.cos(a) * inner, Math.sin(a) * inner);
+                    ctx.lineTo(Math.cos(a) * outer, Math.sin(a) * outer);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            // --- Draw a limb segment ---
+            function drawLimb(x1, y1, x2, y2, width, alpha) {
+                const dx = x2 - x1, dy = y2 - y1;
+                const len = Math.sqrt(dx * dx + dy * dy);
+                const nx = -dy / len * width / 2, ny = dx / len * width / 2;
+
+                // Outer casing
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.2 * alpha})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(x1 + nx, y1 + ny);
+                ctx.lineTo(x2 + nx, y2 + ny);
+                ctx.lineTo(x2 - nx, y2 - ny);
+                ctx.lineTo(x1 - nx, y1 - ny);
+                ctx.closePath();
+                ctx.stroke();
+
+                // Center line
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.08 * alpha})`;
+                ctx.setLineDash([4, 6]);
+                ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Internal detail lines
+                const segments = 4;
+                for (let i = 1; i < segments; i++) {
+                    const t = i / segments;
+                    const px = x1 + dx * t, py = y1 + dy * t;
+                    ctx.strokeStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${0.15 * alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(px + nx * 0.7, py + ny * 0.7);
+                    ctx.lineTo(px - nx * 0.7, py - ny * 0.7);
+                    ctx.stroke();
+                }
+            }
+
+            // --- Draw a humanoid hand wireframe ---
+            function drawHand(cx, cy, scale, alpha, time) {
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.scale(scale, scale);
+
+                const palmW = 50, palmH = 60;
+                // Palm
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.2 * alpha})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.roundRect(-palmW / 2, -palmH / 2, palmW, palmH, 8);
+                ctx.stroke();
+
+                // Palm internal wiring
+                ctx.strokeStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${0.12 * alpha})`;
+                ctx.lineWidth = 0.5;
+                for (let i = 0; i < 4; i++) {
+                    const x = -palmW / 2 + 12 + i * 10;
+                    ctx.beginPath(); ctx.moveTo(x, -palmH / 2 + 8); ctx.lineTo(x, palmH / 2 - 8); ctx.stroke();
+                }
+
+                // Fingers (5 fingers)
+                const fingerData = [
+                    { bx: -20, by: -palmH / 2, len1: 22, len2: 18, len3: 14, angle: -0.15 },
+                    { bx: -8, by: -palmH / 2, len1: 26, len2: 20, len3: 16, angle: -0.05 },
+                    { bx: 5, by: -palmH / 2, len1: 28, len2: 22, len3: 17, angle: 0.03 },
+                    { bx: 18, by: -palmH / 2, len1: 24, len2: 18, len3: 14, angle: 0.1 },
+                    { bx: -palmW / 2 - 2, by: -8, len1: 16, len2: 14, len3: 0, angle: -0.8 },
+                ];
+
+                for (let fi = 0; fi < fingerData.length; fi++) {
+                    const f = fingerData[fi];
+                    const wiggle = Math.sin(time * 0.8 + fi * 1.2) * 0.04;
+                    const a = f.angle + wiggle;
+                    let px = f.bx, py = f.by;
+
+                    const segs = f.len3 > 0 ? [f.len1, f.len2, f.len3] : [f.len1, f.len2];
+                    for (let si = 0; si < segs.length; si++) {
+                        const sa = a - Math.PI / 2 + wiggle * (si + 1);
+                        const ex = px + Math.cos(sa) * segs[si];
+                        const ey = py + Math.sin(sa) * segs[si];
+
+                        // Phalanx
+                        ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.2 * alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(ex, ey); ctx.stroke();
+
+                        // Joint circle
+                        ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.25 * alpha})`;
+                        ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.stroke();
+
+                        // Tactile sensor pad on fingertip
+                        if (si === segs.length - 1) {
+                            ctx.fillStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${(0.12 + Math.sin(time + fi) * 0.06) * alpha})`;
+                            ctx.beginPath(); ctx.arc(ex, ey, 4, 0, Math.PI * 2); ctx.fill();
+                            ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.2 * alpha})`;
+                            ctx.beginPath(); ctx.arc(ex, ey, 4, 0, Math.PI * 2); ctx.stroke();
+                        }
+
+                        px = ex;
+                        py = ey;
+                    }
+                }
+
+                // Wrist connection
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.15 * alpha})`;
+                ctx.lineWidth = 0.8;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(-palmW / 2 + 5, palmH / 2);
+                ctx.lineTo(-palmW / 2 + 5, palmH / 2 + 25);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(palmW / 2 - 5, palmH / 2);
+                ctx.lineTo(palmW / 2 - 5, palmH / 2 + 25);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                ctx.restore();
+            }
+
+            // --- Draw a robotic arm (right side) ---
+            function drawArm(cx, cy, scale, alpha, time) {
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.scale(scale, scale);
+
+                const shoulderAngle = Math.sin(time * 0.3) * 0.08;
+                const elbowAngle = Math.sin(time * 0.4 + 1) * 0.06;
+
+                // Base plate
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.2 * alpha})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(-40, 0); ctx.lineTo(40, 0);
+                ctx.lineTo(35, 10); ctx.lineTo(-35, 10); ctx.closePath();
+                ctx.stroke();
+
+                // Base detail
+                ctx.fillStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${0.08 * alpha})`;
+                ctx.fill();
+
+                // Shoulder mount
+                drawJoint(0, 0, 22, shoulderAngle, alpha, false);
+
+                // Upper arm
+                const ua_len = 120;
+                const ua_angle = -Math.PI / 2 + shoulderAngle + 0.3;
+                const elbowX = Math.cos(ua_angle) * ua_len;
+                const elbowY = Math.sin(ua_angle) * ua_len;
+                drawLimb(0, 0, elbowX, elbowY, 18, alpha);
+
+                // Elbow joint
+                drawJoint(elbowX, elbowY, 16, elbowAngle, alpha, true);
+
+                // Forearm
+                const fa_len = 100;
+                const fa_angle = ua_angle - 0.6 + elbowAngle;
+                const wristX = elbowX + Math.cos(fa_angle) * fa_len;
+                const wristY = elbowY + Math.sin(fa_angle) * fa_len;
+                drawLimb(elbowX, elbowY, wristX, wristY, 14, alpha);
+
+                // Wrist
+                drawJoint(wristX, wristY, 12, time * 0.5, alpha, false);
+
+                // End effector / gripper
+                const gripAngle = fa_angle;
+                const gripLen = 30;
+                const gx = wristX + Math.cos(gripAngle) * gripLen;
+                const gy = wristY + Math.sin(gripAngle) * gripLen;
+
+                const openAmount = 8 + Math.sin(time * 0.7) * 3;
+                const perpX = -Math.sin(gripAngle) * openAmount;
+                const perpY = Math.cos(gripAngle) * openAmount;
+
+                ctx.strokeStyle = `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.25 * alpha})`;
+                ctx.lineWidth = 1;
+                // Finger 1
+                ctx.beginPath();
+                ctx.moveTo(wristX + perpX * 0.5, wristY + perpY * 0.5);
+                ctx.lineTo(gx + perpX, gy + perpY);
+                ctx.stroke();
+                // Finger 2
+                ctx.beginPath();
+                ctx.moveTo(wristX - perpX * 0.5, wristY - perpY * 0.5);
+                ctx.lineTo(gx - perpX, gy - perpY);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            // --- Dimension annotation ---
+            function drawDimension(x1, y1, x2, y2, label, alpha, offset) {
+                const dx = x2 - x1, dy = y2 - y1;
+                const len = Math.sqrt(dx * dx + dy * dy);
+                const nx = -dy / len * offset, ny = dx / len * offset;
+
+                ctx.strokeStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${0.15 * alpha})`;
+                ctx.lineWidth = 0.5;
+                // Extension lines
+                ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 + nx, y1 + ny); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 + nx, y2 + ny); ctx.stroke();
+                // Dimension line
+                ctx.beginPath();
+                ctx.moveTo(x1 + nx * 0.8, y1 + ny * 0.8);
+                ctx.lineTo(x2 + nx * 0.8, y2 + ny * 0.8);
+                ctx.stroke();
+                // Label
+                ctx.font = '9px Inter, monospace';
+                ctx.fillStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${0.25 * alpha})`;
+                ctx.textAlign = 'center';
+                const mx = (x1 + x2) / 2 + nx * 0.8;
+                const my = (y1 + y2) / 2 + ny * 0.8 - 4;
+                ctx.fillText(label, mx, my);
+            }
+
+            // --- Floating data labels ---
+            function drawDataLabels(alpha, time) {
+                const labels = [
+                    { x: 0.08, y: 0.15, text: 'SERVO_ID: 04' },
+                    { x: 0.85, y: 0.12, text: 'TORQUE: 2.4 Nm' },
+                    { x: 0.06, y: 0.75, text: 'TACTILE_RES: 1024' },
+                    { x: 0.88, y: 0.82, text: 'DOF: 6' },
+                    { x: 0.12, y: 0.45, text: 'LINK_LEN: 120mm' },
+                    { x: 0.82, y: 0.48, text: 'GRIP_FORCE: 15N' },
+                ];
+                ctx.font = '10px "Courier New", monospace';
+                for (let i = 0; i < labels.length; i++) {
+                    const l = labels[i];
+                    const flicker = 0.15 + Math.sin(time * 0.5 + i * 2.1) * 0.08;
+                    ctx.fillStyle = `rgba(${DIM[0]}, ${DIM[1]}, ${DIM[2]}, ${flicker * alpha})`;
+                    ctx.textAlign = 'left';
+                    ctx.fillText(l.text, l.x * W, l.y * H);
+                }
+            }
+
+            // --- Scanning line effect ---
+            function drawScanLine(alpha, time) {
+                const y = (time * 30) % H;
+                const grad = ctx.createLinearGradient(0, y - 40, 0, y + 40);
+                grad.addColorStop(0, 'transparent');
+                grad.addColorStop(0.5, `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.03 * alpha})`);
+                grad.addColorStop(1, 'transparent');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, y - 40, W, 80);
+            }
+
+            // --- Mouse proximity glow ---
+            function drawMouseGlow(alpha) {
+                if (mouse.x < 0) return;
+                const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 180);
+                grad.addColorStop(0, `rgba(${CYAN[0]}, ${CYAN[1]}, ${CYAN[2]}, ${0.06 * alpha})`);
+                grad.addColorStop(1, 'transparent');
+                ctx.fillStyle = grad;
+                ctx.fillRect(mouse.x - 180, mouse.y - 180, 360, 360);
+            }
+
+            // --- Main draw ---
             function draw() {
+                const elapsed = (Date.now() - startTime) / 1000;
+                const fadeIn = Math.min(elapsed / 2.5, 1);
+                const time = elapsed;
+
                 ctx.clearRect(0, 0, W, H);
 
-                // Draw connections
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < CONNECT_DIST) {
-                            const alpha = (1 - dist / CONNECT_DIST) * 0.12;
-                            // Use cyan-ish color for circuit feel
-                            ctx.strokeStyle = `rgba(100, 200, 255, ${alpha})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            // Occasionally draw L-shaped (right-angle) connections like PCB traces
-                            if ((i + j) % 5 === 0) {
-                                ctx.lineTo(particles[j].x, particles[i].y);
-                                ctx.lineTo(particles[j].x, particles[j].y);
-                            } else {
-                                ctx.lineTo(particles[j].x, particles[j].y);
-                            }
-                            ctx.stroke();
-                        }
-                    }
+                // Vignette
+                const vig = ctx.createRadialGradient(W / 2, H / 2, H * 0.2, W / 2, H / 2, H * 0.85);
+                vig.addColorStop(0, 'transparent');
+                vig.addColorStop(1, 'rgba(9, 9, 11, 0.7)');
+                ctx.fillStyle = vig;
+                ctx.fillRect(0, 0, W, H);
+
+                drawGrid(fadeIn);
+                drawScanLine(fadeIn, time);
+                drawMouseGlow(fadeIn);
+
+                // Robotic hand — left side
+                drawHand(W * 0.18, H * 0.48, 1.6, fadeIn, time);
+
+                // Robotic arm — right side
+                drawArm(W * 0.78, H * 0.75, 1.3, fadeIn, time);
+
+                // Dimension annotations
+                const da = Math.min((elapsed - 1.5) / 1.5, 1);
+                if (da > 0) {
+                    drawDimension(W * 0.18 - 50, H * 0.48 - 80, W * 0.18 + 50, H * 0.48 - 80, '120mm', da, -15);
+                    drawDimension(W * 0.78 - 10, H * 0.75, W * 0.78 - 10, H * 0.75 - 130, '280mm', da, -20);
                 }
 
-                // Draw mouse connections
-                for (let i = 0; i < particles.length; i++) {
-                    const dx = particles[i].x - mouse.x;
-                    const dy = particles[i].y - mouse.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < MOUSE_RADIUS) {
-                        const alpha = (1 - dist / MOUSE_RADIUS) * 0.2;
-                        ctx.strokeStyle = `rgba(130, 180, 255, ${alpha})`;
-                        ctx.lineWidth = 0.6;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-                    }
-                }
-
-                // Draw particles
-                const time = Date.now() * 0.002;
-                for (const p of particles) {
-                    const pulseAlpha = 0.4 + Math.sin(time + p.pulse) * 0.3;
-                    if (p.bright) {
-                        // Bright junction nodes — glow
-                        ctx.shadowBlur = 12;
-                        ctx.shadowColor = 'rgba(100, 200, 255, 0.4)';
-                        ctx.fillStyle = `rgba(150, 220, 255, ${pulseAlpha + 0.3})`;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.r + 1.5, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.shadowBlur = 0;
-                    } else {
-                        ctx.fillStyle = `rgba(180, 200, 230, ${pulseAlpha})`;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
-
-            function update() {
-                for (const p of particles) {
-                    p.x += p.vx;
-                    p.y += p.vy;
-
-                    // Gentle mouse repulsion
-                    const dx = p.x - mouse.x;
-                    const dy = p.y - mouse.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < MOUSE_RADIUS && dist > 0) {
-                        const force = (1 - dist / MOUSE_RADIUS) * 0.015;
-                        p.vx += (dx / dist) * force;
-                        p.vy += (dy / dist) * force;
-                    }
-
-                    // Dampen velocity
-                    p.vx *= 0.999;
-                    p.vy *= 0.999;
-
-                    // Wrap around edges
-                    if (p.x < -20) p.x = W + 20;
-                    if (p.x > W + 20) p.x = -20;
-                    if (p.y < -20) p.y = H + 20;
-                    if (p.y > H + 20) p.y = -20;
-                }
+                drawDataLabels(fadeIn, time);
             }
 
             function loop() {
-                update();
                 draw();
                 requestAnimationFrame(loop);
             }
@@ -725,28 +964,11 @@
                 mouse.y = -999;
             });
 
-            window.addEventListener('resize', function () {
-                resize();
-                particles = [];
-                createParticles();
-            });
+            window.addEventListener('resize', resize);
 
             resize();
-            createParticles();
             loop();
         })();
-
-        // ================================
-        // HERO ORB FLOATING (after fade-in)
-        // ================================
-        setTimeout(() => {
-            const orb1 = document.querySelector('.hero-orb--1');
-            const orb2 = document.querySelector('.hero-orb--2');
-            const orb3 = document.querySelector('.hero-orb--3');
-            if (orb1) orb1.style.animation = 'orbFloat1 12s ease-in-out infinite';
-            if (orb2) orb2.style.animation = 'orbFloat2 15s ease-in-out infinite';
-            if (orb3) orb3.style.animation = 'orbFloat3 18s ease-in-out infinite';
-        }, 3000);
 
         // ================================
         // NAV SCROLL EFFECT
