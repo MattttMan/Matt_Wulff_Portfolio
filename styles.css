@@ -425,6 +425,118 @@ section:nth-child(even) .portfolio-label {
 }
 
 /* ================================
+   BLOG SECTION
+   ================================ */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    display: block;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+section:nth-child(even) .blog-card {
+    border: 1px solid var(--border-color);
+}
+
+.blog-card:nth-child(1) { animation-delay: 0.05s; }
+.blog-card:nth-child(2) { animation-delay: 0.1s; }
+.blog-card:nth-child(3) { animation-delay: 0.15s; }
+.blog-card:nth-child(4) { animation-delay: 0.2s; }
+.blog-card:nth-child(5) { animation-delay: 0.25s; }
+.blog-card:nth-child(6) { animation-delay: 0.3s; }
+
+.blog-card:hover {
+    border-color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px);
+}
+
+section:nth-child(even) .blog-card:hover {
+    border-color: var(--text-black);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.blog-date {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.blog-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    letter-spacing: -0.5px;
+}
+
+section:nth-child(even) .blog-title {
+    color: var(--text-black);
+}
+
+.blog-card:hover .blog-title {
+    color: var(--text-light);
+}
+
+section:nth-child(even) .blog-card:hover .blog-title {
+    color: var(--text-black);
+}
+
+.blog-excerpt {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.blog-read-more {
+    display: inline-block;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+section:nth-child(even) .blog-read-more {
+    color: var(--text-black);
+}
+
+.blog-read-more::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-light);
+    transition: width 0.3s ease;
+}
+
+section:nth-child(even) .blog-read-more::after {
+    background: var(--text-black);
+}
+
+.blog-card:hover .blog-read-more::after {
+    width: 100%;
+}
+
+/* ================================
    EXPERIENCE SECTION
    ================================ */
 
