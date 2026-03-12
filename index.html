@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Matt Wulff - Mechatronics Engineer & Innovator. Portfolio featuring robotics, AI, and cutting-edge engineering projects.">
-    <meta name="keywords" content="robotics, AI, engineering, mechatronics, innovation">
+    <meta name="description" content="Matt Wulff - Mechatronics Engineer & Innovator. Building robotics, AI, and innovative solutions.">
+    <meta name="keywords" content="robotics, AI, engineering, mechatronics">
     <meta name="author" content="Matt Wulff">
-    <meta name="theme-color" content="#0a0a0a">
 
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHZRCJ4Q4Z"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,7 +19,6 @@
         gtag('config', 'G-WHZRCJ4Q4Z');
     </script>
 
-    <!-- Email JS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         emailjs.init("GqAxUNsYKl8DRLFRT");
@@ -32,7 +29,6 @@
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav>
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
@@ -41,37 +37,35 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Hero Header -->
     <header>
         <div class="hero-content">
             <h1>Matt Wulff</h1>
-            <p class="subtitle">Mechatronics Engineer • AI/ML Developer • Startup Founder</p>
+            <p class="subtitle">Mechatronics Engineer • AI/ML Developer • Builder</p>
             <button class="cta-button" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
-                Explore My Work
+                View My Work
             </button>
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <div class="about-container">
             <div class="about-image"></div>
             <div class="about-text">
                 <p>
-                    I'm a <strong>Mechatronics Engineering student</strong> at McMaster University with a passion for building innovative solutions that blend hardware and software to solve real-world problems.
+                    I'm a Mechatronics Engineering student at McMaster University with a passion for building innovative solutions that merge hardware and software to solve real problems.
                 </p>
                 <p>
-                    My journey spans <strong>robotics design, AI/ML development, and startup ecosystems</strong>. I've built robotic arms with 6 DOF, developed AI-powered security platforms, and created software solutions for professional markets.
+                    My work spans robotics design, AI/ML development, and startup ecosystems. I've built robotic arms with 6 degrees of freedom, developed AI-powered security platforms, and created professional software solutions.
                 </p>
                 <p>
-                    I believe in learning by building—pushing boundaries, experimenting with new technologies, and creating technologies that genuinely improve lives.
+                    I believe in learning by doing—experimenting with new technologies, building functional prototypes, and creating products that genuinely matter.
                 </p>
 
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">12+</div>
-                        <div class="stat-label">Projects</div>
+                        <div class="stat-label">Projects Built</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">3</div>
@@ -79,193 +73,197 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">6</div>
-                        <div class="stat-label">Years Building</div>
+                        <div class="stat-label">Years Coding</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>Featured Projects</h2>
         <div class="portfolio-grid">
-            <!-- Robotic Arms -->
             <a href="robotic-arm.html" class="portfolio-card">
+                <span class="portfolio-label">Robotics</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Robotic Arms</h3>
-                    <p class="portfolio-description">Three iterations with 6 DOF, wireless control, and autonomous capabilities</p>
+                    <p class="portfolio-description">Three iterations with 6 DOF and wireless control</p>
                 </div>
             </a>
 
-            <!-- Visenty -->
             <a href="visenty.html" class="portfolio-card">
+                <span class="portfolio-label">AI/Security</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Visenty AI</h3>
-                    <p class="portfolio-description">Real-time shoplifting detection with facial recognition (App Store)</p>
+                    <h3 class="portfolio-title">Visenty</h3>
+                    <p class="portfolio-description">Real-time shoplifting detection platform on App Store</p>
                 </div>
             </a>
 
-            <!-- Eloquently -->
             <a href="eloquently-app.html" class="portfolio-card">
+                <span class="portfolio-label">Mobile App</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Eloquently</h3>
-                    <p class="portfolio-description">AI-powered communication coach for public speaking improvement</p>
+                    <p class="portfolio-description">AI communication coach for public speaking</p>
                 </div>
             </a>
 
-            <!-- VLA -->
             <a href="vla-smartvla.html" class="portfolio-card">
+                <span class="portfolio-label">ML/Robotics</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">VLA Model</h3>
-                    <p class="portfolio-description">Vision Language Action model trained on SO-ARM101 robotic arm</p>
+                    <p class="portfolio-description">Vision Language Action model on robotic arm</p>
                 </div>
             </a>
 
-            <!-- Tactile Sensors -->
             <a href="tactile-sensors.html" class="portfolio-card">
+                <span class="portfolio-label">Hardware</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Tactile Sensors</h3>
-                    <p class="portfolio-description">Advanced touch sensing technology for humanoid robots</p>
+                    <p class="portfolio-description">Touch sensing for humanoid robots</p>
                 </div>
             </a>
 
-            <!-- Nutrium -->
             <a href="nutrium.html" class="portfolio-card">
+                <span class="portfolio-label">Software</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Nutrium</h3>
-                    <p class="portfolio-description">Professional nutrition management platform for nutritionists</p>
+                    <p class="portfolio-description">Nutrition management platform</p>
                 </div>
             </a>
 
-            <!-- Drone Case -->
             <a href="drone-case.html" class="portfolio-card">
+                <span class="portfolio-label">Design</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Drone Case</h3>
-                    <p class="portfolio-description">Waterproof protective case for sensitive drone equipment</p>
+                    <p class="portfolio-description">Waterproof protective equipment case</p>
                 </div>
             </a>
 
-            <!-- 3D Alive -->
             <a href="3d-alive.html" class="portfolio-card">
+                <span class="portfolio-label">Business</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">3D Alive</h3>
-                    <p class="portfolio-description">3D printing and engineering consulting business</p>
+                    <p class="portfolio-description">3D printing and engineering consulting</p>
                 </div>
             </a>
 
-            <!-- Anechoic Chamber -->
             <a href="anechoic-chamber.html" class="portfolio-card">
+                <span class="portfolio-label">Testing</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Anechoic Chamber</h3>
-                    <p class="portfolio-description">Acoustic testing chamber for drone noise evaluation</p>
+                    <p class="portfolio-description">Acoustic testing facility for drones</p>
                 </div>
             </a>
 
-            <!-- Pharmacy -->
             <a href="automated-compound-pharmacy.html" class="portfolio-card">
+                <span class="portfolio-label">Medical Tech</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Auto Pharmacy</h3>
-                    <p class="portfolio-description">Automated pharmaceutical dispensing system (in progress)</p>
+                    <p class="portfolio-description">Automated pharmaceutical dispensing</p>
                 </div>
             </a>
 
-            <!-- Dune Buggy -->
             <a href="dune-buggy.html" class="portfolio-card">
+                <span class="portfolio-label">Vehicles</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Dune Buggy</h3>
-                    <p class="portfolio-description">Functional vehicle built from scrap materials and engineering</p>
+                    <p class="portfolio-description">Off-road vehicle from recycled materials</p>
                 </div>
             </a>
 
-            <!-- Random Projects -->
             <a href="random-projects.html" class="portfolio-card">
+                <span class="portfolio-label">Misc</span>
+                <div class="portfolio-image"></div>
                 <div class="portfolio-overlay">
-                    <h3 class="portfolio-title">Misc Projects</h3>
-                    <p class="portfolio-description">Collection of experimental designs and builds</p>
+                    <h3 class="portfolio-title">Random Projects</h3>
+                    <p class="portfolio-description">Collection of experimental builds</p>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience">
-        <h2>Experience & Leadership</h2>
+        <h2>Experience</h2>
         <div class="experience-timeline">
-            <!-- Drone Lead -->
             <div class="experience-item">
                 <h3 class="experience-title">Drone Lead</h3>
                 <p class="experience-organization">McMaster University</p>
                 <p class="experience-dates">2023 - Present</p>
                 <p class="experience-description">
-                    Leading drone design, development, and testing initiatives. Coordinating multidisciplinary teams and advancing autonomous systems research in aerial robotics.
+                    Leading drone design, development, and autonomous systems research. Coordinating multidisciplinary teams on aerial robotics projects.
                 </p>
             </div>
 
-            <!-- South Park Commons -->
             <div class="experience-item">
                 <h3 class="experience-title">Startup Accelerator</h3>
                 <p class="experience-organization">South Park Commons</p>
                 <p class="experience-dates">2024</p>
                 <p class="experience-description">
-                    Intensive acceleration program developing business acumen and building connections with founders and investors. Prototyped and validated product ideas in collaborative innovation ecosystem.
+                    Intensive program developing business acumen, building investor networks, and validating product ideas in a collaborative ecosystem.
                 </p>
             </div>
 
-            <!-- Entrepreneurs First -->
             <div class="experience-item">
                 <h3 class="experience-title">Founder Program</h3>
                 <p class="experience-organization">Entrepreneurs First</p>
                 <p class="experience-dates">2023 - 2024</p>
                 <p class="experience-description">
-                    Selected for elite founder program. Matched with mentors and co-founders to build scalable solutions in deep tech and AI sectors. Focused on seed fundraising and venture launch.
+                    Elite founder program with mentorship and co-founder matching. Focused on building scalable solutions in deep tech and AI.
                 </p>
             </div>
 
-            <!-- Mechatronics Student -->
             <div class="experience-item">
                 <h3 class="experience-title">Mechatronics Engineering</h3>
                 <p class="experience-organization">McMaster University</p>
                 <p class="experience-dates">2021 - Present</p>
                 <p class="experience-description">
-                    Specialized in robotics, control systems, embedded systems, and mechanical design. Hands-on projects including 6-DOF robotic arms, autonomous systems, and advanced mechanical engineering.
+                    Specialized in robotics, control systems, embedded systems, and mechanical design with hands-on project experience.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
     <section id="resume">
         <h2>Resume</h2>
         <div class="resume-download">
             <button class="download-btn" onclick="window.location.href='Matt\\'s Resume.pdf'">
-                ⬇️ Download My Resume
+                Download Resume
             </button>
         </div>
         <div class="resume-embed">
-            <iframe src="Matt's Resume.pdf" title="Matt's Resume"></iframe>
+            <iframe src="Matt's Resume.pdf"></iframe>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
-        <h2>Let's Connect</h2>
-        <p class="contact-intro">Have an interesting project or want to collaborate? Drop me a message!</p>
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">Have a project in mind or just want to connect? Send me a message.</p>
         <div class="contact-form-wrapper">
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
                 </div>
 
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                    <textarea id="message" name="message" placeholder="Your message..." required></textarea>
                 </div>
 
                 <button type="button" class="submit-btn" onclick="sendEmail()">Send Message</button>
@@ -273,7 +271,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
         <div class="social-icons">
@@ -312,32 +309,13 @@
                 from_email: email,
                 message: message,
             }).then(function (response) {
-                alert("Message sent successfully! Thank you for reaching out.");
+                alert("Message sent! Thank you for reaching out.");
                 document.getElementById('contactForm').reset();
             }, function (error) {
-                alert("Failed to send the message. Please try again.");
-                console.error("EmailJS Error:", error);
+                alert("Failed to send message. Please try again.");
+                console.error("Error:", error);
             });
         }
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
     </script>
 </body>
 

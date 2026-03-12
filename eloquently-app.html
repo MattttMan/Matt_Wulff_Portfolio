@@ -1,93 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered communication coach for public speaking improvement">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
     <title>Eloquently App</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        section {
-            margin: 2rem auto;
-            max-width: 1200px;
-            padding: 1rem;
-        }
-
-        .project-description {
-            margin: 2rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three items per row */
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .project-gallery img,
-        .project-gallery video {
-            width: 100%;
-            max-width: 300px; /* Adjustable size */
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-specs {
-            margin-top: 2rem;
-        }
-
-        .project-specs h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-specs ul {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-specs ul li {
-            margin: 0.5rem 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
+
 <body>
-    <!-- Navigation -->
     <nav>
         <a href="index.html#about">About</a>
         <a href="index.html#portfolio">Portfolio</a>
@@ -96,67 +19,65 @@
         <a href="index.html#contact">Contact</a>
     </nav>
 
-    <header>
+    <header class="project-header">
         <h1>Eloquently App</h1>
+        <p>AI-powered communication coach for public speaking improvement</p>
     </header>
-    <section>
-        <p class="project-description">
-            The Eloquently App is an iOS application designed to help users improve their public speaking skills through AI-powered feedback. With real-time analysis and actionable insights, it provides an intuitive platform for building confidence and eloquence.
-        </p>
 
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <!-- First Row: 3 Images -->
-            <img src="eloquent-app-ui1.png" alt="Eloquently App UI 1">
-            <img src="eloquent-app-ui2.png" alt="Eloquently App UI 2">
-            <img src="eloquent-app-ui3.png" alt="Eloquently App UI 3">
-            
-            <!-- Second Row: 2 Images + Video -->
-            <img src="eloquent-app-ui4.png" alt="Eloquently App UI 4">
-            <img src="eloquent-app-ui5.png" alt="Eloquently App UI 5">
-            <video controls>
-                <source src="eloquent-app-demo.mov" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <section>
+        <div class="gallery-section">
+            <h2>App Features</h2>
+            <div class="project-specs">
+                <h3>AI Feedback System</h3>
+<ul>
+    <li>Real-time speech analysis and feedback</li>
+    <li>Tone and pacing detection</li>
+    <li>Confidence level assessment</li>
+    <li>Personalized improvement suggestions</li>
+</ul>
+
+<h3>User Experience</h3>
+<ul>
+    <li>Interactive practice sessions</li>
+    <li>Progress tracking over time</li>
+    <li>Performance metrics and statistics</li>
+    <li>Comparison with professional speakers</li>
+</ul>
+            </div>
         </div>
 
-        <!-- Project Details -->
-        <div class="project-specs">
-            <h3>Key Features</h3>
-            <ul>
-                <li><strong>AI Feedback:</strong> Real-time analysis of speech clarity, word usage, and pacing.</li>
-                <li><strong>Score:</strong> Offers performance scores to track improvement over time.</li>
-                <li><strong>User-Friendly:</strong> Intuitive design and clean interface.</li>
-                <li><strong>Software:</strong> Developed with Swift and integrated with ChatGPT AI APIs.</li>
-            </ul>
-            <section style="margin: 2rem auto; max-width: 1200px; padding: 2rem; background: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
-                <h2 style="color: #2c3e50; font-size: 2rem; margin-bottom: 1rem;">Download the App</h2>
-                <p style="color: #666; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
-                    Get started with Eloquently App today and elevate your speaking skills! Tap the button below to download the app.
-                </p>
-                <a href="https://apps.apple.com/us/app/eloquently/id6550894664" target="_blank" 
-                   style="display: inline-block; background: #007bff; color: white; padding: 1rem 2rem; font-size: 1.2rem; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s;">
-                    Download App
-                </a>
-            </section>
-            
-            <section style="margin: 2rem auto; max-width: 1200px; padding: 2rem; background: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #2c3e50; font-size: 2rem; text-align: center; margin-bottom: 1rem;">Future Improvements</h2>
-                <p style="color: #666; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; text-align: center;">
-                    We're dedicated to making Eloquently even better. Here’s a sneak peek at what’s coming in future updates:
-                </p>
-                <ul style="list-style-type: disc; color: #333; font-size: 1rem; line-height: 1.8; margin: 0 auto; padding: 0 1.5rem; max-width: 600px; text-align: left;">
-                    <li><strong>Enhanced GUI:</strong> A visually appealing and more intuitive design for better user experience.</li>
-                    <li><strong>Progress Tracking:</strong> Detailed progress metrics to help you monitor your improvements.</li>
-                    <li><strong>Lesson Backups:</strong> Secure backups to access your lessons and progress across devices.</li>
-                    <li><strong>Ad Support:</strong> Ads to support a free tier while maintaining premium features for paid users.</li>
-                    <li><strong>New Lessons:</strong> Regularly updated AI-driven lessons tailored to your progress and skill level.</li>
-                </ul>
-            </section>
+        <div class="gallery-section">
+            <h2>Technical Implementation</h2>
+            <div class="project-specs">
+                <h3>Technology Stack</h3>
+<ul>
+    <li>iOS native development (Swift)</li>
+    <li>Machine learning for speech analysis</li>
+    <li>Cloud backend for data processing</li>
+    <li>Real-time audio processing</li>
+</ul>
 
-        <p style="text-align: center; margin-top: 2rem;">
-            <a href="index.html">&larr; Back to Portfolio</a>
+<h3>AI Capabilities</h3>
+<ul>
+    <li>Natural language processing</li>
+    <li>Audio feature extraction</li>
+    <li>Behavioral pattern recognition</li>
+    <li>Personalized coaching algorithms</li>
+</ul>
+            </div>
+        </div>
+
+        
+
+        <p style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
         </p>
     </section>
+
+    <footer>
+        <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
+        <p class="footer-copyright">&copy; 2025 Matt Wulff</p>
+    </footer>
 </body>
+
 </html>
