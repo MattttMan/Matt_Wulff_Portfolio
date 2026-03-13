@@ -575,18 +575,16 @@ p {
     transform: scale(1.03);
 }
 
+/* 9 cards remain after hiding Cibus, Dune Buggy, Random Projects */
 .portfolio-card:nth-child(1) .portfolio-image { background-image: url('robotic-arm.jpg'); }
 .portfolio-card:nth-child(2) .portfolio-image { background-image: url('visenty-dashboard.png'); }
 .portfolio-card:nth-child(3) .portfolio-image { background-image: url('eloquent-app-ui1.png'); }
 .portfolio-card:nth-child(4) .portfolio-image { background-image: url('vla-model-setup.png'); }
 .portfolio-card:nth-child(5) .portfolio-image { background-image: url('tactile-sensor-array.png'); }
-.portfolio-card:nth-child(6) .portfolio-image { background-image: radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 35%, rgba(9,9,11,0.0) 70%), linear-gradient(135deg, rgba(99,102,241,0.18), rgba(34,211,238,0.08)); }
-.portfolio-card:nth-child(7) .portfolio-image { background-image: url('drone-case1.jpg'); }
-.portfolio-card:nth-child(8) .portfolio-image { background-image: url('3Dalive.jpeg'); }
-.portfolio-card:nth-child(9) .portfolio-image { background-image: url('anechoic-chamber1.jpg'); }
-.portfolio-card:nth-child(10) .portfolio-image { background-image: url('pharmacy-project.jpg'); }
-.portfolio-card:nth-child(11) .portfolio-image { background-image: url('dune-buggy.jpg'); }
-.portfolio-card:nth-child(12) .portfolio-image { background-image: url('electropiston.jpg'); }
+.portfolio-card:nth-child(6) .portfolio-image { background-image: url('drone-case1.jpg'); }
+.portfolio-card:nth-child(7) .portfolio-image { background-image: url('3Dalive.jpeg'); }
+.portfolio-card:nth-child(8) .portfolio-image { background-image: url('anechoic-chamber1.jpg'); }
+.portfolio-card:nth-child(9) .portfolio-image { background-image: url('pharmacy-project.jpg'); }
 
 .portfolio-overlay {
     padding: 1.2rem 1.4rem;
@@ -676,6 +674,16 @@ p {
     width: 100%;
     height: auto;
     display: block;
+    background: var(--zinc-900);
+    min-height: 280px;
+}
+
+/* Hide broken image icon when src is missing */
+.app-phone img[src="bold-af-home.png"]:not([src=""]),
+.app-phone img[src="bold-af-challenge-detail.png"]:not([src=""]),
+.app-phone img[src="bold-af-challenges-complete.png"]:not([src=""]),
+.app-phone img[src="bold-af-profile.png"]:not([src=""]) {
+    background: var(--zinc-900);
 }
 
 /* App text info */
