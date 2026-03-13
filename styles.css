@@ -630,9 +630,9 @@ p {
 .app-showcase {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 3.5rem;
     align-items: center;
-    padding: 5rem 0;
+    padding: 3.5rem 0;
     border-bottom: 1px solid var(--border);
 }
 
@@ -652,7 +652,7 @@ p {
 }
 
 .app-phone {
-    width: 150px;
+    width: 120px;
     flex-shrink: 0;
     border-radius: 28px;
     border: 1.5px solid rgba(255,255,255,0.1);
@@ -675,7 +675,7 @@ p {
     height: auto;
     display: block;
     background: var(--zinc-900);
-    min-height: 280px;
+    min-height: 220px;
 }
 
 /* Hide broken image icon when src is missing */
@@ -702,7 +702,7 @@ p {
 }
 
 .app-info h3 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
     letter-spacing: -1px;
