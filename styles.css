@@ -626,6 +626,209 @@ p {
 }
 
 /* ================================
+   APPS SHOWCASE
+   ================================ */
+
+.app-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.app-showcase--flip {
+    direction: rtl;
+}
+.app-showcase--flip > * {
+    direction: ltr;
+}
+
+/* Phone mockup cluster */
+.app-phones {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.app-phone {
+    width: 150px;
+    flex-shrink: 0;
+    border-radius: 28px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    background: #050505;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.app-phone:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+}
+
+.app-phone--raised {
+    transform: translateY(-20px);
+}
+
+.app-phone img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* App text info */
+.app-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #22d3ee;
+    margin-bottom: 0.9rem;
+}
+
+.app-badge--latest {
+    color: #a78bfa;
+}
+
+.app-info h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.app-info p {
+    color: var(--zinc-400);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+}
+
+.app-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.app-meta-chip {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--zinc-500);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.65rem;
+}
+
+.app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--zinc-300);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.app-link:hover {
+    color: var(--white);
+    border-bottom-color: var(--white);
+}
+
+/* Journey strip */
+.apps-journey {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.apps-journey-inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.apps-journey-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.apps-journey-num {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    background: linear-gradient(180deg, var(--white) 0%, var(--zinc-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.apps-journey-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--zinc-600);
+    margin-top: 0.4rem;
+    white-space: nowrap;
+}
+
+.apps-journey-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border);
+    flex-shrink: 0;
+}
+
+.apps-journey-copy {
+    flex: 1;
+}
+
+.apps-journey-copy p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--zinc-400);
+}
+
+.apps-journey-copy strong {
+    color: var(--zinc-200);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .app-showcase,
+    .app-showcase--flip {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        direction: ltr;
+    }
+    .app-phones { order: -1; }
+    .app-phone { width: 120px; border-radius: 22px; }
+    .app-info h3 { font-size: 1.8rem; }
+    .apps-journey-inner { flex-wrap: wrap; gap: 2rem; }
+    .apps-journey-divider { display: none; }
+}
+
+@media (max-width: 480px) {
+    .app-phone { width: 100px; border-radius: 18px; }
+    .app-phones { gap: 0.6rem; }
+}
+
+/* ================================
    BLOG — minimal list style
    ================================ */
 

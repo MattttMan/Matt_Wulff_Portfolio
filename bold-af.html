@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Bold AF — Matt Wulff</title>
+    <meta name="description" content="Bold AF — an iOS app helping people break free from stress and build confidence through daily challenges.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .phones-hero {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 1.5rem;
+            padding: 3rem 0 4rem;
+            flex-wrap: wrap;
+        }
+        .phone-mockup {
+            width: 200px;
+            border-radius: 32px;
+            border: 2px solid rgba(255,255,255,0.12);
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+            flex-shrink: 0;
+        }
+        .phone-mockup:hover { transform: translateY(-8px) scale(1.02); }
+        .phone-mockup:nth-child(2) { transform: translateY(-24px); }
+        .phone-mockup:nth-child(2):hover { transform: translateY(-32px) scale(1.02); }
+        .phone-mockup:nth-child(4) { transform: translateY(-12px); }
+        .phone-mockup:nth-child(4):hover { transform: translateY(-20px) scale(1.02); }
+        .phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .app-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .app-feature-card {
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+        }
+        .app-feature-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .app-feature-card h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--zinc-200);
+            margin-bottom: 0.4rem;
+        }
+        .app-feature-card p {
+            font-size: 0.8rem;
+            color: var(--zinc-500);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .phones-hero { gap: 1rem; }
+            .phone-mockup { width: 140px; }
+            .app-feature-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .phone-mockup { width: 120px; border-radius: 20px; }
+            .app-feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#apps">Apps</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Bold AF</h1>
+        <p>Break free from stress. Build unshakeable confidence.</p>
+    </header>
+
+    <section>
+        <p class="project-description">
+            Bold AF is an iOS app that helps people escape anxiety and build real-world confidence through daily challenges, streak tracking, and an AI coach. Built from personal experience — stress shouldn't win.
+        </p>
+
+        <!-- Phone gallery -->
+        <div class="phones-hero">
+            <div class="phone-mockup">
+                <img src="bold-af-home.png" alt="Bold AF Home — Confidence Tracker">
+            </div>
+            <div class="phone-mockup">
+                <img src="bold-af-challenge-detail.png" alt="Bold AF — Legendary Challenge">
+            </div>
+            <div class="phone-mockup">
+                <img src="bold-af-challenges-complete.png" alt="Bold AF — Challenge Completed">
+            </div>
+            <div class="phone-mockup">
+                <img src="bold-af-profile.png" alt="Bold AF — Profile">
+            </div>
+        </div>
+
+        <!-- Feature highlights -->
+        <div class="app-feature-grid">
+            <div class="app-feature-card">
+                <div class="icon">🔥</div>
+                <h4>Daily Challenges</h4>
+                <p>Legendary, hard, and normal-mode challenges that push you outside your comfort zone every day.</p>
+            </div>
+            <div class="app-feature-card">
+                <div class="icon">📈</div>
+                <h4>Confidence Tracking</h4>
+                <p>Visual progress meter that grows as you complete challenges and build streaks.</p>
+            </div>
+            <div class="app-feature-card">
+                <div class="icon">🤖</div>
+                <h4>AI Coach — Bestie</h4>
+                <p>An AI companion that keeps you accountable, celebrates wins, and helps you push through hard days.</p>
+            </div>
+            <div class="app-feature-card">
+                <div class="icon">⚡</div>
+                <h4>Streak System</h4>
+                <p>150-day streaks, panic button for tough moments, and a timer to keep momentum going.</p>
+            </div>
+        </div>
+
+        <div class="project-specs">
+            <h3>Tech Stack</h3>
+            <ul>
+                <li><strong>Platform:</strong> iOS (Swift / SwiftUI)</li>
+                <li><strong>AI:</strong> Claude API — powers the Bestie coach and challenge generation</li>
+                <li><strong>Backend:</strong> Firebase (auth, Firestore, analytics)</li>
+                <li><strong>Monetization:</strong> RevenueCat subscriptions — Premium tier</li>
+                <li><strong>Distribution:</strong> App Store</li>
+            </ul>
+            <h3>Status</h3>
+            <ul>
+                <li><strong>Stage:</strong> Live on the App Store</li>
+                <li><strong>Users:</strong> Active daily users with 150+ day streaks</li>
+                <li><strong>Role:</strong> Solo founder — design, development, marketing</li>
+            </ul>
+        </div>
+
+        <p class="text-center mt-2">
+            <a href="index.html#apps" class="back-link">← Back to Apps</a>
+        </p>
+    </section>
+</body>
+</html>
