@@ -10,7 +10,217 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Tactile Sensors for Humanoids</title>
+    <title>Tactile Sensors — Matt Wulff</title>
+    <style>
+        .ts-hero {
+            min-height: 52vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 var(--section-pad) 5rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+        .ts-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4ade80;
+            margin-bottom: 1.5rem;
+        }
+        .ts-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+        .ts-hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.0;
+            color: var(--white);
+            margin-bottom: 1.2rem;
+        }
+        .ts-hero-sub {
+            font-size: 1.1rem;
+            color: var(--zinc-500);
+            max-width: 520px;
+            line-height: 1.6;
+        }
+        .ts-hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        .ts-tag {
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--zinc-500);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+        }
+
+        /* ── Problem section ── */
+        .ts-problem {
+            padding: 5rem var(--section-pad);
+            border-bottom: 1px solid var(--border);
+        }
+        .ts-problem-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--zinc-600);
+            margin-bottom: 1.5rem;
+        }
+        .ts-problem-heading {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--white);
+            margin-bottom: 3.5rem;
+            max-width: 680px;
+            line-height: 1.2;
+        }
+        .ts-loop {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 0;
+            max-width: 860px;
+        }
+        .ts-loop-node {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.6rem 1.4rem;
+            text-align: center;
+        }
+        .ts-loop-node-num {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--zinc-700);
+            margin-bottom: 0.6rem;
+        }
+        .ts-loop-node-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--zinc-200);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+        .ts-loop-node-desc {
+            font-size: 0.78rem;
+            color: var(--zinc-600);
+            line-height: 1.5;
+        }
+        .ts-loop-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 0.8rem;
+            color: var(--zinc-700);
+            font-size: 1.1rem;
+        }
+
+        /* ── Body text ── */
+        .ts-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            padding: 5rem var(--section-pad);
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .ts-body-left h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .ts-body-right p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--zinc-400);
+            margin-bottom: 1.4rem;
+        }
+        .ts-body-right p:last-child {
+            margin-bottom: 0;
+        }
+        .ts-highlight {
+            color: var(--zinc-200);
+            font-weight: 500;
+        }
+
+        /* ── Images ── */
+        .ts-images {
+            padding: 5rem var(--section-pad);
+            border-bottom: 1px solid var(--border);
+        }
+        .ts-images-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--zinc-600);
+            margin-bottom: 2rem;
+        }
+        .ts-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .ts-images-grid img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            display: block;
+            transition: transform 0.4s ease, border-color 0.3s ease;
+        }
+        .ts-images-grid img:hover {
+            transform: scale(1.01);
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        /* ── Footer nav ── */
+        .ts-footer-nav {
+            padding: 3rem var(--section-pad);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .ts-loop { grid-template-columns: 1fr; gap: 0.5rem; }
+            .ts-loop-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+            .ts-body { grid-template-columns: 1fr; gap: 2.5rem; }
+            .ts-images-grid { grid-template-columns: 1fr; }
+            .ts-images-grid img { height: 220px; }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,43 +232,83 @@
         <a href="index.html#contact">Contact</a>
     </nav>
 
-    <header class="project-header">
-        <h1>Tactile Sensors for Humanoids</h1>
-        <p>Solving the chicken-and-egg problem in robotic touch</p>
+    <!-- ── Hero ── -->
+    <header class="ts-hero">
+        <div class="ts-status">
+            <span class="ts-status-dot"></span>
+            In Active Development
+        </div>
+        <h1>Tactile Sensors<br>for Humanoids</h1>
+        <p class="ts-hero-sub">Solving the chicken-and-egg problem in robotic touch — building cheap, scalable sensors that can run on any humanoid.</p>
+        <div class="ts-hero-tags">
+            <span class="ts-tag">Embedded Systems</span>
+            <span class="ts-tag">Sensor Design</span>
+            <span class="ts-tag">PCB Layout</span>
+            <span class="ts-tag">LeRobot SO-101</span>
+            <span class="ts-tag">Humanoid Robotics</span>
+            <span class="ts-tag">Tactile Data</span>
+        </div>
     </header>
 
-    <section>
-        <div class="gallery-section">
-            <div class="project-specs" style="max-width: 720px;">
-                <p style="font-size: 1.05rem; line-height: 1.85; color: var(--zinc-300);">
-                    There's a chicken-and-egg problem in tactile sensing. We don't have good tactile data because we don't have good cheap sensors. We don't have good cheap sensors because nobody has figured out how to make them yet. And we don't have the models to make use of that data even if we did.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.85; color: var(--zinc-300); margin-top: 1.5rem;">
-                    I'm building tactile sensors that are cheap enough to actually scale. Starting with the LeRobot SO-101 as the development platform, the goal is sensors that can be deployed across any humanoid or robot platform — not a one-off research prototype.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.85; color: var(--zinc-300); margin-top: 1.5rem;">
-                    The vision: get real tactile data at scale, feed it back into models, and start closing that loop. Humanoids need touch to do useful work in the real world. That can't happen until the sensors are cheap, robust, and everywhere.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.85; color: var(--zinc-400); margin-top: 1.5rem;">
-                    Currently in active development.
-                </p>
+    <!-- ── The Problem ── -->
+    <div class="ts-problem">
+        <p class="ts-problem-label">The Problem</p>
+        <h2 class="ts-problem-heading">A loop nobody has broken yet</h2>
+        <div class="ts-loop">
+            <div class="ts-loop-node">
+                <div class="ts-loop-node-num">01</div>
+                <div class="ts-loop-node-title">No tactile data</div>
+                <div class="ts-loop-node-desc">Models can't learn touch without a real dataset to train on</div>
+            </div>
+            <div class="ts-loop-arrow">→</div>
+            <div class="ts-loop-node">
+                <div class="ts-loop-node-num">02</div>
+                <div class="ts-loop-node-title">No cheap sensors</div>
+                <div class="ts-loop-node-desc">No one has figured out how to make them cheap and scalable yet</div>
+            </div>
+            <div class="ts-loop-arrow">→</div>
+            <div class="ts-loop-node">
+                <div class="ts-loop-node-num">03</div>
+                <div class="ts-loop-node-title">No supporting models</div>
+                <div class="ts-loop-node-desc">Even with sensors, the model infrastructure for tactile learning doesn't exist</div>
             </div>
         </div>
+    </div>
 
-        <div class="gallery-section">
-            <h2>Sensor Design</h2>
-            <div class="gallery-images">
-                <img src="tactile-sensor-cad.png" alt="Tactile sensor CAD model">
-                <img src="tactile-sensor-pcb.png" alt="Tactile sensor PCB">
-                <img src="tactile-sensor-chip.png" alt="Tactile sensor prototype">
-                <img src="tactile-sensor-array.png" alt="Tactile sensor array">
-            </div>
+    <!-- ── Body ── -->
+    <div class="ts-body">
+        <div class="ts-body-left">
+            <h2>Breaking the loop with cheap, scalable sensors</h2>
         </div>
+        <div class="ts-body-right">
+            <p>
+                I'm building tactile sensors that are cheap enough to actually scale. Starting with the <span class="ts-highlight">LeRobot SO-101</span> as the development platform — the goal isn't a one-off research prototype. It's sensors that can be deployed across any humanoid or robot platform.
+            </p>
+            <p>
+                The bigger vision: get real tactile data at scale, feed it back into models, and start closing the loop. Humanoids need touch to do useful work in the real world. That can't happen until the sensors exist in large enough numbers to matter.
+            </p>
+            <p style="color: var(--zinc-600); font-size: 0.9rem;">
+                Currently in active development. Starting with the SO-101, with the intent to scale to all humanoid platforms.
+            </p>
+        </div>
+    </div>
 
-        <p class="text-center mt-2">
-            <a href="index.html" class="back-link">Back to Portfolio</a>
-        </p>
-    </section>
+    <!-- ── Images ── -->
+    <div class="ts-images">
+        <p class="ts-images-label">Sensor Design</p>
+        <div class="ts-images-grid">
+            <img src="tactile-sensor-cad.png" alt="Tactile sensor CAD model">
+            <img src="tactile-sensor-pcb.png" alt="Tactile sensor PCB">
+            <img src="tactile-sensor-chip.png" alt="Tactile sensor prototype">
+            <img src="tactile-sensor-array.png" alt="Tactile sensor array">
+        </div>
+    </div>
+
+    <!-- ── Footer nav ── -->
+    <div class="ts-footer-nav">
+        <a href="index.html" class="back-link" style="margin-top: 0;">← Back to Portfolio</a>
+    </div>
+
 </body>
 
 </html>
