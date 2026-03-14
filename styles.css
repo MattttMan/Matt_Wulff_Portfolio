@@ -177,6 +177,16 @@ nav a:hover::after {
     z-index: 0;
 }
 
+/* Cursor-tracking robotic arm canvas */
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
 /* Subtle radial glow */
 .home-hero::after {
     content: '';
@@ -441,15 +451,17 @@ p {
 .portfolio-card:nth-child(1) .portfolio-image { background-image: url('robotic-arm.jpg'); }
 .portfolio-card:nth-child(2) .portfolio-image { background-image: url('visenty-dashboard.png'); }
 .portfolio-card:nth-child(3) .portfolio-image { background-image: url('eloquent-app-ui1.png'); }
-.portfolio-card:nth-child(4) .portfolio-image { background-image: url('vla-model-setup.png'); }
-.portfolio-card:nth-child(5) .portfolio-image { background-image: url('tactile-sensor-array.png'); }
-.portfolio-card:nth-child(6) .portfolio-image { background-image: radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 35%, rgba(9,9,11,0.0) 70%), linear-gradient(135deg, rgba(99,102,241,0.18), rgba(34,211,238,0.08)); }
-.portfolio-card:nth-child(7) .portfolio-image { background-image: url('drone-case1.jpg'); }
-.portfolio-card:nth-child(8) .portfolio-image { background-image: url('3Dalive.jpeg'); }
-.portfolio-card:nth-child(9) .portfolio-image { background-image: url('anechoic-chamber1.jpg'); }
-.portfolio-card:nth-child(10) .portfolio-image { background-image: url('pharmacy-project.jpg'); }
-.portfolio-card:nth-child(11) .portfolio-image { background-image: url('dune-buggy.jpg'); }
-.portfolio-card:nth-child(12) .portfolio-image { background-image: url('electropiston.jpg'); }
+.portfolio-card.bold-af-card .portfolio-image { background-image: url('bold-af-1.jpg'); background-position: top center; }
+.portfolio-card:nth-child(5) .portfolio-image { background-image: url('vla-model-setup.png'); }
+.portfolio-card:nth-child(6) .portfolio-image { background-image: url('tactile-sensor-array.png'); }
+.portfolio-card:nth-child(7) .portfolio-image { background-image: radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 35%, rgba(9,9,11,0.0) 70%), linear-gradient(135deg, rgba(99,102,241,0.18), rgba(34,211,238,0.08)); }
+.portfolio-card:nth-child(8) .portfolio-image { background-image: url('drone-case1.jpg'); }
+.portfolio-card:nth-child(9) .portfolio-image { background-image: url('3Dalive.jpeg'); }
+.portfolio-card:nth-child(10) .portfolio-image { background-image: url('anechoic-chamber1.jpg'); }
+.portfolio-card:nth-child(11) .portfolio-image { background-image: url('pharmacy-project.jpg'); }
+.portfolio-card:nth-child(12) .portfolio-image { background-image: url('dune-buggy.jpg'); }
+.portfolio-card:nth-child(13) .portfolio-image { background-image: url('electropiston.jpg'); }
+
 
 .portfolio-overlay {
     padding: 1.2rem 1.4rem;
@@ -892,6 +904,79 @@ footer {
 .gallery-section h2 {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
+}
+
+/* App screenshot gallery (phone portrait, no crop) */
+.app-screenshots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+    align-items: start;
+}
+
+.app-screenshots img {
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    display: block;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.app-screenshots img:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width: 768px) {
+    .app-screenshots { grid-template-columns: 1fr; max-width: 320px; margin-inline: auto; }
+}
+
+/* Bold full-bleed photo layouts */
+.photo-hero {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid var(--border);
+}
+
+.photo-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.photo-pair img {
+    width: 100%;
+    height: 55vh;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid var(--border);
+    transition: transform 0.5s var(--ease-out-expo);
+}
+
+.photo-pair img:hover {
+    transform: scale(1.01);
+}
+
+.photo-full {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .photo-pair { grid-template-columns: 1fr; }
+    .photo-hero, .photo-pair img, .photo-full { height: 50vw; min-height: 220px; }
 }
 
 /* Image gallery for project pages */

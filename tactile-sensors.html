@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tactile Sensors for Humanoids - Advanced touch sensing technology">
+    <meta name="description" content="Tactile Sensors for Humanoids - Cheap, scalable touch sensing for any humanoid platform">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="scrolled">
         <a href="index.html#about">About</a>
         <a href="index.html#portfolio">Work</a>
@@ -25,175 +24,134 @@
 
     <header class="project-header">
         <h1>Tactile Sensors for Humanoids</h1>
-        <p>Advanced touch sensing technology for robotic perception</p>
+        <p>Solving the chicken-and-egg problem in robotic touch</p>
     </header>
 
     <section>
         <p class="project-description">
-            Developing advanced tactile sensing technology for humanoid robots.
-            Enabling robots to perceive pressure, texture, temperature, and force feedback
-            for more human-like interaction and manipulation capabilities.
+            Building cheap, scalable tactile sensors that can run on any humanoid. The goal isn't a one-off research prototype — it's sensors that are deployable across platforms, generating the data needed to train the next generation of contact-aware manipulation models.
         </p>
 
-        <!-- Sensor Design Images -->
+        <!-- Hardware Photos -->
         <div class="gallery-section">
-            <h2>Sensor Design</h2>
-            <div class="gallery-images">
-                <img src="tactile-sensor-cad.png" alt="Tactile sensor CAD model showing multi-element array design">
-                <img src="tactile-sensor-pcb.png" alt="Tactile sensor PCB layout and routing view">
-                <img src="tactile-sensor-chip.png" alt="Tactile sensor prototype chip with wire bonds">
-                <img src="tactile-sensor-array.png" alt="Tactile sensor array prototype close-up">
+            <h2>Hardware Prototype</h2>
+            <img src="tactile-sensor-photo-IMG_2798.jpg" alt="Robotic hand gripper with tactile sensor fingertips" class="photo-hero">
+            <div class="photo-pair">
+                <img src="tactile-sensor-photo-IMG_2802.jpg" alt="Tactile sensor fingertip with camera module">
+                <img src="tactile-sensor-photo-IMG_2799.jpg" alt="Tactile sensor prototype assembly">
+            </div>
+            <div class="photo-pair">
+                <img src="tactile-sensor-photo-IMG_2804.jpg" alt="Silicone sensor pad with bump array">
+                <img src="tactile-sensor-photo-IMG_2807.jpg" alt="Silicone fingertip with fine bump array">
+            </div>
+            <img src="tactile-sensor-photo-IMG_2813.jpg" alt="Vacuum chamber for silicone casting" class="photo-full">
+        </div>
+
+        <!-- The Problem -->
+        <div class="gallery-section">
+            <h2>The Problem</h2>
+            <div class="project-specs">
+                <p>
+                    Humanoid robots can't do contact-rich manipulation reliably. Not because the models aren't good enough — but because there's almost no tactile training data. And there's no tactile training data because there are almost no cheap, deployable sensors to collect it with. A loop nobody has broken yet.
+                </p>
+                <h3>No tactile data</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0 1.5rem;">Models can't learn touch without a real dataset to train on. Vision-only manipulation fails on deformable objects, in-hand reorientation, and anything requiring force estimation.</p>
+                <h3>No cheap sensors</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0 1.5rem;">Existing tactile sensors (GelSight, DIGIT, AnySkin) cost hundreds of dollars per fingertip. At that price point, you can't instrument a full hand, let alone a fleet.</p>
+                <h3>No supporting infrastructure</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0;">Even with sensors, the model architecture and dataset format for tactile learning hasn't been standardized. Every lab reinvents the stack.</p>
             </div>
         </div>
 
-        <!-- Overview -->
+        <!-- The Approach -->
         <div class="gallery-section">
-            <h2>Project Vision</h2>
+            <h2>The Approach</h2>
             <div class="project-specs">
-                <p>
-                    Humanoid robots require sophisticated tactile sensing to interact safely and effectively with their environment.
-                    This project develops sensor arrays that can be integrated into robot hands, arms, and body surfaces to provide:
-                </p>
-                <ul>
-                    <li>Real-time pressure and force detection</li>
-                    <li>Surface texture discrimination</li>
-                    <li>Temperature sensing for safety</li>
-                    <li>Slip detection for grasping stability</li>
-                    <li>Feedback for dexterous manipulation</li>
-                </ul>
+                <h3>Vision-based tactile sensing</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0 1.5rem;">Using a camera embedded in a soft silicone fingertip. Contact deforms the elastomer surface, and the camera captures those deformations as high-resolution contact images. The same principle as GelSight — but designed from the start for low BOM cost and manufacturability at scale.</p>
+                <h3>Built for LeRobot SO-101</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0 1.5rem;">The sensor integrates directly with the SO-ARM101 / LeRobot SO-101 platform. This means any lab or developer already running LeRobot can add tactile sensing without custom integration work.</p>
+                <h3>Generating the dataset</h3>
+                <p style="color: var(--zinc-500); font-size: 0.95rem; margin: 0.5rem 0;">The hardware is the means, not the end. The goal is a large-scale tactile manipulation dataset — contact images, force estimates, and paired action sequences — that can be used to train and fine-tune VLA models with touch awareness.</p>
             </div>
         </div>
 
         <!-- Sensor Design -->
         <div class="gallery-section">
-            <h2>Sensor Technology</h2>
+            <h2>Sensor Design</h2>
+            <div class="project-gallery">
+                <img src="tactile-sensor-cad.png" alt="Tactile sensor CAD model">
+                <img src="tactile-sensor-pcb.png" alt="Tactile sensor PCB layout">
+                <img src="tactile-sensor-chip.png" alt="Tactile sensor prototype chip">
+                <img src="tactile-sensor-array.png" alt="Tactile sensor array close-up">
+            </div>
+        </div>
+
+        <!-- Specs -->
+        <div class="gallery-section">
+            <h2>Technical Specs</h2>
             <div class="project-specs">
-                <h3>Sensing Modalities</h3>
+                <h3>Sensing</h3>
                 <ul>
-                    <li><strong>Capacitive Sensing:</strong> Detects pressure and proximity changes</li>
-                    <li><strong>Piezoelectric Sensors:</strong> Measures force and vibration</li>
-                    <li><strong>Thermal Sensors:</strong> Temperature detection for safety</li>
-                    <li><strong>Optical Tactile Sensors:</strong> RGB camera-based high-resolution touch sensing</li>
+                    <li><strong>Modality:</strong> Vision-based optical tactile (camera + elastomer)</li>
+                    <li><strong>Resolution:</strong> ~160×120 contact image per fingertip</li>
+                    <li><strong>Response time:</strong> &lt;10ms at 30fps</li>
+                    <li><strong>Detects:</strong> Contact location, normal force, shear, slip, surface texture</li>
                 </ul>
-
-                <h3>Sensor Array Configuration</h3>
+                <h3>Hardware</h3>
                 <ul>
-                    <li>Distributed sensor placement across contact surfaces</li>
-                    <li>Multi-layer design for sensitivity gradation</li>
-                    <li>Flexible substrates for curved robot surfaces</li>
-                    <li>Hermetic sealing for environmental resistance</li>
+                    <li><strong>Camera:</strong> Miniature wide-angle module, fits within standard fingertip geometry</li>
+                    <li><strong>Elastomer:</strong> Custom-cast silicone with marker pattern for deformation tracking</li>
+                    <li><strong>PCB:</strong> Custom board for power, camera interface, and LED illumination control</li>
+                    <li><strong>Target BOM:</strong> Sub-$30 per fingertip at small volume</li>
                 </ul>
-
-                <h3>Key Specifications</h3>
+                <h3>Integration</h3>
                 <ul>
-                    <li><strong>Pressure Range:</strong> 0-1000+ kPa</li>
-                    <li><strong>Spatial Resolution:</strong> 1-5cm grid spacing</li>
-                    <li><strong>Response Time:</strong> &lt;10ms</li>
-                    <li><strong>Temperature Range:</strong> -10°C to 50°C</li>
+                    <li><strong>Platform:</strong> SO-ARM101 / LeRobot SO-101 (drop-in compatible)</li>
+                    <li><strong>Interface:</strong> USB-C or SPI, configurable</li>
+                    <li><strong>Software:</strong> LeRobot-compatible dataset format for direct training integration</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Integration -->
+        <!-- Status -->
         <div class="gallery-section">
-            <h2>Robot Integration</h2>
-            <div class="project-specs">
-                <h3>Installation Points</h3>
-                <ul>
-                    <li><strong>Fingertips:</strong> High-resolution arrays for manipulation feedback</li>
-                    <li><strong>Palm:</strong> Pressure distribution sensing for grasping</li>
-                    <li><strong>Forearm:</strong> Contact detection during physical interaction</li>
-                    <li><strong>Body Surface:</strong> Whole-body tactile perception</li>
-                </ul>
-
-                <h3>Data Processing Pipeline</h3>
-                <ol>
-                    <li>Analog signal acquisition from sensor array</li>
-                    <li>Noise filtering and normalization</li>
-                    <li>Feature extraction (contact location, pressure profile, slip detection)</li>
-                    <li>Sensor fusion with proprioceptive data</li>
-                    <li>Real-time feedback to control system</li>
-                </ol>
-
-                <h3>Control Integration</h3>
-                <ul>
-                    <li>Grasp stability monitoring and adjustment</li>
-                    <li>Slip prevention through closed-loop control</li>
-                    <li>Force-limited interaction for safety</li>
-                    <li>Dexterous manipulation with tactile feedback</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Applications -->
-        <div class="gallery-section">
-            <h2>Applications & Use Cases</h2>
-            <div class="project-specs">
-                <h3>Manipulation Tasks</h3>
-                <ul>
-                    <li>Picking delicate objects without damage</li>
-                    <li>Assembly tasks requiring precision feedback</li>
-                    <li>Tool handling with proper grip force</li>
-                    <li>Object manipulation in uncertain environments</li>
-                </ul>
-
-                <h3>Safety & Interaction</h3>
-                <ul>
-                    <li>Human-robot collaborative task detection</li>
-                    <li>Safety-critical force limiting</li>
-                    <li>Tactile collision avoidance</li>
-                    <li>Safe physical interaction monitoring</li>
-                </ul>
-
-                <h3>Research Applications</h3>
-                <ul>
-                    <li>Studying human-robot interaction</li>
-                    <li>Tactile perception learning</li>
-                    <li>Sensorimotor coordination</li>
-                    <li>Whole-body control strategies</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Technical Challenges -->
-        <div class="gallery-section">
-            <h2>Technical Challenges & Solutions</h2>
-            <div class="project-specs">
-                <h3>Key Challenges</h3>
-                <ul>
-                    <li><strong>High Dimensionality:</strong> Managing data from hundreds of sensors</li>
-                    <li><strong>Noise & Calibration:</strong> Maintaining accuracy across varying conditions</li>
-                    <li><strong>Real-time Processing:</strong> Low-latency feedback for control loops</li>
-                    <li><strong>Durability:</strong> Sensors must withstand repeated contact and stress</li>
-                </ul>
-
-                <h3>Solutions Implemented</h3>
-                <ul>
-                    <li>Advanced signal processing and filtering algorithms</li>
-                    <li>Machine learning for sensor fusion and interpretation</li>
-                    <li>Optimized firmware for real-time processing</li>
-                    <li>Robust mechanical design with redundancy</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Future Directions -->
-        <div class="gallery-section">
-            <h2>Future Development</h2>
-            <div class="project-specs">
-                <ul>
-                    <li>Improved sensor sensitivity and spatial resolution</li>
-                    <li>Integration with machine learning for learned tactile perception</li>
-                    <li>Multimodal sensor fusion with vision and proprioception</li>
-                    <li>Whole-body tactile sensing systems</li>
-                    <li>Wireless sensor networks for mobile platforms</li>
-                    <li>Real-world deployment on commercial humanoids</li>
-                </ul>
+            <h2>Status</h2>
+            <div class="status-bar">
+                <div class="status-step completed">
+                    <div class="status-circle"></div>
+                    <span>Sensor<br>design</span>
+                </div>
+                <div class="status-arrow">→</div>
+                <div class="status-step completed">
+                    <div class="status-circle"></div>
+                    <span>PCB<br>layout</span>
+                </div>
+                <div class="status-arrow">→</div>
+                <div class="status-step completed">
+                    <div class="status-circle"></div>
+                    <span>Silicone<br>casting</span>
+                </div>
+                <div class="status-arrow">→</div>
+                <div class="status-step completed">
+                    <div class="status-circle"></div>
+                    <span>Hardware<br>prototype</span>
+                </div>
+                <div class="status-arrow">→</div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>Dataset<br>collection</span>
+                </div>
+                <div class="status-arrow">→</div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>Model<br>training</span>
+                </div>
             </div>
         </div>
 
         <p class="text-center mt-2">
-            <a href="index.html" class="back-link">Back to Portfolio</a>
+            <a href="index.html#card-tactile" class="back-link">Back to Portfolio</a>
         </p>
     </section>
 </body>

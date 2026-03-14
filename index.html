@@ -44,6 +44,7 @@
     </nav>
 
     <header class="home-hero">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
         <div class="hero-content">
             <h1>Matt Wulff</h1>
             <p class="subtitle">Roboticist | Prev@Tesla | Prev@Skygauge | Entrepreneurs First | Tactile Sensing</p>
@@ -208,7 +209,7 @@
             </p>
         </div>
         <div class="portfolio-grid">
-            <a href="robotic-arm.html" class="portfolio-card reveal">
+            <a href="robotic-arm.html" class="portfolio-card reveal" id="card-robotic-arm">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Robotics</span>
                     <div class="portfolio-image"></div>
@@ -219,7 +220,7 @@
                 </div>
             </a>
 
-            <a href="visenty.html" class="portfolio-card reveal">
+            <a href="visenty.html" class="portfolio-card reveal" id="card-visenty">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">AI / Security</span>
                     <div class="portfolio-image"></div>
@@ -230,7 +231,7 @@
                 </div>
             </a>
 
-            <a href="eloquently-app.html" class="portfolio-card reveal">
+            <a href="eloquently-app.html" class="portfolio-card reveal" id="card-eloquently">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Mobile App</span>
                     <div class="portfolio-image"></div>
@@ -241,7 +242,18 @@
                 </div>
             </a>
 
-            <a href="vla-smartvla.html" class="portfolio-card reveal">
+            <a href="bold-af.html" class="portfolio-card reveal bold-af-card" id="card-bold-af">
+                <div class="portfolio-image-wrapper">
+                    <span class="portfolio-label">Mobile App</span>
+                    <div class="portfolio-image"></div>
+                </div>
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Bold AF</h3>
+                    <p class="portfolio-description">Challenge yourself and build confidence daily</p>
+                </div>
+            </a>
+
+            <a href="vla-smartvla.html" class="portfolio-card reveal" id="card-vla">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">ML / Robotics</span>
                     <div class="portfolio-image"></div>
@@ -252,7 +264,7 @@
                 </div>
             </a>
 
-            <a href="tactile-sensors.html" class="portfolio-card reveal">
+            <a href="tactile-sensors.html" class="portfolio-card reveal" id="card-tactile">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Hardware</span>
                     <div class="portfolio-image"></div>
@@ -263,7 +275,7 @@
                 </div>
             </a>
 
-            <a href="cibus.html" class="portfolio-card reveal">
+            <a href="cibus.html" class="portfolio-card reveal" id="card-cibus">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Software</span>
                     <div class="portfolio-image"></div>
@@ -274,7 +286,7 @@
                 </div>
             </a>
 
-            <a href="drone-case.html" class="portfolio-card reveal">
+            <a href="drone-case.html" class="portfolio-card reveal" id="card-drone">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Design</span>
                     <div class="portfolio-image"></div>
@@ -285,7 +297,7 @@
                 </div>
             </a>
 
-            <a href="3d-alive.html" class="portfolio-card reveal">
+            <a href="3d-alive.html" class="portfolio-card reveal" id="card-3d-alive">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Business</span>
                     <div class="portfolio-image"></div>
@@ -296,7 +308,7 @@
                 </div>
             </a>
 
-            <a href="anechoic-chamber.html" class="portfolio-card reveal">
+            <a href="anechoic-chamber.html" class="portfolio-card reveal" id="card-anechoic">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Testing</span>
                     <div class="portfolio-image"></div>
@@ -307,7 +319,7 @@
                 </div>
             </a>
 
-            <a href="automated-compound-pharmacy.html" class="portfolio-card reveal">
+            <a href="automated-compound-pharmacy.html" class="portfolio-card reveal" id="card-pharmacy">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Medical Tech</span>
                     <div class="portfolio-image"></div>
@@ -318,7 +330,7 @@
                 </div>
             </a>
 
-            <a href="dune-buggy.html" class="portfolio-card reveal">
+            <a href="dune-buggy.html" class="portfolio-card reveal" id="card-dune-buggy">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Vehicles</span>
                     <div class="portfolio-image"></div>
@@ -329,7 +341,7 @@
                 </div>
             </a>
 
-            <a href="random-projects.html" class="portfolio-card reveal">
+            <a href="random-projects.html" class="portfolio-card reveal" id="card-random">
                 <div class="portfolio-image-wrapper">
                     <span class="portfolio-label">Misc</span>
                     <div class="portfolio-image"></div>
@@ -381,21 +393,19 @@
         <div class="timeline">
             <div class="timeline-item reveal">
                 <div class="timeline-marker"></div>
-                <div class="timeline-date">~2008</div>
+                <div class="timeline-date">~2011</div>
                 <div class="timeline-content">
-                    <h3>Started Coding</h3>
-                    <p>Wrote my first lines of code at 8 years old. The beginning of an obsession with making things
-                        work.</p>
+                    <h3>Started Building</h3>
+                    <p>Started building and taking things apart at 8 years old. The beginning of an obsession with figuring out how things work.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal">
                 <div class="timeline-marker"></div>
-                <div class="timeline-date">2008 — 2019</div>
+                <div class="timeline-date">2011 — 2019</div>
                 <div class="timeline-content">
                     <h3>Building Through School</h3>
-                    <p>Built sketchy robots, apps, and broke everything I could get my hands on. Learned by doing, long
-                        before university.</p>
+                    <p>Built sketchy robots, took apart everything I could get my hands on to see how they worked, and learned by doing long before university.</p>
                 </div>
             </div>
 
@@ -497,7 +507,7 @@
     <section id="contact">
         <div class="reveal">
             <div class="section-line" style="margin: 0 auto 2rem auto;"></div>
-            <h2>Let's Build Something</h2>
+            <h2>Get in touch with Matt</h2>
         </div>
         <div class="contact-form-wrapper reveal">
             <form id="contactForm">
@@ -528,7 +538,7 @@
     </section>
 
     <footer>
-        <p class="footer-motto">Today's Dreams are Tomorrow's Reality</p>
+        <p class="footer-motto">Why aren't there more robots?</p>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/matthew-wulff/" target="_blank" title="LinkedIn">
                 <img src="linkedin-icon.png" alt="LinkedIn">
@@ -551,6 +561,206 @@
     </footer>
 
     <script>
+        // ================================
+        // CURSOR-RESPONSIVE ROBOTIC ARM
+        // ================================
+        (function () {
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            const hero = document.querySelector('.home-hero');
+
+            const L1 = 190, L2 = 155, L3 = 60;
+            let baseX, baseY;
+            let mouseX, mouseY;
+            let smoothX, smoothY;
+            let isInHero = false;
+            let idleAngle = 0;
+
+            function resizeCanvas() {
+                canvas.width = hero.offsetWidth;
+                canvas.height = hero.offsetHeight;
+                baseX = canvas.width * 0.78;
+                baseY = canvas.height * 0.92;
+                if (!isInHero) {
+                    mouseX = baseX - 260;
+                    mouseY = baseY - 320;
+                    smoothX = mouseX;
+                    smoothY = mouseY;
+                }
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            hero.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+                isInHero = true;
+            });
+
+            hero.addEventListener('mouseleave', () => {
+                isInHero = false;
+            });
+
+            function solveIK(tx, ty) {
+                const dx = tx - baseX;
+                const dy = ty - baseY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                const maxR = L1 + L2 - 4;
+                const minR = Math.abs(L1 - L2) + 4;
+                dist = Math.max(minR, Math.min(maxR, dist));
+
+                const cosA2 = (L1 * L1 + L2 * L2 - dist * dist) / (2 * L1 * L2);
+                const a2 = Math.acos(Math.max(-1, Math.min(1, cosA2)));
+                const angleToTarget = Math.atan2(dy, dx);
+                const cosA1 = (L1 * L1 + dist * dist - L2 * L2) / (2 * L1 * dist);
+                const a1Off = Math.acos(Math.max(-1, Math.min(1, cosA1)));
+                const a1 = angleToTarget - a1Off;
+                const a2Total = a1 + (Math.PI - a2);
+
+                const j1x = baseX + L1 * Math.cos(a1);
+                const j1y = baseY + L1 * Math.sin(a1);
+                const j2x = j1x + L2 * Math.cos(a2Total);
+                const j2y = j1y + L2 * Math.sin(a2Total);
+                return { j1x, j1y, j2x, j2y, a2Total };
+            }
+
+            function drawSegment(x1, y1, x2, y2, width, alpha) {
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+                ctx.lineWidth = width;
+                ctx.stroke();
+            }
+
+            function drawJoint(x, y, r, alpha) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+                ctx.fill();
+                // Inner ring
+                ctx.beginPath();
+                ctx.arc(x, y, r * 0.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(20,20,20,0.9)`;
+                ctx.fill();
+            }
+
+            function drawGripper(x, y, angle, openAmt) {
+                const perpX = Math.cos(angle + Math.PI / 2);
+                const perpY = Math.sin(angle + Math.PI / 2);
+                const fwdX = Math.cos(angle);
+                const fwdY = Math.sin(angle);
+                const fLen = 38;
+                const tipLen = 14;
+
+                for (const side of [1, -1]) {
+                    const ox = x + perpX * openAmt * side;
+                    const oy = y + perpY * openAmt * side;
+                    // Main finger
+                    ctx.beginPath();
+                    ctx.moveTo(ox, oy);
+                    ctx.lineTo(ox + fwdX * fLen, oy + fwdY * fLen);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+                    ctx.lineWidth = 7;
+                    ctx.stroke();
+                    // Fingertip pad
+                    ctx.beginPath();
+                    ctx.arc(ox + fwdX * fLen, oy + fwdY * fLen, 5, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                    ctx.fill();
+                }
+                // Palm crossbar
+                ctx.beginPath();
+                ctx.moveTo(x + perpX * openAmt, y + perpY * openAmt);
+                ctx.lineTo(x - perpX * openAmt, y - perpY * openAmt);
+                ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+                ctx.lineWidth = 5;
+                ctx.stroke();
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Idle drift when no cursor in hero
+                if (!isInHero) {
+                    idleAngle += 0.008;
+                    const idleR = 210;
+                    mouseX = baseX - idleR * 1.4 + Math.cos(idleAngle) * 60;
+                    mouseY = baseY - idleR + Math.sin(idleAngle * 0.7) * 40;
+                }
+
+                smoothX = smoothX === undefined ? mouseX : smoothX + (mouseX - smoothX) * 0.07;
+                smoothY = smoothY === undefined ? mouseY : smoothY + (mouseY - smoothY) * 0.07;
+
+                const { j1x, j1y, j2x, j2y, a2Total } = solveIK(smoothX, smoothY);
+
+                // Compute gripper open amount based on distance
+                const dist = Math.sqrt((smoothX - baseX) ** 2 + (smoothY - baseY) ** 2);
+                const maxR = L1 + L2;
+                const openAmt = 6 + (dist / maxR) * 18;
+
+                ctx.save();
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+
+                // Glow
+                ctx.shadowColor = 'rgba(255,255,255,0.12)';
+                ctx.shadowBlur = 16;
+
+                // Base mount
+                ctx.beginPath();
+                ctx.arc(baseX, baseY, 14, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,255,255,0.08)';
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(baseX, baseY, 14, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Segments
+                drawSegment(baseX, baseY, j1x, j1y, 13, 0.55);
+                drawSegment(j1x, j1y, j2x, j2y, 10, 0.48);
+
+                // Forearm detail lines
+                ctx.save();
+                ctx.globalAlpha = 0.18;
+                const midX = (j1x + j2x) / 2;
+                const midY = (j1y + j2y) / 2;
+                const armAngle = Math.atan2(j2y - j1y, j2x - j1x);
+                const pX = Math.cos(armAngle + Math.PI / 2) * 4;
+                const pY = Math.sin(armAngle + Math.PI / 2) * 4;
+                ctx.beginPath();
+                ctx.moveTo(j1x + pX, j1y + pY);
+                ctx.lineTo(j2x + pX, j2y + pY);
+                ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(j1x - pX, j1y - pY);
+                ctx.lineTo(j2x - pX, j2y - pY);
+                ctx.stroke();
+                ctx.restore();
+
+                // Joints
+                drawJoint(baseX, baseY, 10, 0.75);
+                drawJoint(j1x, j1y, 9, 0.7);
+                drawJoint(j2x, j2y, 7, 0.65);
+
+                // Gripper
+                ctx.shadowBlur = 8;
+                drawGripper(j2x, j2y, a2Total, openAmt);
+
+                ctx.restore();
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
         // ================================
         // NAV SCROLL EFFECT
         // ================================
