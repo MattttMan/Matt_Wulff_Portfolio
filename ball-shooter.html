@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Robotic Ball Shooter — Matt Wulff</title>
+    <meta name="description" content="Autonomous squash ball shooter robot built on the BracketBot ecosystem — finds people, drives toward them, and fires.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Robotic Ball Shooter</h1>
+        <p>Autonomous target-finding robot with high-velocity projectile launcher</p>
+    </header>
+
+    <section>
+        <p class="project-description">
+            Built at a hackathon, this autonomous robot finds people using computer vision, drives toward them, and
+            launches squash balls at high speed. Theoretically capable of firing at 100+ MPH — we didn't quite get there
+            before the hackathon ended, but the targeting, locomotion, and launcher all worked. Built on the
+            BracketBot ecosystem (self-balancing two-wheeled base) with a pneumatic/flywheel barrel on top.
+        </p>
+
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <img src="ball-shooter-1.jpg" alt="Team with Robotic Ball Shooter at Hackathon">
+            <img src="ball-shooter-2.jpg" alt="Robotic Ball Shooter in Testing">
+        </div>
+
+        <!-- Project Details -->
+        <div class="project-specs">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Autonomous Targeting:</strong> Computer vision pipeline detects and tracks people in real time, driving the robot toward its target.</li>
+                <li><strong>High-Velocity Launcher:</strong> PVC barrel with high-speed flywheel mechanism — theoretically capable of 100+ MPH projectile velocity.</li>
+                <li><strong>BracketBot Base:</strong> Self-balancing, two-wheeled mobile platform providing stable locomotion for dynamic environments.</li>
+                <li><strong>Hackathon Build:</strong> Full system — vision, navigation, and launcher — designed and assembled in under 24 hours.</li>
+                <li><strong>Projectile:</strong> Squash balls, chosen for their size, weight, and bounce characteristics.</li>
+            </ul>
+        </div>
+
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+
+</html>
