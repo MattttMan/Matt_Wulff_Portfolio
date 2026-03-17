@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
     <title>VTOL UAV Wing Design — Matt Wulff</title>
-    <meta name="description" content="Optimal wing design for a VTOL UAV — structural analysis, load capacity, FEA simulations, and full DFM/DFA for production.">
+    <meta name="description" content="VTOL UAV wing design — NACA 4412, 32x80cm, 25kg lift at 6km, carbon fiber spar structure, PA6-CF 3D printed skin, FEA validated, DFM/DFA optimized.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,40 +28,42 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-        .vtol-section-label {
+        .vtol-label {
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
-        .vtol-pillars {
+        .vtol-stat-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin: 2rem 0;
         }
-        .vtol-pillar {
+        .vtol-stat {
             background: var(--zinc-900);
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 1.4rem;
+            text-align: center;
         }
-        .vtol-pillar h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--zinc-100);
-            margin: 0 0 0.6rem;
+        .vtol-stat-num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
         }
-        .vtol-pillar p {
-            font-size: 0.85rem;
+        .vtol-stat-label {
+            font-size: 0.8rem;
             color: var(--zinc-400);
-            line-height: 1.6;
-            margin: 0;
+            line-height: 1.4;
         }
         @media (max-width: 768px) {
-            .vtol-pillars { grid-template-columns: 1fr; }
+            .vtol-stat-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -77,130 +79,112 @@
 
     <header class="project-header">
         <h1>VTOL UAV Wing Design</h1>
-        <p>Aerospace Engineering · Structural analysis, FEA simulation, and production-ready wing design</p>
+        <p>Aerospace Engineering · NACA 4412 · 25 kg lift at 6 km altitude</p>
     </header>
 
     <section>
         <p class="project-description">
-            Engineered the optimal fixed wing for a VTOL (Vertical Take-Off and Landing) UAV — balancing aerodynamic efficiency, structural integrity, and real-world manufacturability. The project spanned the full design cycle: from geometry and load analysis through FEA simulation, then into DFM and DFA to make the wing producible at scale.
+            Full-cycle wing design for a VTOL (Vertical Take-Off and Landing) UAV — from airfoil selection and load analysis through structural design, FEA simulation, and a complete DFM/DFA pass to make the wing buildable with off-the-shelf components. The wing uses a carbon fiber tube spar system with a 3D printed PA6-CF skin, optimized for high-altitude, heavy-payload missions.
         </p>
 
         <div class="vtol-chips">
+            <span class="vtol-chip">NACA 4412</span>
             <span class="vtol-chip">SolidWorks</span>
-            <span class="vtol-chip">FEA / Simulation</span>
-            <span class="vtol-chip">Aerodynamics</span>
-            <span class="vtol-chip">Structural Analysis</span>
+            <span class="vtol-chip">FEA Simulation</span>
+            <span class="vtol-chip">Carbon Fiber</span>
+            <span class="vtol-chip">PA6-CF 3D Printing</span>
             <span class="vtol-chip">VTOL UAV</span>
             <span class="vtol-chip">DFM / DFA</span>
-            <span class="vtol-chip">Composites</span>
+            <span class="vtol-chip">Aerodynamics</span>
         </div>
 
-        <!-- Overview -->
-        <div class="gallery-section">
-            <div class="vtol-section-label">Overview</div>
-            <h2>Wing Design Goals</h2>
-            <p class="text-center">The wing needed to satisfy competing demands — maximum lift-to-drag ratio for efficient cruise flight, sufficient structural stiffness to survive gust loads, and a geometry compatible with the VTOL transition regime where the aircraft accelerates from hover to forward flight. Every design decision was evaluated against all three constraints simultaneously.</p>
-
-            <div class="vtol-pillars">
-                <div class="vtol-pillar">
-                    <h3>Aerodynamic Efficiency</h3>
-                    <p>Airfoil selection and planform geometry optimized for the UAV's cruise speed and altitude envelope, minimizing induced and profile drag.</p>
-                </div>
-                <div class="vtol-pillar">
-                    <h3>Structural Integrity</h3>
-                    <p>Wing designed to carry flight loads plus safety factors across all maneuver and gust load cases without permanent deformation or failure.</p>
-                </div>
-                <div class="vtol-pillar">
-                    <h3>VTOL Compatibility</h3>
-                    <p>Geometry accounts for the transition regime — the wing must generate usable lift at low airspeeds while the rotors offload during acceleration.</p>
-                </div>
+        <!-- Key stats -->
+        <div class="vtol-stat-row">
+            <div class="vtol-stat">
+                <span class="vtol-stat-num">25 kg</span>
+                <span class="vtol-stat-label">Lift capacity at 6 km altitude, 35 m/s cruise</span>
+            </div>
+            <div class="vtol-stat">
+                <span class="vtol-stat-num">32×80 cm</span>
+                <span class="vtol-stat-label">Wing dimensions — aspect ratio 5.0 for stability and strength</span>
+            </div>
+            <div class="vtol-stat">
+                <span class="vtol-stat-num">CL ~1.2</span>
+                <span class="vtol-stat-label">NACA 4412 lift coefficient — high lift, low drag (CD ~0.03)</span>
             </div>
         </div>
 
-        <!-- Structure -->
+        <!-- Overview slide -->
         <div class="gallery-section">
-            <div class="vtol-section-label">Structure</div>
+            <div class="vtol-label">Overview</div>
+            <h2>Wing Design</h2>
+            <p class="text-center">NACA 4412 airfoil selected for its high lift coefficient (~1.2), low drag (~0.03), and well-understood flight dynamics. 32×80 cm planform with no sweep — maximizes aerodynamic efficiency. Frise aileron for roll control. Aspect ratio of 5.0 balances span efficiency against structural requirements for high wind, large payload missions. Designed for DFM/DFA from day one — off-the-shelf components wherever possible.</p>
+            <div class="gallery-images single-col">
+                <img src="vtol-1.png" alt="Wing overview — NACA 4412, 32x80cm, airfoil specs and design rationale">
+            </div>
+        </div>
+
+        <!-- Structure slide -->
+        <div class="gallery-section">
+            <div class="vtol-label">Structure</div>
             <h2>Internal Structure</h2>
-            <p class="text-center">The wing uses a conventional spar-and-rib construction with skin panels — optimized for stiffness-to-weight ratio. Spar placement was determined by the spanwise shear and bending moment distribution under maximum load cases. Rib spacing was driven by skin buckling limits and manufacturing constraints.</p>
-
-            <div class="project-specs" style="margin-top: 1rem;">
-                <h3>Structural Elements</h3>
-                <ul>
-                    <li><strong>Main Spar:</strong> Primary load-carrying element positioned at the aerodynamic center — carries the bulk of the bending moment across the span.</li>
-                    <li><strong>Ribs:</strong> Maintain airfoil profile under load and transfer aerodynamic pressure to the spar. Spaced to prevent skin buckling.</li>
-                    <li><strong>Skin:</strong> Carries shear loads and contributes to torsional stiffness. Thickness selected against buckling criteria.</li>
-                    <li><strong>Material:</strong> Composite layup — high specific stiffness and strength with low weight penalty versus aluminum.</li>
-                </ul>
+            <p class="text-center">Three carbon fiber tubes form the primary load-bearing spar system (800×30mm, 800×15mm, 350×10mm). The PA6-CF printed skin panels slot over the tube frame. Lightweight structural trusses printed in PA6-CF transmit loads between tubes and resist skin buckling. An inset servo drives the Frise aileron via an integrated control horn — both recessed flush into the wing to minimize drag.</p>
+            <div class="gallery-images single-col">
+                <img src="vtol-2.png" alt="Wing structure — carbon fiber tube spars, PA6-CF trusses, inset servo and aileron">
             </div>
         </div>
 
-        <!-- Load Capacity -->
+        <!-- Load capacity slide -->
         <div class="gallery-section">
-            <div class="vtol-section-label">Load Analysis</div>
+            <div class="vtol-label">Load Analysis</div>
             <h2>Load Capacity</h2>
-            <p class="text-center">The wing was sized against a full set of load cases: level cruise, pull-up maneuver, gust loads, and asymmetric loading. A safety factor was applied to limit load to arrive at ultimate load, and the structure was verified not to yield or buckle at ultimate.</p>
-
-            <div class="project-specs" style="margin-top: 1rem;">
-                <h3>Load Cases</h3>
-                <ul>
-                    <li><strong>Limit Load:</strong> Maximum load expected in service — the structure must not permanently deform under this load.</li>
-                    <li><strong>Ultimate Load:</strong> Limit load × safety factor — the structure must not fracture or collapse.</li>
-                    <li><strong>Gust Loads:</strong> Sharp-edged and graded gust models applied across the flight envelope to establish worst-case spanwise bending.</li>
-                    <li><strong>Maneuver Loads:</strong> Symmetric pull-up and push-over maneuvers at the limit load factor.</li>
-                    <li><strong>Torsion:</strong> Pitching moment loads verified against skin shear and tip twist limits.</li>
-                </ul>
+            <p class="text-center">Lift modelled using the standard lift equation across sea level, 3 km, and 6 km altitudes using ISA air density values. At 6 km (ρ = 0.66 kg/m³, −24°C), the wing produces 25 kg of lift at 35 m/s — the design cruise point. At sea level the same speed delivers over 60 kg, giving substantial margin at lower altitudes.</p>
+            <div class="gallery-images single-col">
+                <img src="vtol-3.png" alt="Load capacity chart — carrying load vs speed at sea level, 3km, and 6km altitude">
             </div>
         </div>
 
-        <!-- Simulations -->
+        <!-- Simulations slide -->
         <div class="gallery-section">
-            <div class="vtol-section-label">Simulations</div>
-            <h2>FEA Analysis</h2>
-            <p class="text-center">Finite Element Analysis was used to validate the analytical sizing — confirming stress distributions, deflection under load, and identifying any stress concentrations at spar-rib joints and root attachments. The simulation results drove several geometry refinements before the design was locked.</p>
-
-            <div class="project-specs" style="margin-top: 1rem;">
-                <h3>Simulation Results</h3>
-                <ul>
-                    <li><strong>Stress Distribution:</strong> Von Mises stress verified to remain below material yield strength at ultimate load across all structural members.</li>
-                    <li><strong>Deflection:</strong> Tip deflection under limit load confirmed within acceptable bounds for control surface effectiveness.</li>
-                    <li><strong>Buckling:</strong> Linear buckling analysis on skin panels — all eigenvalues above 1.0 at limit load with margin.</li>
-                    <li><strong>Stress Concentrations:</strong> Root attachment and spar-rib interfaces checked and fillets sized to reduce peak stress.</li>
-                </ul>
+            <div class="vtol-label">Simulations</div>
+            <h2>FEA & Thermal Simulation</h2>
+            <p class="text-center">Two key simulations validated the design. Thermal expansion analysis showed a maximum delta of 1.4 mm across the 0.8 m span between −30°C and +30°C — low risk, mitigable with rubber gaskets between wing sections. FEA deflection analysis under full load showed a maximum tip deflection of 2.927×10⁻⁵ mm — effectively zero. Both results confirm the structural design is well within safe operating margins.</p>
+            <div class="gallery-images single-col">
+                <img src="vtol-4.png" alt="Simulations — thermal expansion chart and FEA deflection result at full loading">
             </div>
         </div>
 
-        <!-- DFM -->
+        <!-- BOM slide -->
         <div class="gallery-section">
-            <div class="vtol-section-label">Design for Manufacturing</div>
-            <h2>DFM — Making It Buildable</h2>
-            <p class="text-center">Structural optimality means nothing if the part can't be made. The wing geometry was reviewed against real manufacturing constraints — composite layup access, mold complexity, minimum radii, and ply drop-off schedules. Features that would require complex tooling or multi-step bonding were simplified without sacrificing structural performance.</p>
-
-            <div class="project-specs" style="margin-top: 1rem;">
-                <h3>DFM Considerations</h3>
-                <ul>
-                    <li><strong>Mold Access:</strong> Internal geometry designed so that composite layup can be completed without blind corners or inaccessible surfaces.</li>
-                    <li><strong>Minimum Radii:</strong> All internal corners sized above the minimum bend radius for the composite fabric to prevent ply bridging and voids.</li>
-                    <li><strong>Ply Schedules:</strong> Layup sequence defined for balanced and symmetric laminate — eliminating residual thermal warping after cure.</li>
-                    <li><strong>Fastener Locations:</strong> Root attachment bolt pattern designed for standard drill fixtures and inspection access.</li>
-                </ul>
+            <div class="vtol-label">Bill of Materials</div>
+            <h2>BOM / Materials (per side)</h2>
+            <p class="text-center">The wing was designed around readily available materials to keep cost low and lead times short. Three carbon fiber tubes form the spar structure. Four PA6-CF printed panels make up the wing skin. Hardware is minimal — one servo, three stainless steel screws, and one aluminium control horn bracket.</p>
+            <div class="gallery-images single-col">
+                <img src="vtol-5.png" alt="BOM — carbon fiber tubes, PA6-CF 3D printed skin panels, servo, screws, aluminium bracket">
             </div>
         </div>
 
-        <!-- DFA -->
-        <div class="gallery-section">
-            <div class="vtol-section-label">Design for Assembly</div>
-            <h2>DFA — Making It Assemblable</h2>
-            <p class="text-center">The wing was designed so that final assembly is fast, repeatable, and doesn't require specialized fixtures beyond a simple jig. Spar insertion, rib bonding sequence, and skin closure were all planned as a linear workflow with no backtracking or rework steps.</p>
-
-            <div class="project-specs" style="margin-top: 1rem;">
-                <h3>DFA Considerations</h3>
-                <ul>
-                    <li><strong>Assembly Sequence:</strong> Spar → ribs → lower skin → internal components → upper skin. Each step is accessible before the next begins.</li>
-                    <li><strong>Self-Locating Features:</strong> Ribs and spar include datum features that register against each other, eliminating the need for complex jigging.</li>
-                    <li><strong>Part Count:</strong> Minimized through consolidation — several rib and bracket features merged into single parts where manufacturing allowed.</li>
-                    <li><strong>Inspection Points:</strong> Critical bond lines and fastener holes accessible for visual inspection at each assembly stage before closure.</li>
-                </ul>
-            </div>
+        <div class="project-specs">
+            <h3>Airfoil & Aerodynamics</h3>
+            <ul>
+                <li><strong>Airfoil:</strong> NACA 4412 — CL ~1.2, CD ~0.03, well-understood dynamics</li>
+                <li><strong>Planform:</strong> 32×80 cm, no sweep, aspect ratio 5.0</li>
+                <li><strong>Control Surface:</strong> Frise aileron — reduces adverse yaw, inset servo and control horn</li>
+                <li><strong>Design Point:</strong> 25 kg lift at 6 km altitude, 35 m/s cruise speed</li>
+            </ul>
+            <h3>Structure & Materials</h3>
+            <ul>
+                <li><strong>Spars:</strong> Carbon fiber tubes — 800×30mm (main), 800×15mm (secondary), 350×10mm (root)</li>
+                <li><strong>Skin:</strong> 4× PA6-CF 3D printed panels — high specific stiffness, printable geometry</li>
+                <li><strong>Internal:</strong> PA6-CF structural trusses — load transfer and skin buckling resistance</li>
+                <li><strong>Hardware:</strong> 1× servo, 3× stainless steel screws, 1× aluminium control horn bracket</li>
+            </ul>
+            <h3>Simulation Results</h3>
+            <ul>
+                <li><strong>Thermal Expansion:</strong> Max delta 1.4 mm across full temperature range (−30°C to +30°C) — low risk</li>
+                <li><strong>FEA Deflection:</strong> Max tip deflection 2.927×10⁻⁵ mm at full load — negligible</li>
+                <li><strong>Risk Rating:</strong> Both failure modes rated Low Risk with simple mitigations identified</li>
+            </ul>
         </div>
 
         <p class="text-center mt-2">
