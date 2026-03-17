@@ -6,15 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
-    <title>Automated Compound Pharmacy</title>
+    <title>Automated Compound Pharmacy — Matt Wulff</title>
+    <meta name="description" content="Automated compound pharmacy robot — Raspberry Pi, precision scale, stepper motors, and fingerprint auth to dispense custom medications with zero human error.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .pharma-hero img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+        .pharma-stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2.5rem 0;
+        }
+        .pharma-stat {
+            background: var(--zinc-900);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .pharma-stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .pharma-stat-label {
+            font-size: 0.82rem;
+            color: var(--zinc-400);
+            line-height: 1.4;
+        }
+        .pharma-why {
+            background: var(--zinc-900);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+        .pharma-why h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1rem;
+            color: var(--zinc-100);
+        }
+        .pharma-why p {
+            color: var(--zinc-400);
+            line-height: 1.75;
+            margin: 0 0 1rem;
+        }
+        .pharma-why p:last-child { margin: 0; }
+        .pharma-timeline {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 2.5rem 0;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        .pharma-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .pharma-step-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .pharma-step-dot.upcoming {
+            background: var(--zinc-700);
+            border: 2px solid var(--zinc-600);
+        }
+        .pharma-step-label {
+            font-size: 0.75rem;
+            color: var(--zinc-400);
+            text-align: center;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+        .pharma-step-label strong {
+            display: block;
+            color: var(--zinc-200);
+            font-size: 0.8rem;
+        }
+        .pharma-arrow {
+            flex: 1;
+            height: 2px;
+            background: var(--border);
+            min-width: 20px;
+            margin-bottom: 1.6rem;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .pharma-stat-row { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="scrolled">
         <a href="index.html#about">About</a>
         <a href="index.html#portfolio">Work</a>
@@ -25,84 +126,81 @@
 
     <header class="project-header">
         <h1>Automated Compound Pharmacy</h1>
+        <p>Robotics · Precision dispensing to cut drug costs and eliminate human error</p>
     </header>
 
     <section>
-        <p class="project-description">
-            Revolutionizing pharmacy automation with prescription-customized medications using Raspberry Pi, fingerprint
-            sensors, stepper motors, servos, and precision scales.
-            Improving efficiency, accuracy, and eliminating human error in medicine dispensing.
-        </p>
 
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <img src="pharmacy-image1.jpg" alt="Compound Pharmacy - Image 1">
-            <img src="pharmacy-image2.jpg" alt="Compound Pharmacy - Image 2">
-            <img src="pharmacy-image3.jpg" alt="Compound Pharmacy - Image 3">
+        <!-- Hero image -->
+        <div class="pharma-hero">
+            <img src="pharmacy-hero.jpg" alt="Automated compound pharmacy — touchscreen admin panel, precision scale, and dispensing hardware">
         </div>
 
-        <!-- Status Bar -->
-        <div class="status-bar">
-            <div class="status-step completed">
-                <div class="status-circle"></div>
-                <span>Idea<br>Sept 2024</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step completed">
-                <div class="status-circle"></div>
-                <span>Research<br>Oct 2024</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step completed">
-                <div class="status-circle"></div>
-                <span>Design<br>Nov - Dec 2024</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step completed">
-                <div class="status-circle"></div>
-                <span>Build<br>Jan - March 2025</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step upcoming">
-                <div class="status-circle"></div>
-                <span>Test</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step upcoming">
-                <div class="status-circle"></div>
-                <span>Iteration</span>
-            </div>
-            <div class="status-arrow">→</div>
-            <div class="status-step upcoming">
-                <div class="status-circle"></div>
-                <span>Deployment</span>
-            </div>
-        </div>
-
-        <!-- Project Highlights -->
-        <div class="project-specs">
-            <h3>Key Features</h3>
-            <ul>
-                <li><strong>Precision:</strong> ±0.01g accuracy ensures safe and tailored doses.</li>
-                <li><strong>Technology:</strong> Raspberry Pi, fingerprint sensors, precision scale, stepper motors,
-                    servos, DC motors.</li>
-                <li><strong>Automation:</strong> Reduces errors, streamlines custom medicine dispensing.</li>
-                <li><strong>Efficiency:</strong> Faster production, less waste, and secure handling.</li>
-            </ul>
-        </div>
-
-        <!-- Why This Matters -->
-        <div class="project-specs">
-            <h3>Why This Matters</h3>
+        <!-- Why I built this -->
+        <div class="pharma-why">
+            <h2>Why I Built This</h2>
             <p>
-                Pharmacies require 100% accuracy. This system ensures patient-specific dosages with zero human error
-                while speeding up dispensing times and reducing cost.
+                The United States pays more for prescription drugs than any other country on earth — often 3–10× what the same medication costs in Canada or Europe. A huge chunk of that cost isn't the drug itself. It's the overhead: pharmacists, dispensing errors, manual compounding labour, and a system that was never designed to scale.
+            </p>
+            <p>
+                Compounding pharmacies are even worse. Every custom-dose medication is mixed by hand, introducing variability and human error into a process that should be deterministic. A pharmacist mixing a 0.05g dose of a hormone compound is doing something a machine can do with 10× more precision, 100× faster, and at a fraction of the cost.
+            </p>
+            <p>
+                Automating this doesn't just make pharmacies more efficient — it makes drugs more accessible. If you can cut the labour cost of compounding by 80%, you cut the price patients pay. That's the goal: build a machine that compounds medications with pharmaceutical-grade precision, no prescription errors, no dosing variability, and no need for a pharmacist to physically handle every order.
             </p>
         </div>
 
-        <!-- Back to Portfolio Button -->
+        <!-- Stats -->
+        <div class="pharma-stat-row">
+            <div class="pharma-stat">
+                <span class="pharma-stat-num">±0.01g</span>
+                <span class="pharma-stat-label">Dispensing accuracy — tighter than manual compounding</span>
+            </div>
+            <div class="pharma-stat">
+                <span class="pharma-stat-num">3–10×</span>
+                <span class="pharma-stat-label">US drug price premium over other developed countries</span>
+            </div>
+            <div class="pharma-stat">
+                <span class="pharma-stat-num">~80%</span>
+                <span class="pharma-stat-label">Labour cost reduction vs. manual compounding workflow</span>
+            </div>
+        </div>
+
+        <!-- How it works -->
+        <div class="gallery-section">
+            <h2>How It Works</h2>
+            <p class="text-center">The system uses a Raspberry Pi as the central controller, connected to stepper motors that drive precision auger dispensers for each compound. A high-accuracy scale reads real-time weight and closes the loop — the system keeps dispensing until the exact target dose is hit. Fingerprint authentication ensures only authorized users can initiate a dispensing cycle, and a touchscreen admin panel lets pharmacists set recipes, view dispense logs, and manage users.</p>
+            <div class="gallery-images">
+                <img src="pharmacy-image1.jpg" alt="Automated pharmacy dispensing unit">
+                <img src="pharmacy-image2.jpg" alt="Pharmacy system close-up">
+            </div>
+            <div class="gallery-images single-col" style="margin-top: 1rem;">
+                <img src="pharmacy-image3.jpg" alt="Full pharmacy system assembled">
+            </div>
+        </div>
+
+        <!-- Specs -->
+        <div class="project-specs">
+            <h3>Hardware</h3>
+            <ul>
+                <li><strong>Controller:</strong> Raspberry Pi — runs the dispensing logic, UI, user auth, and scale interface.</li>
+                <li><strong>Dispensing:</strong> Stepper motor-driven auger dispensers per compound — precise, repeatable, and fully software-controlled.</li>
+                <li><strong>Scale:</strong> High-accuracy precision scale (±0.01g) connected via serial — closed-loop feedback to hit exact target weights.</li>
+                <li><strong>Auth:</strong> Fingerprint sensor — only registered pharmacists can initiate a dispense cycle.</li>
+                <li><strong>UI:</strong> Touchscreen admin panel — user management, recipe programming, dispense history, and motor control.</li>
+            </ul>
+            <h3>Timeline</h3>
+            <ul>
+                <li><strong>Sept 2024:</strong> Concept and problem definition</li>
+                <li><strong>Oct 2024:</strong> Research — existing pharmacy automation, regulation, hardware options</li>
+                <li><strong>Nov–Dec 2024:</strong> Mechanical and electrical design</li>
+                <li><strong>Jan–Mar 2025:</strong> Build and firmware development</li>
+                <li><strong>Next:</strong> Accuracy testing, iteration, and path to deployment</li>
+            </ul>
+        </div>
+
         <p class="text-center mt-2">
-            <a href="index.html#portfolio" class="back-link">Back to Portfolio</a>
+            <a href="index.html#portfolio" class="back-link">← Back to Work</a>
         </p>
     </section>
 </body>
