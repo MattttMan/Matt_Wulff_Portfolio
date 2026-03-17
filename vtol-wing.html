@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>VTOL UAV Wing Design — Matt Wulff</title>
+    <meta name="description" content="Optimal wing design for a VTOL UAV — structural analysis, load capacity, FEA simulations, and full DFM/DFA for production.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .vtol-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .vtol-chip {
+            background: var(--zinc-800);
+            color: var(--zinc-300);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .vtol-section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+        .vtol-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .vtol-pillar {
+            background: var(--zinc-900);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.4rem;
+        }
+        .vtol-pillar h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--zinc-100);
+            margin: 0 0 0.6rem;
+        }
+        .vtol-pillar p {
+            font-size: 0.85rem;
+            color: var(--zinc-400);
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .vtol-pillars { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>VTOL UAV Wing Design</h1>
+        <p>Aerospace Engineering · Structural analysis, FEA simulation, and production-ready wing design</p>
+    </header>
+
+    <section>
+        <p class="project-description">
+            Engineered the optimal fixed wing for a VTOL (Vertical Take-Off and Landing) UAV — balancing aerodynamic efficiency, structural integrity, and real-world manufacturability. The project spanned the full design cycle: from geometry and load analysis through FEA simulation, then into DFM and DFA to make the wing producible at scale.
+        </p>
+
+        <div class="vtol-chips">
+            <span class="vtol-chip">SolidWorks</span>
+            <span class="vtol-chip">FEA / Simulation</span>
+            <span class="vtol-chip">Aerodynamics</span>
+            <span class="vtol-chip">Structural Analysis</span>
+            <span class="vtol-chip">VTOL UAV</span>
+            <span class="vtol-chip">DFM / DFA</span>
+            <span class="vtol-chip">Composites</span>
+        </div>
+
+        <!-- Overview -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Overview</div>
+            <h2>Wing Design Goals</h2>
+            <p class="text-center">The wing needed to satisfy competing demands — maximum lift-to-drag ratio for efficient cruise flight, sufficient structural stiffness to survive gust loads, and a geometry compatible with the VTOL transition regime where the aircraft accelerates from hover to forward flight. Every design decision was evaluated against all three constraints simultaneously.</p>
+
+            <div class="vtol-pillars">
+                <div class="vtol-pillar">
+                    <h3>Aerodynamic Efficiency</h3>
+                    <p>Airfoil selection and planform geometry optimized for the UAV's cruise speed and altitude envelope, minimizing induced and profile drag.</p>
+                </div>
+                <div class="vtol-pillar">
+                    <h3>Structural Integrity</h3>
+                    <p>Wing designed to carry flight loads plus safety factors across all maneuver and gust load cases without permanent deformation or failure.</p>
+                </div>
+                <div class="vtol-pillar">
+                    <h3>VTOL Compatibility</h3>
+                    <p>Geometry accounts for the transition regime — the wing must generate usable lift at low airspeeds while the rotors offload during acceleration.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Structure -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Structure</div>
+            <h2>Internal Structure</h2>
+            <p class="text-center">The wing uses a conventional spar-and-rib construction with skin panels — optimized for stiffness-to-weight ratio. Spar placement was determined by the spanwise shear and bending moment distribution under maximum load cases. Rib spacing was driven by skin buckling limits and manufacturing constraints.</p>
+
+            <div class="project-specs" style="margin-top: 1rem;">
+                <h3>Structural Elements</h3>
+                <ul>
+                    <li><strong>Main Spar:</strong> Primary load-carrying element positioned at the aerodynamic center — carries the bulk of the bending moment across the span.</li>
+                    <li><strong>Ribs:</strong> Maintain airfoil profile under load and transfer aerodynamic pressure to the spar. Spaced to prevent skin buckling.</li>
+                    <li><strong>Skin:</strong> Carries shear loads and contributes to torsional stiffness. Thickness selected against buckling criteria.</li>
+                    <li><strong>Material:</strong> Composite layup — high specific stiffness and strength with low weight penalty versus aluminum.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Load Capacity -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Load Analysis</div>
+            <h2>Load Capacity</h2>
+            <p class="text-center">The wing was sized against a full set of load cases: level cruise, pull-up maneuver, gust loads, and asymmetric loading. A safety factor was applied to limit load to arrive at ultimate load, and the structure was verified not to yield or buckle at ultimate.</p>
+
+            <div class="project-specs" style="margin-top: 1rem;">
+                <h3>Load Cases</h3>
+                <ul>
+                    <li><strong>Limit Load:</strong> Maximum load expected in service — the structure must not permanently deform under this load.</li>
+                    <li><strong>Ultimate Load:</strong> Limit load × safety factor — the structure must not fracture or collapse.</li>
+                    <li><strong>Gust Loads:</strong> Sharp-edged and graded gust models applied across the flight envelope to establish worst-case spanwise bending.</li>
+                    <li><strong>Maneuver Loads:</strong> Symmetric pull-up and push-over maneuvers at the limit load factor.</li>
+                    <li><strong>Torsion:</strong> Pitching moment loads verified against skin shear and tip twist limits.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Simulations -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Simulations</div>
+            <h2>FEA Analysis</h2>
+            <p class="text-center">Finite Element Analysis was used to validate the analytical sizing — confirming stress distributions, deflection under load, and identifying any stress concentrations at spar-rib joints and root attachments. The simulation results drove several geometry refinements before the design was locked.</p>
+
+            <div class="project-specs" style="margin-top: 1rem;">
+                <h3>Simulation Results</h3>
+                <ul>
+                    <li><strong>Stress Distribution:</strong> Von Mises stress verified to remain below material yield strength at ultimate load across all structural members.</li>
+                    <li><strong>Deflection:</strong> Tip deflection under limit load confirmed within acceptable bounds for control surface effectiveness.</li>
+                    <li><strong>Buckling:</strong> Linear buckling analysis on skin panels — all eigenvalues above 1.0 at limit load with margin.</li>
+                    <li><strong>Stress Concentrations:</strong> Root attachment and spar-rib interfaces checked and fillets sized to reduce peak stress.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DFM -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Design for Manufacturing</div>
+            <h2>DFM — Making It Buildable</h2>
+            <p class="text-center">Structural optimality means nothing if the part can't be made. The wing geometry was reviewed against real manufacturing constraints — composite layup access, mold complexity, minimum radii, and ply drop-off schedules. Features that would require complex tooling or multi-step bonding were simplified without sacrificing structural performance.</p>
+
+            <div class="project-specs" style="margin-top: 1rem;">
+                <h3>DFM Considerations</h3>
+                <ul>
+                    <li><strong>Mold Access:</strong> Internal geometry designed so that composite layup can be completed without blind corners or inaccessible surfaces.</li>
+                    <li><strong>Minimum Radii:</strong> All internal corners sized above the minimum bend radius for the composite fabric to prevent ply bridging and voids.</li>
+                    <li><strong>Ply Schedules:</strong> Layup sequence defined for balanced and symmetric laminate — eliminating residual thermal warping after cure.</li>
+                    <li><strong>Fastener Locations:</strong> Root attachment bolt pattern designed for standard drill fixtures and inspection access.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DFA -->
+        <div class="gallery-section">
+            <div class="vtol-section-label">Design for Assembly</div>
+            <h2>DFA — Making It Assemblable</h2>
+            <p class="text-center">The wing was designed so that final assembly is fast, repeatable, and doesn't require specialized fixtures beyond a simple jig. Spar insertion, rib bonding sequence, and skin closure were all planned as a linear workflow with no backtracking or rework steps.</p>
+
+            <div class="project-specs" style="margin-top: 1rem;">
+                <h3>DFA Considerations</h3>
+                <ul>
+                    <li><strong>Assembly Sequence:</strong> Spar → ribs → lower skin → internal components → upper skin. Each step is accessible before the next begins.</li>
+                    <li><strong>Self-Locating Features:</strong> Ribs and spar include datum features that register against each other, eliminating the need for complex jigging.</li>
+                    <li><strong>Part Count:</strong> Minimized through consolidation — several rib and bracket features merged into single parts where manufacturing allowed.</li>
+                    <li><strong>Inspection Points:</strong> Critical bond lines and fastener holes accessible for visual inspection at each assembly stage before closure.</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-center mt-2">
+            <a href="index.html#portfolio" class="back-link">← Back to Work</a>
+        </p>
+    </section>
+</body>
+
+</html>

@@ -587,6 +587,7 @@ p {
 .portfolio-card:nth-child(9) .portfolio-image { background-image: url('drone-case1.jpg'); }
 .portfolio-card:nth-child(10) .portfolio-image { background-image: url('3Dalive.jpeg'); }
 .portfolio-card:nth-child(11) .portfolio-image { background-image: url('injection-mold-2.jpg'); background-position: center center; }
+.portfolio-card:nth-child(12) .portfolio-image { background-image: url('vla-model-workstation.png'); background-position: center center; }
 
 .portfolio-overlay {
     padding: 1.2rem 1.4rem;
