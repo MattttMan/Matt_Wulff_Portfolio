@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>WarStrike Game Controller — Matt Wulff</title>
+    <meta name="description" content="Consulting project — designed a manufacturable gun-shaped game controller for the WarStrike iOS app, with full BOM, supplier sourcing, and China manufacturing pipeline.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="scrolled">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#experience">Journey</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>WarStrike Game Controller</h1>
+        <p>Consulting · Manufacturable iOS game controller designed for mass production</p>
+    </header>
+
+    <section>
+        <p class="project-description">
+            A consulting project to design and deliver a production-ready physical game controller for
+            <a href="https://realstrikewarfare.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">WarStrike</a>
+            — a first-person shooter iOS game. The controller is a gun-shaped enclosure that mounts an iPhone on top,
+            with a physical trigger that communicates with the app over Bluetooth. I took the project from concept through
+            prototyping, full BOM, assembly documentation, and a China manufacturing pipeline ready for high-volume production.
+        </p>
+
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <img src="war-strike-4.jpg" alt="WarStrike controller in use with iPhone running the app">
+            <img src="war-strike-1.jpg" alt="Finished WarStrike controllers in green and blue">
+            <img src="war-strike-3.jpg" alt="Internal electronics — ESP32-CAM, trigger switch, and wiring">
+            <img src="war-strike-2.jpg" alt="Full parts layout — printed bodies and all hardware">
+            <img src="war-strike-5.png" alt="CAD cross-section showing internal component placement">
+        </div>
+
+        <!-- Project Details -->
+        <div class="project-specs">
+            <h3>Electronics & Firmware</h3>
+            <ul>
+                <li><strong>ESP32-CAM Module:</strong> Core microcontroller handling Bluetooth Low Energy (BLE) communication with the WarStrike iOS app. Each unit is flashed with a unique GUN_ID via Arduino IDE so multiple controllers can pair simultaneously.</li>
+                <li><strong>Micro Limit Switch Trigger:</strong> Physical trigger actuates a micro limit switch with a 10ms debounce delay — fast enough to register single shots reliably without false inputs.</li>
+                <li><strong>2600mAh Battery Pack:</strong> Rechargeable via USB-C, housed in the grip with a sliding battery latch for easy swapping.</li>
+                <li><strong>BLE Communication:</strong> Controller advertises its own BLE service UUID; the app pairs on connection and receives shot-fired events in real time.</li>
+            </ul>
+
+            <h3>Mechanical Design</h3>
+            <ul>
+                <li><strong>6-Part Enclosure:</strong> Split-shell design — Grip Right, Grip Left (combined into a single part for production), Barrel Right, Barrel Left (combined), Trigger, and Battery Latch. Designed for ABS or PA injection molding at scale.</li>
+                <li><strong>Brass Threaded Inserts:</strong> 8× heat-set brass inserts for durable, reusable fastening with M3 and M2.5 screws — no glue, fully serviceable.</li>
+                <li><strong>Phone Mount:</strong> ¼" screw-mount phone clamp on the barrel rail, compatible with all iPhone sizes. Holds the screen in the shooter's line of sight.</li>
+                <li><strong>Prototyped in 3D Print:</strong> Multiple iterations in PLA across green and blue colorways before finalizing the production geometry.</li>
+            </ul>
+
+            <h3>Manufacturing & Supply Chain</h3>
+            <ul>
+                <li><strong>China Supplier Sourcing:</strong> Identified and qualified high-volume manufacturing partners in China for injection-molded plastic enclosures, covering tooling, lead times, and per-unit cost targets.</li>
+                <li><strong>Full BOM:</strong> Delivered a complete bill of materials covering all internal electronics, hardware, and plastic parts with supplier links, part counts, and cost breakdowns ready for procurement.</li>
+                <li><strong>Assembly Documentation:</strong> Produced step-by-step assembly instructions and ESP32 flashing guide so production staff can build and program units without engineering involvement.</li>
+                <li><strong>Scalable Firmware Pipeline:</strong> Flashing workflow designed for throughput — each unit gets a unique Gun ID incremented per flash, using Arduino IDE with a simple compile-and-flash cycle.</li>
+            </ul>
+        </div>
+
+        <p class="text-center mt-2">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
+        </p>
+    </section>
+</body>
+
+</html>
