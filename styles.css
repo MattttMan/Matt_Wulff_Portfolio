@@ -576,16 +576,16 @@ p {
 }
 
 /* 9 cards remain after hiding Cibus, Dune Buggy, Random Projects */
-.portfolio-card:nth-child(1) .portfolio-image { background-image: url('robotic-arm.jpg'); }
-.portfolio-card:nth-child(2) .portfolio-image { background-image: url('visenty-dashboard.png'); }
-.portfolio-card:nth-child(3) .portfolio-image { background-image: url('vla-model-setup.png'); }
-.portfolio-card:nth-child(4) .portfolio-image { background-image: url('tactile-sensor-photo-IMG_2802.jpg'); background-position: center 30%; }
-.portfolio-card:nth-child(5) .portfolio-image { background-image: url('drone-case1.jpg'); }
-.portfolio-card:nth-child(6) .portfolio-image { background-image: url('3Dalive.jpeg'); }
+.portfolio-card:nth-child(1) .portfolio-image { background-image: url('war-strike-4.jpg'); background-position: center 30%; }
+.portfolio-card:nth-child(2) .portfolio-image { background-image: url('robotic-arm.jpg'); }
+.portfolio-card:nth-child(3) .portfolio-image { background-image: url('ball-shooter-1.jpg'); background-position: center 40%; }
+.portfolio-card:nth-child(4) .portfolio-image { background-image: url('vla-model-setup.png'); }
+.portfolio-card:nth-child(5) .portfolio-image { background-image: url('tactile-sensor-photo-IMG_2802.jpg'); background-position: center 30%; }
+.portfolio-card:nth-child(6) .portfolio-image { background-image: url('visenty-dashboard.png'); }
 .portfolio-card:nth-child(7) .portfolio-image { background-image: url('anechoic-chamber1.jpg'); }
 .portfolio-card:nth-child(8) .portfolio-image { background-image: url('pharmacy-project.jpg'); }
-.portfolio-card:nth-child(9) .portfolio-image { background-image: url('ball-shooter-1.jpg'); background-position: center 40%; }
-.portfolio-card:nth-child(10) .portfolio-image { background-image: url('war-strike-1.jpg'); background-position: center 40%; }
+.portfolio-card:nth-child(9) .portfolio-image { background-image: url('drone-case1.jpg'); }
+.portfolio-card:nth-child(10) .portfolio-image { background-image: url('3Dalive.jpeg'); }
 
 .portfolio-overlay {
     padding: 1.2rem 1.4rem;
